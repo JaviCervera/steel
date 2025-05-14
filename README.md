@@ -1,0 +1,5 @@
+# ![steel](logo.png) STEEL Game Engine
+
+A retro 3D game engine for Windows 95 using C++, Lua, Irrlicht and SoLoud.
+
+![steel](logo/logo_small.png)
