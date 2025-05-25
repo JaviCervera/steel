@@ -1,9 +1,9 @@
 #pragma once
 
 #include <irrlicht.h>
-#include "../interface/platform.h"
+#include "../include/color.h"
 
-struct Platform_Irrlicht : public Platform
+struct Platform_Irrlicht
 {
   Platform_Irrlicht() : m_device(NULL), m_running(false), m_last_msecs(0), m_frame_msecs(0), m_delta(0) {}
 
@@ -37,19 +37,19 @@ struct Platform_Irrlicht : public Platform
     }
   }
 
-  void setScreenTitle(const char *title)
+  void screenTitle(const char *title)
   {
     if (m_device)
       m_device->setWindowCaption(irr::core::stringw(title).c_str());
   }
 
-  void setScreenResizable(bool resizable)
+  void screenResizable(bool resizable)
   {
     if (m_device)
       m_device->setResizeAble(resizable);
   }
 
-  void setScreenFPS(int fps)
+  void screenFPS(int fps)
   {
     if (m_device)
       m_frame_msecs = (fps > 0) ? (1000 / fps) : 0;
@@ -124,6 +124,20 @@ struct Platform_Irrlicht : public Platform
     if (!m_device)
       openScreen(640, 480, false);
     return *m_device;
+  }
+
+  static irr::video::SColor irrColor(int color)
+  {
+    return irr::video::SColor(
+      Color::alpha(color),
+      Color::red(color),
+      Color::green(color),
+      Color::blue(color));
+  }
+
+  static int color(const irr::video::SColor &color)
+  {
+    return Color::rgb(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
   }
 
 private:

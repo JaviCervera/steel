@@ -4,12 +4,13 @@
 int main()
 {
   Engine_Irrlicht engine;
-  engine.platform().openScreen(800, 600, false);
-  while (engine.platform().isRunning())
+  engine.screen().open(800, 600, false);
+  while (engine.screen().isRunning())
   {
-    engine.graphics().cls();
+    engine.graphics().cls(Color::multiply(COLOR_BLUE, 0.25f));
+    engine.graphics().color(COLOR_ORANGE);
     engine.graphics().rect(300, 300, 100, 100);
-    engine.platform().refreshScreen();
+    engine.screen().refresh();
   }
   return 0;
 }
