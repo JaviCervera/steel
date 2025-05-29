@@ -3,9 +3,9 @@
 #include "../include/screen.h"
 #include "platform_irrlicht.h"
 
-struct Screen_Irrlicht : public Screen
+struct ScreenIrrlicht : public Screen
 {
-  Screen_Irrlicht(Platform_Irrlicht &platform) : m_platform(&platform) {}
+  ScreenIrrlicht(PlatformIrrlicht &platform) : m_platform(&platform) {}
 
   void open(int width, int height, bool fullscreen)
   {
@@ -73,5 +73,5 @@ struct Screen_Irrlicht : public Screen
   }
 
 private:
-  Platform_Irrlicht *m_platform;
+  PlatformIrrlicht *m_platform;
 };

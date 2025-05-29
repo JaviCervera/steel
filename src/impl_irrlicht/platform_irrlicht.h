@@ -5,11 +5,16 @@
 #include <Windows.h>
 #include "../include/color.h"
 
-struct Platform_Irrlicht
+struct PlatformIrrlicht
 {
-  Platform_Irrlicht() : m_device(NULL), m_running(false), m_last_msecs(0), m_frame_msecs(0), m_delta(0) {}
+  PlatformIrrlicht()
+      : m_device(NULL),
+        m_running(false),
+        m_last_msecs(0),
+        m_frame_msecs(0),
+        m_delta(0) {}
 
-  ~Platform_Irrlicht()
+  ~PlatformIrrlicht()
   {
     closeScreen();
   }
@@ -131,10 +136,10 @@ struct Platform_Irrlicht
   static irr::video::SColor irrColor(int color)
   {
     return irr::video::SColor(
-      Color::alpha(color),
-      Color::red(color),
-      Color::green(color),
-      Color::blue(color));
+        Color::alpha(color),
+        Color::red(color),
+        Color::green(color),
+        Color::blue(color));
   }
 
   static int color(const irr::video::SColor &color)

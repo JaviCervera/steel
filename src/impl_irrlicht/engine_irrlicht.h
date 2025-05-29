@@ -1,17 +1,24 @@
 #pragma once
 
 #include "../include/engine.h"
+#include "file_system_irrlicht.h"
 #include "graphics_irrlicht.h"
 #include "platform_irrlicht.h"
 #include "screen_irrlicht.h"
 
-struct Engine_Irrlicht : public Engine
+struct EngineIrrlicht : public Engine
 {
-  Engine_Irrlicht()
+  EngineIrrlicht()
   : m_platform(),
+    m_fs(m_platform),
     m_graphics(m_platform),
     m_screen(m_platform)
   {
+  }
+
+  FileSystem &fileSystem()
+  {
+    return m_fs;
   }
 
   Graphics &graphics()
@@ -25,7 +32,8 @@ struct Engine_Irrlicht : public Engine
   }
 
 private:
-  Platform_Irrlicht m_platform;
-  Graphics_Irrlicht m_graphics;
-  Screen_Irrlicht m_screen;
+  PlatformIrrlicht m_platform;
+  FileSystemIrrlicht m_fs;
+  GraphicsIrrlicht m_graphics;
+  ScreenIrrlicht m_screen;
 };

@@ -3,7 +3,7 @@
 
 int main()
 {
-  Engine_Irrlicht engine;
+  EngineIrrlicht engine;
   engine.screen().open(800, 600, false);
   while (engine.screen().isRunning())
   {

@@ -4,9 +4,9 @@
 #include "../include/graphics.h"
 #include "platform_irrlicht.h"
 
-struct Graphics_Irrlicht : public Graphics
+struct GraphicsIrrlicht : public Graphics
 {
-  Graphics_Irrlicht(Platform_Irrlicht &platform)
+  GraphicsIrrlicht(PlatformIrrlicht &platform)
       : m_platform(&platform),
         m_color(255, 255, 255, 255)
   {
@@ -38,7 +38,7 @@ struct Graphics_Irrlicht : public Graphics
   }
 
 private:
-  Platform_Irrlicht *m_platform;
+  PlatformIrrlicht *m_platform;
   irr::video::SColor m_color;
 
   irr::video::IVideoDriver &video()
