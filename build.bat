@@ -8,7 +8,7 @@ mkdir _CMAKE\_STEEL
 
 echo # Building Irrlicht ...
 cd _CMAKE/_IRRLICHT
-cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DIRRLICHT_SHARED=OFF ../../lib/irrlicht12
+cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DIRRLICHT_SHARED=OFF ../../lib/irrlicht131
 mingw32-make -j8
 cd ../..
 

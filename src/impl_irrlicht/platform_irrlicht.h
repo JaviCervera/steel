@@ -1,8 +1,6 @@
 #pragma once
 
 #include <irrlicht.h>
-#define Win32_LEAN_AND_MEAN
-#include <Windows.h>
 #include "../include/color.h"
 
 struct PlatformIrrlicht
@@ -73,7 +71,7 @@ struct PlatformIrrlicht
       const int wait = m_frame_msecs - delta_msecs;
       const int fixed_wait = (wait > 0) ? wait : 0;
       if (m_running && fixed_wait > 0)
-        Sleep(msecs);
+        m_device->sleep(fixed_wait);
       const int msecs_after = m_device->getTimer()->getRealTime();
       m_delta = (msecs_after - m_last_msecs) / 1000.0f;
       m_last_msecs = msecs_after;
