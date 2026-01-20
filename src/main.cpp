@@ -1,16 +1,20 @@
 #include <stdio.h>
-#include "impl_irrlicht/engine_irrlicht.h"
+#include "procedural/color.h"
+#include "procedural/drawing.h"
+#include "procedural/engine.h"
+#include "procedural/screen.h"
 
 int main()
 {
-  EngineIrrlicht engine;
-  engine.screen().open(800, 600, false);
-  while (engine.screen().isRunning())
+  InitEngine();
+  OpenScreen(800, 600, FALSE);
+  while (IsScreenOpened())
   {
-    engine.graphics().cls(Color::multiply(COLOR_BLUE, 0.25f));
-    engine.graphics().color(COLOR_ORANGE);
-    engine.graphics().rect(300, 300, 100, 100);
-    engine.screen().refresh();
+    Cls(RGB(0, 0, 64));
+    SetColor(RGB(255, 128, 0));
+    DrawRect(300, 300, 100, 100);
+    RefreshScreen();
   }
+  FinishEngine();
   return 0;
 }
