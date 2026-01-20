@@ -1,19 +1,28 @@
 #include <stdio.h>
+#include "interface/file_system.h"
 #include "procedural/color.h"
 #include "procedural/drawing.h"
 #include "procedural/engine.h"
+#include "procedural/engine_internal.h"
 #include "procedural/screen.h"
+#include "scripting.h"
 
-int main()
+#define SCRIPT_FILE "main.lua"
+#define PACKAGE_FILE "package.dat"
+
+int main(int argc, char *argv[])
 {
   InitEngine();
-  OpenScreen(800, 600, FALSE);
-  while (IsScreenOpened())
+  OpenScreen(640, 480, FALSE);
+  const std::string path = (argc > 1) ? (std::string(argv[1]) + "/") : "";
+  if (path != "")
+    GetEngine().fileSystem().changeDir(path.c_str());
+  GetEngine().fileSystem().addZip(PACKAGE_FILE);
+  Scripting vm;
+  if (!vm.loadScript(SCRIPT_FILE))
   {
-    Cls(RGB(0, 0, 64));
-    SetColor(RGB(255, 128, 0));
-    DrawRect(300, 300, 100, 100);
-    RefreshScreen();
+    printf("Error: %s.\n", vm.error().c_str());
+    return 1;
   }
   FinishEngine();
   return 0;

@@ -35,4 +35,5 @@
 _CMAKE
 build
 lib/irrlicht12/Irrlicht.chw
+src/lua_wrapper.cpp
 TDM-GCC-32

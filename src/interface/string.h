@@ -4,7 +4,6 @@
 
 namespace std
 {
-
   struct string : public irr::core::stringc
   {
     static const size_t npos = -1;

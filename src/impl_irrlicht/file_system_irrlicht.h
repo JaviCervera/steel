@@ -42,7 +42,7 @@ struct FileSystemIrrlicht : public FileSystem
 
   size_t fileSize(const char *filename) const
   {
-    if (fs().existFile(filename))
+    if (!fs().existFile(filename))
       return size_t(-1);
     irr::io::IReadFile *file = fs().createAndOpenFile(filename);
     const size_t size = size_t(file->getSize());
