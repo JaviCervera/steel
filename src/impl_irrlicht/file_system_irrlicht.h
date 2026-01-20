@@ -1,7 +1,7 @@
 #pragma once
 
 #include <irrlicht.h>
-#include "../include/file_system.h"
+#include "../interface/file_system.h"
 #include "platform_irrlicht.h"
 
 struct FileSystemIrrlicht : public FileSystem

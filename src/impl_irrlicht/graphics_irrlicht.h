@@ -1,7 +1,7 @@
 #pragma once
 
 #include <irrlicht.h>
-#include "../include/graphics.h"
+#include "../interface/graphics.h"
 #include "platform_irrlicht.h"
 
 struct GraphicsIrrlicht : public Graphics

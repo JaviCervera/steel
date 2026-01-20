@@ -33,5 +33,6 @@
 
 .vscode
 _CMAKE
+build
 lib/irrlicht12/Irrlicht.chw
 TDM-GCC-32

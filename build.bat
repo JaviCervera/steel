@@ -8,13 +8,13 @@ mkdir _CMAKE\_STEEL
 
 echo # Building Irrlicht ...
 cd _CMAKE/_IRRLICHT
-cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DIRRLICHT_SHARED=OFF ../../lib/irrlicht131
+cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=MinSizeRel -DIRRLICHT_SHARED=OFF ../../lib/irrlicht131
 mingw32-make -j8
 cd ../..
 
 echo # Building STEEL ...
 cd _CMAKE/_STEEL
-cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_RC_FLAGS="-O coff" ../..
+cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_RC_FLAGS="-O coff" ../..
 mingw32-make -j8
 move "steel.exe" "..\..\_build\steel.exe"
 cd ../..

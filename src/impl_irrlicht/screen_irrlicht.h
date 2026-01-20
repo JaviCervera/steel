@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../include/screen.h"
+#include "../interface/screen.h"
 #include "platform_irrlicht.h"
 
 struct ScreenIrrlicht : public Screen
@@ -17,7 +17,7 @@ struct ScreenIrrlicht : public Screen
     m_platform->closeScreen();
   }
 
-  void title(const char* title)
+  void title(const char *title)
   {
     m_platform->screenTitle(title);
   }

@@ -5,7 +5,7 @@ struct Screen
   virtual ~Screen() {}
   virtual void open(int width, int height, bool fullscreen) = 0;
   virtual void close() = 0;
-  virtual void title(const char* title) = 0;
+  virtual void title(const char *title) = 0;
   virtual void resizable(bool resizable) = 0;
   virtual void fps(int fps) = 0;
   virtual void refresh() = 0;

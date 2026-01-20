@@ -1,7 +1,7 @@
 #pragma once
 
 #include <irrlicht.h>
-#include "../include/color.h"
+#include "../interface/color.h"
 
 struct PlatformIrrlicht
 {
