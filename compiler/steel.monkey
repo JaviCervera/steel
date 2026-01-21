@@ -83,8 +83,8 @@ Function Main:Int()
 	Local path:String = ExtractDir(fileArg)
 	If FileType(fileArg) = 2 Then path = fileArg
 	If path <> "" Then path += "/"
-	SaveString(code, path + "code.out")
-	Execute("~q" + ExtractDir(AppPath()) + "/luac~q -s -o ~q" + path + "code.out~q ~q" + path + "/code.out~q")
+	SaveString(code, path + "code.bin")
+	Execute("~q" + ExtractDir(AppPath()) + "/luac~q -s -o ~q" + path + "code.bin~q ~q" + path + "/code.bin~q")
 
 	Return 0
 End

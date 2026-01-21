@@ -9,8 +9,8 @@
 #include "scripting_lua.h"
 #include "string.h"
 
-#define SCRIPT_FILE "code.out"
-#define PACKAGE_FILE "package.dat"
+#define SCRIPT_FILE "code.bin"
+#define PACKAGE_FILE "data.bin"
 
 int main(int argc, char *argv[])
 {

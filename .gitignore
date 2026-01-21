@@ -35,7 +35,7 @@
 _CMAKE
 !_build/luac.exe
 _build/help/index.html
-_build/examples/*/code.out
+_build/examples/*/code.bin
 compiler/*.build*/
 build
 doc_out
