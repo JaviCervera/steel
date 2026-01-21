@@ -26,7 +26,9 @@ Private
 	Method GenGlobals:String()
 		Local str:String = ""
 		For Local glob:ScriptVar = Eachin scanner.Globals
-			str += "__st__" + glob.Name + "~n"
+			str += "__st__" + glob.Name + " = "
+			stream.Seek(glob.Offset)
+			str += GenExp(Null) + "~n"
 		Next
 		If scanner.Globals.Length > 0 Then str += "~n"
 		Return str
@@ -125,7 +127,7 @@ Private
 		'optional elseif
 		While stream.Peek().Type = TOK_ELIF
 			stream.Skip(1) 'skip elseif
-			str += GenTabs(indent) + "elif " + GenExp(f) + " then~n"
+			str += GenTabs(indent) + "elseif " + GenExp(f) + " then~n"
 			str += GenTabs(indent + 1) + GenBlockContents(f, indent + 1) + "~n"
 		Wend
 
@@ -147,7 +149,7 @@ Private
 		stream.Skip(1)	'skip for
 		Local varToken:Token = stream.NextToken()
 		stream.Skip(1)	'skip =
-		Local str:String = "for " + varToken.Data + " = "	' TODO: gen as local and get real name despite of casing
+		Local str:String = "for __st__" + varToken.Data + " = "	' TODO: gen as local and get real name despite of casing
 
 		'from exp
 		str += GenExp(f) + ", "

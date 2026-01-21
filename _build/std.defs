@@ -31,6 +31,33 @@ function GetDesktopWidth():int
 function GetDesktopHeight():int
 function GetDelta():float
 
+// Math
+function Floor(val:float):float
+function Ceil(val:float):float
+function Abs(val:float):float
+function Sqr(val:float):float
+function Sin(val:float):float
+function Cos(val:float):float
+function Tan(val:float):float
+function ASin(val:float):float
+function ACos(val:float):float
+function ATan(val:float):float
+function ATan2(x:float, y:float):float
+function Exp(val:float):float
+function Pow(base:float, exp:float):float
+function Log(val:float):float
+function Log10(val:float):float
+function Min(a:float, b:float):float
+function Max(a:float, b:float):float
+function Clamp(val:float, min:float, max:float):float
+function BoolToInt(val:bool_t):int
+function Int(val:float):int
+function Rand(min:int, max:int):int
+function RandSeed(seed:int)
+function Deg(rad:float):float
+function Rad(deg:float):float
+function Wrap(val:float, mod:float):float
+
 // Memblock
 function CreateMemblock(size:int):int
 function LoadMemblock(filename:string):int
