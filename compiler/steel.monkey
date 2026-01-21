@@ -84,7 +84,7 @@ Function Main:Int()
 	If FileType(fileArg) = 2 Then path = fileArg
 	If path <> "" Then path += "/"
 	SaveString(code, path + "code.out")
-	Execute("~q" + ExtractDir(AppPath()) + "/luac~q -o ~q" + path + "code.out~q ~q" + path + "/code.out~q")
+	Execute("~q" + ExtractDir(AppPath()) + "/luac~q -s -o ~q" + path + "code.out~q ~q" + path + "/code.out~q")
 
 	Return 0
 End
