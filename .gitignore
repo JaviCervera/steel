@@ -33,6 +33,7 @@
 
 .vscode
 _CMAKE
+!_build/luac.exe
 _build/help/index.html
 _build/examples/*/code.out
 compiler/*.build*/
