@@ -48,7 +48,6 @@ Public
 		typeMap.Set("Int", TOK_INT)
 		typeMap.Set("Float", TOK_FLOAT)
 		typeMap.Set("String", TOK_STRING)
-		typeMap.Set("Ref", TOK_REF)
 
 		'Fill symbols table (multichar ones must appear first)
 		symbols = "== <> >= <= > < + - * / % = , : ; ( )".Split(" ")

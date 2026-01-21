@@ -52,8 +52,7 @@ Const TOK_ID			: Int = 60
 Const TOK_INT			: Int = -1
 Const TOK_FLOAT			: Int = -2
 Const TOK_STRING		: Int = -3
-Const TOK_REF			: Int = -4
-Const TOK_VOID			: Int = -5 'Not a real token, but functions can be of this type
+Const TOK_VOID			: Int = -4 'Not a real token, but functions can be of this type
 
 Class Token
 	Method New()
@@ -167,7 +166,7 @@ Class Token
 	End
 
 	Function IsType:Bool(type:Int)
-		If type <= TOK_INT And type >= TOK_REF
+		If type <= TOK_INT And type >= TOK_STRING
 			Return True
 		Else
 			Return False

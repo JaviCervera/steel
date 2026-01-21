@@ -152,8 +152,6 @@ Function GetType:Int(type: String)
 			Return TOK_FLOAT
 		Case "String"
 			Return TOK_STRING
-		Case "Ref"
-			Return TOK_REF
 		Default
 			Return TOK_VOID
 	End
