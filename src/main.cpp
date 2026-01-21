@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "error.h"
 #include "interface/file_system.h"
 #include "procedural/color.h"
@@ -5,7 +6,8 @@
 #include "procedural/engine.h"
 #include "procedural/engine_internal.h"
 #include "procedural/screen.h"
-#include "scripting.h"
+#include "scripting_lua.h"
+#include "string.h"
 
 #define SCRIPT_FILE "main.lua"
 #define PACKAGE_FILE "package.dat"
@@ -19,8 +21,8 @@ int main(int argc, char *argv[])
   if (path != "")
     GetEngine().fileSystem().changeDir(path.c_str());
   GetEngine().fileSystem().addZip(PACKAGE_FILE);
-  Scripting vm;
+  ScriptingLua vm;
   if (!vm.loadScript(SCRIPT_FILE))
-    Error(vm.error().c_str());
+    Error(vm.error());
   return 0;
 }
