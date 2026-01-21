@@ -1,7 +1,7 @@
 #pragma once
 
-#include "interface/string.h"
 #include "steel_sdk.h"
+#include "string.h"
 
 struct lua_State;
 

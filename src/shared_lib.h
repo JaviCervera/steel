@@ -1,6 +1,6 @@
 #pragma once
 
-#include "interface/string.h"
+#include "string.h"
 
 #ifndef __stdcall
 #define __stdcall

@@ -17,19 +17,6 @@ struct FileSystemIrrlicht : public FileSystem
     return false;
   }
 
-  std::vector<std::string> dirContents(const char *dir) const
-  {
-    std::vector<std::string> contents;
-    const std::string current = fs().getWorkingDirectory();
-    fs().changeWorkingDirectoryTo(dir);
-    irr::io::IFileList *list = fs().createFileList();
-    for (irr::u32 i = 0; i < list->getFileCount(); ++i)
-      contents.push_back(list->getFileName(i));
-    list->drop();
-    fs().changeWorkingDirectoryTo(current.c_str());
-    return contents;
-  }
-
   void changeDir(const char *dir)
   {
     fs().changeWorkingDirectoryTo(dir);
