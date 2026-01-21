@@ -4,16 +4,15 @@ extern "C"
 #include <lualib.h>
 #include <lauxlib.h>
 }
+#include "interface/file_system.h"
+#include "procedural/engine_internal.h"
 #include "scripting.h"
-#include "scripting_utils.h"
 
 extern "C" int luaopen_steel(lua_State *l);
 
 Scripting::Scripting()
 {
   initLua();
-  initSdk();
-  SetScriptingDependencies(*m_state, m_sdk);
 }
 
 Scripting::~Scripting()
@@ -23,7 +22,7 @@ Scripting::~Scripting()
 
 bool Scripting::loadScript(const std::string &filename)
 {
-  const std::string content = LoadString(filename);
+  const std::string content = loadString(filename);
   if (content == "")
   {
     m_error = std::string("Cannot load script file '") + filename + "'";
@@ -48,24 +47,52 @@ void Scripting::initLua()
   m_state = luaL_newstate();
   luaL_openlibs(m_state);
   luaopen_steel(m_state);
-  lua_register(m_state, "import", LuaImport);
-  lua_register(m_state, "load", LuaLoad);
+  lua_register(m_state, "import", import);
 
   // Move definitions into global namespace
   luaL_dostring(m_state, "for k,v in pairs(steel) do _G[k]=v end");
 }
 
-void Scripting::initSdk()
+std::string Scripting::loadString(const std::string &filename)
 {
-  m_sdk.RegisterFunction = RegisterFunction;
-  m_sdk.GetBoolArg = GetBoolArg;
-  m_sdk.GetIntArg = GetIntArg;
-  m_sdk.GetFloatArg = GetFloatArg;
-  m_sdk.GetStringArg = GetStringArg;
-  m_sdk.GetPointerArg = GetPointerArg;
-  m_sdk.PushBool = PushBool;
-  m_sdk.PushInt = PushInt;
-  m_sdk.PushFloat = PushFloat;
-  m_sdk.PushString = PushString;
-  m_sdk.PushPointer = PushPointer;
+  const size_t file_size = GetEngine().fileSystem().fileSize(filename.c_str());
+  if (file_size == size_t(-1))
+    return "";
+  char *buffer = static_cast<char *>(calloc(file_size + 1, sizeof(char)));
+  GetEngine().fileSystem().readFile(filename.c_str(), buffer, file_size);
+  std::string str = buffer;
+  free(buffer);
+  return str;
+}
+
+int Scripting::import(lua_State *L)
+{
+  if (lua_gettop(L) > 0)
+  {
+    const std::string filename = lua_tostring(L, 1);
+    const std::string fixedFilename = (filename.find(".") == std::string::npos)
+                                          ? (const std::string)(filename + std::string(".lua"))
+                                          : filename;
+    const std::string buffer = loadString(fixedFilename);
+    if (buffer == "")
+    {
+      lua_pushstring(L, (std::string("File '") + fixedFilename + "' does not exist or is empty.").c_str());
+      lua_error(L);
+      return 0;
+    }
+    if (luaL_loadbuffer(L, buffer.c_str(), buffer.size(), fixedFilename.c_str()) == 0)
+    {
+      lua_pcall(L, 0, LUA_MULTRET, 0);
+    }
+    else
+    {
+      lua_error(L);
+    }
+  }
+  else
+  {
+    lua_pushstring(L, "'import' requires filename argument.");
+    lua_error(L);
+  }
+  return 0;
 }
