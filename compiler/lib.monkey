@@ -8,19 +8,19 @@ Class LibFunc
 		Self.type = type
 		Self.args = args
 	End
-	
+
 	Method Name:String() Property
 		Return name
 	End
-	
+
 	Method NativeName:String() Property
 		Return nativeName
 	End
-	
+
 	Method Type:Int() Property
 		Return type
 	End
-	
+
 	Method Args:Int[]() Property
 		Return args
 	End
@@ -40,18 +40,19 @@ Class Lib
 		functions = functions.Resize(functions.Length() + 1)
 		functions[functions.Length() - 1] = New LibFunc(desName, realName, type, args)
 	End
-	
+
 	Method NumFuncs:Int()
 		Return functions.Length()
 	End
-	
+
 	Method Func:LibFunc(index:Int)
 		Return functions[index]
 	End
-	
+
 	Method Func:LibFunc(name:String)
+		name = name.ToLower()
 		For Local f:LibFunc = Eachin functions
-			If f.Name = name Then Return f
+			If f.Name.ToLower() = name Then Return f
 		Next
 		Return Null
 	End

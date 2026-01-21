@@ -16,7 +16,7 @@ Class LuaGen
 		'Fill buffer
 		buffer = GenGlobals()
 		buffer += GenFunctions()
-		buffer += "__st__Main()~n"
+		buffer += "__st__" + scanner.Func("Main").Name + "()~n"
 	End
 
 	Method Code:String() Property
@@ -63,7 +63,7 @@ Private
 
 		'Footer
 		stream.Skip(1)	'end
-		If f.Type <> TOK_VOID Then str += "~nreturn _lf_" + f.ReturnVar
+		If f.Type <> TOK_VOID Then str += "~nreturn __st__" + f.ReturnVar
 		str += "~n" + GenEnd() + "~n~n"
 
 		Return str
@@ -181,6 +181,7 @@ Private
 
 	Method GenExp:String(f:ScriptFunc)
 		Local str:String = GenOrExp(f)
+		If stream.Peek().Type = TOK_COLON Then stream.Skip(2)
 		If stream.Peek().Type = TOK_ASSIGN
 			stream.Skip(1)	'Skip =
 			str += " = " + GenExp(f)

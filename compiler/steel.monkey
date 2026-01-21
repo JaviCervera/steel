@@ -66,7 +66,15 @@ Function Main:Int()
 
 	'Make sure there is a Main function
 	If parser.Scanner.Func("Main") = Null
-		Print "'Main' function not found."
+		Print "Main function not found."
+		Return -1
+	End
+	If parser.Scanner.Func("Main").Args.Length <> 0
+		Print "Main function cannot have parameters"
+		Return -1
+	End
+	If parser.Scanner.Func("Main").Type <> TOK_VOID
+		Print "Main function cannot return a value"
 		Return -1
 	End
 
@@ -145,12 +153,12 @@ End
 
 
 Function GetType:Int(type: String)
-	Select type.Trim()
-		Case "Int"
+	Select type.Trim().ToLower()
+		Case "int"
 			Return TOK_INT
-		Case "Float"
+		Case "float"
 			Return TOK_FLOAT
-		Case "String"
+		Case "string"
 			Return TOK_STRING
 		Default
 			Return TOK_VOID

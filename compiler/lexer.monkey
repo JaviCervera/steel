@@ -45,9 +45,9 @@ Public
 		typeMap.Set("while", TOK_WHILE)
 		typeMap.Set("var", TOK_VAR)
 		typeMap.Set("function", TOK_FUNCTION)
-		typeMap.Set("Int", TOK_INT)
-		typeMap.Set("Float", TOK_FLOAT)
-		typeMap.Set("String", TOK_STRING)
+		typeMap.Set("int", TOK_INT)
+		typeMap.Set("float", TOK_FLOAT)
+		typeMap.Set("string", TOK_STRING)
 
 		'Fill symbols table (multichar ones must appear first)
 		symbols = "== <> >= <= > < + - * / % = , : ; ( )".Split(" ")
@@ -296,6 +296,7 @@ Private
 	End
 
 	Method Type:Int(symbol:String)
+		symbol = symbol.ToLower()
 		If typeMap.Contains(symbol)
 			Return typeMap.Get(symbol)
 		Else

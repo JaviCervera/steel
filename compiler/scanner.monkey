@@ -61,8 +61,9 @@ Class ScriptFunc
 	#End
 
 	Method GetLocal:ScriptVar(name:String)
+		name = name.ToLower()
 		For Local l:ScriptVar = Eachin Locals
-			If l.Name = name Then Return l
+			If l.Name.ToLower() = name Then Return l
 		Next
 		Return Null
 	End
@@ -188,15 +189,16 @@ Class Scanner
 	End
 
 	Method NumDefs:Int(name:String)
+		name = name.ToLower()
 		Local count:Int = 0
 		For Local f:ScriptFunc = Eachin functions
-			If f.Name = name Then count += 1
+			If f.Name.ToLower() = name Then count += 1
 		Next
 		For Local g:ScriptVar = Eachin globals
-			If g.Name = name Then count += 1
+			If g.Name.ToLower() = name Then count += 1
 		Next
 		For Local l:ScriptVar = Eachin locals
-			If l.Name = name Then count += 1
+			If l.Name.ToLower() = name Then count += 1
 		Next
 		Return count
 	End
@@ -206,18 +208,20 @@ Class Scanner
 	End
 
 	Method Var:ScriptVar(name:String)
+		name = name.ToLower()
 		For Local l:ScriptVar = Eachin locals
-			If l.Name = name Then Return l
+			If l.Name.ToLower() = name Then Return l
 		Next
 		For Local g:ScriptVar = Eachin globals
-			If g.Name = name Then Return g
+			If g.Name.ToLower() = name Then Return g
 		Next
 		Return Null
 	End
 
 	Method Func:ScriptFunc(name:String)
+		name = name.ToLower()
 		For Local func:ScriptFunc = Eachin functions
-			If func.Name = name Then Return func
+			If func.Name.ToLower() = name Then Return func
 		Next
 		Return Null
 	End
@@ -230,18 +234,20 @@ Class Scanner
 	End
 
 	Method IsVar:Bool(name:String)
+		name = name.ToLower()
 		For Local l:ScriptVar = Eachin locals
-			If l.Name = name Then Return True
+			If l.Name.ToLower() = name Then Return True
 		Next
 		For Local g:ScriptVar = Eachin globals
-			If g.Name = name Then Return True
+			If g.Name.ToLower() = name Then Return True
 		Next
 		Return False
 	End
 
 	Method GlobalId:Int(name:String)
+		name = name.ToLower()
 		For Local i:Int = 0 Until globals.Length()
-			If globals[i].Name = name Then Return i
+			If globals[i].Name.ToLower() = name Then Return i
 		Next
 		Return -1
 	End

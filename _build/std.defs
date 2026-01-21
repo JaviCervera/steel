@@ -1,49 +1,49 @@
 // Color
-function RGB(r:Int, g:Int, b:Int):Int
-function RGBA(r:Int, g:Int, b:Int, a:Int):Int
-function GetRed(color:Int):Int
-function GetGreen(color:Int):Int
-function GetBlue(color:Int):Int
-function GetAlpha(color:Int):Int
-function FadeColor(color:Int, new_alpha:Int):Int
-function MultiplyColor(color:Int, factor:Float):Int
-function SwapColor(color:Int):Int
+function RGB(r:int, g:int, b:int):int
+function RGBA(r:int, g:int, b:int, a:int):int
+function GetRed(color:int):int
+function GetGreen(color:int):int
+function GetBlue(color:int):int
+function GetAlpha(color:int):int
+function FadeColor(color:int, new_alpha:int):int
+function MultiplyColor(color:int, factor:float):int
+function SwapColor(color:int):int
 
 // Drawing
-function Cls(color:Int)
-function SetColor(color:Int)
-function DrawPlot(x:Float, y:Float)
-function DrawLine(x1:Float, y1:Float, x2:Float, y2:Float)
-function DrawRect(x:Float, y:Float, width:Float, height:Float)
+function Cls(color:int)
+function SetColor(color:int)
+function DrawPlot(x:float, y:float)
+function DrawLine(x1:float, y1:float, x2:float, y2:float)
+function DrawRect(x:float, y:float, width:float, height:float)
 
 // Screen
-function OpenScreen(width:Int, height:Int, fullscreen:Int)
+function OpenScreen(width:int, height:int, fullscreen:int)
 function CloseScreen()
-function SetScreenTitle(title:String)
-function SetScreenResizable(resizable:Int)
-function SetScreenFPS(fps:Int)
+function SetScreenTitle(title:string)
+function SetScreenResizable(resizable:int)
+function SetScreenFPS(fps:int)
 function RefreshScreen()
-function IsScreenOpened():Int
-function GetScreenWidth():Int
-function GetScreenHeight():Int
-function GetScreenFPS():Int
-function GetDesktopWidth():Int
-function GetDesktopHeight():Int
-function GetDelta():Float
+function IsScreenOpened():int
+function GetScreenWidth():int
+function GetScreenHeight():int
+function GetScreenFPS():int
+function GetDesktopWidth():int
+function GetDesktopHeight():int
+function GetDelta():float
 
 // Memblock
-function CreateMemblock(size:Int):Int
-function LoadMemblock(filename:String):Int
-function SaveMemblock(memblock:Int, filename:String)
-function FreeMemblock(memblock:Int)
-function GetMemblockSize(memblock:Int):Int
-function PokeByte(memblock:Int, offset:Int, val:Int)
-function PokeShort(memblock:Int, offset:Int, val:Int)
-function PokeInt(memblock:Int, offset:Int, val:Int)
-function PokeFloat(memblock:Int, offset:Int, val:Float)
-function PokeString(memblock:Int, offset:Int, val:String)
-function PeekByte(memblock:Int, offset:Int):Int
-function PeekShort(memblock:Int, offset:Int):Int
-function PeekInt(memblock:Int, offset:Int):Int
-function PeekFloat(memblock:Int, offset:Int):Float
-function PeekString(memblock:Int, offset:Int):String
+function CreateMemblock(size:int):int
+function LoadMemblock(filename:string):int
+function SaveMemblock(memblock:int, filename:string)
+function FreeMemblock(memblock:int)
+function GetMemblockSize(memblock:int):int
+function PokeByte(memblock:int, offset:int, val:int)
+function PokeShort(memblock:int, offset:int, val:int)
+function PokeInt(memblock:int, offset:int, val:int)
+function PokeFloat(memblock:int, offset:int, val:float)
+function PokeString(memblock:int, offset:int, val:string)
+function PeekByte(memblock:int, offset:int):int
+function PeekShort(memblock:int, offset:int):int
+function PeekInt(memblock:int, offset:int):int
+function PeekFloat(memblock:int, offset:int):float
+function PeekString(memblock:int, offset:int):string
