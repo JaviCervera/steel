@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "error.h"
 #include "interface/file_system.h"
 #include "procedural/color.h"
 #include "procedural/drawing.h"
@@ -13,6 +13,7 @@
 int main(int argc, char *argv[])
 {
   InitEngine();
+  atexit(FinishEngine);
   OpenScreen(640, 480, FALSE);
   const std::string path = (argc > 1) ? (std::string(argv[1]) + "/") : "";
   if (path != "")
@@ -20,10 +21,6 @@ int main(int argc, char *argv[])
   GetEngine().fileSystem().addZip(PACKAGE_FILE);
   Scripting vm;
   if (!vm.loadScript(SCRIPT_FILE))
-  {
-    printf("Error: %s.\n", vm.error().c_str());
-    return 1;
-  }
-  FinishEngine();
+    Error(vm.error().c_str());
   return 0;
 }
