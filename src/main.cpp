@@ -9,7 +9,7 @@
 #include "scripting_lua.h"
 #include "string.h"
 
-#define SCRIPT_FILE "main.lua"
+#define SCRIPT_FILE "code.out"
 #define PACKAGE_FILE "package.dat"
 
 int main(int argc, char *argv[])

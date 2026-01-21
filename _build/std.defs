@@ -1,0 +1,49 @@
+// Color
+function RGB(r:Int, g:Int, b:Int):Int
+function RGBA(r:Int, g:Int, b:Int, a:Int):Int
+function GetRed(color:Int):Int
+function GetGreen(color:Int):Int
+function GetBlue(color:Int):Int
+function GetAlpha(color:Int):Int
+function FadeColor(color:Int, new_alpha:Int):Int
+function MultiplyColor(color:Int, factor:Float):Int
+function SwapColor(color:Int):Int
+
+// Drawing
+function Cls(color:Int)
+function SetColor(color:Int)
+function DrawPlot(x:Float, y:Float)
+function DrawLine(x1:Float, y1:Float, x2:Float, y2:Float)
+function DrawRect(x:Float, y:Float, width:Float, height:Float)
+
+// Screen
+function OpenScreen(width:Int, height:Int, fullscreen:Int)
+function CloseScreen()
+function SetScreenTitle(title:String)
+function SetScreenResizable(resizable:Int)
+function SetScreenFPS(fps:Int)
+function RefreshScreen()
+function IsScreenOpened():Int
+function GetScreenWidth():Int
+function GetScreenHeight():Int
+function GetScreenFPS():Int
+function GetDesktopWidth():Int
+function GetDesktopHeight():Int
+function GetDelta():Float
+
+// Memblock
+function CreateMemblock(size:Int):Int
+function LoadMemblock(filename:String):Int
+function SaveMemblock(memblock:Int, filename:String)
+function FreeMemblock(memblock:Int)
+function GetMemblockSize(memblock:Int):Int
+function PokeByte(memblock:Int, offset:Int, val:Int)
+function PokeShort(memblock:Int, offset:Int, val:Int)
+function PokeInt(memblock:Int, offset:Int, val:Int)
+function PokeFloat(memblock:Int, offset:Int, val:Float)
+function PokeString(memblock:Int, offset:Int, val:String)
+function PeekByte(memblock:Int, offset:Int):Int
+function PeekShort(memblock:Int, offset:Int):Int
+function PeekInt(memblock:Int, offset:Int):Int
+function PeekFloat(memblock:Int, offset:Int):Float
+function PeekString(memblock:Int, offset:Int):String

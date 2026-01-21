@@ -8,7 +8,7 @@ extern "C"
   Memblock *LoadMemblock(const char *filename);
   void SaveMemblock(Memblock *memblock, const char *filename);
   void FreeMemblock(Memblock *memblock);
-  int MemblockSize(const Memblock *memblock);
+  int GetMemblockSize(const Memblock *memblock);
   void PokeByte(Memblock *memblock, int offset, int val);
   void PokeShort(Memblock *memblock, int offset, int val);
   void PokeInt(Memblock *memblock, int offset, int val);

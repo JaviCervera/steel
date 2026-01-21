@@ -29,7 +29,7 @@ extern "C"
     FILE *f = fopen(filename, "wb");
     if (!f)
       return;
-    fwrite(memblock, MemblockSize(memblock), 1, f);
+    fwrite(memblock, GetMemblockSize(memblock), 1, f);
     fclose(f);
   }
 
@@ -38,7 +38,7 @@ extern "C"
     free((int *)memblock - 1);
   }
 
-  int MemblockSize(const Memblock *memblock)
+  int GetMemblockSize(const Memblock *memblock)
   {
     return ((const int *)memblock - 1)[0];
   }
