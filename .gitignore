@@ -33,7 +33,9 @@
 
 .vscode
 _CMAKE
+_build/help/index.html
 build
+doc_out
 lib/irrlicht12/Irrlicht.chw
 src/lua_wrapper.cpp
 TDM-GCC-32
