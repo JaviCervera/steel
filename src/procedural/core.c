@@ -17,6 +17,7 @@
 #include "litemem.h"
 #define STB_DS_IMPLEMENTATION
 #include "stb_ds.h"
+#include "memblock.h"
 
 #ifdef _WIN32
 #define popen _popen
@@ -1073,17 +1074,16 @@ EXPORT float CALL ValF(const char *str)
 
 EXPORT const char *CALL LoadString(const char *filename)
 {
-  FILE *f = fopen(filename, "rb");
-  if (!f)
+  Memblock *memblock = LoadMemblock(filename);
+  if (!memblock)
     return lstr_get("");
-  fseek(f, 0, SEEK_END);
-  const long size = ftell(f);
-  fseek(f, 0, SEEK_SET);
+  const int size = GetMemblockSize(memblock);
   char *buf = (char *)malloc(size + 1);
-  fread(buf, sizeof(char), size, f);
+  memcpy(buf, memblock, size);
   buf[size] = '\0';
   const char *result = lstr_get(buf);
   free(buf);
+  FreeMemblock(memblock);
   return result;
 }
 
