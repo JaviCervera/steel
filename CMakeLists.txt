@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(steel)
-file(GLOB STEEL_FILES "lib/lua/*.c" "src/*.cpp" "src/procedural/*.cpp" "src/steel.rc")
+file(GLOB STEEL_FILES "lib/lua/*.c" "src/*.cpp" "src/procedural/*.cpp" "src/procedural/*.c" "src/steel.rc")
 include_directories(
 	${INCLUDE_DIRECTORIES}
 	${CMAKE_CURRENT_SOURCE_DIR}/lib/lua
