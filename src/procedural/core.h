@@ -107,6 +107,7 @@ struct Memory;
   // Math
   // ------------------------------------
 
+  float ACos(float x);
   float ASin(float x);
   float ATan(float x);
   float ATan2(float x, float y);

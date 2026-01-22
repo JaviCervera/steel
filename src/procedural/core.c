@@ -705,6 +705,11 @@ void ClearDict(Dict *dict)
 // Math
 // ------------------------------------
 
+float ACos(float x)
+{
+  return acos(x);
+}
+
 float ASin(float x)
 {
   return asin(x);
