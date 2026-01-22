@@ -710,22 +710,22 @@ EXPORT void CALL ClearDict(Dict *dict)
 
 EXPORT float CALL ACos(float x)
 {
-  return acos(x);
+  return acos(x) * RAD2DEG;
 }
 
 EXPORT float CALL ASin(float x)
 {
-  return asin(x);
+  return asin(x) * RAD2DEG;
 }
 
 EXPORT float CALL ATan(float x)
 {
-  return atan(x);
+  return atan(x) * RAD2DEG;
 }
 
 EXPORT float CALL ATan2(float x, float y)
 {
-  return atan2(x, y);
+  return atan2(x, y) * RAD2DEG;
 }
 
 EXPORT float CALL Abs(float x)
@@ -745,7 +745,7 @@ EXPORT float CALL Clamp(float x, float min, float max)
 
 EXPORT float CALL Cos(float x)
 {
-  return cos(x);
+  return cos(x * DEG2RAD);
 }
 
 EXPORT float CALL Exp(float x)
@@ -785,7 +785,7 @@ EXPORT float CALL Sgn(float x)
 
 EXPORT float CALL Sin(float x)
 {
-  return sin(x);
+  return sin(x * DEG2RAD);
 }
 
 EXPORT float CALL Sqrt(float x)
@@ -795,7 +795,7 @@ EXPORT float CALL Sqrt(float x)
 
 EXPORT float CALL Tan(float x)
 {
-  return tan(x);
+  return tan(x * DEG2RAD);
 }
 
 EXPORT int CALL Int(float num)
