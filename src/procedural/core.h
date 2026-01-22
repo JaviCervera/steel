@@ -135,29 +135,6 @@ struct Memory;
   EXPORT float CALL Wrap(float val, float mod);
 
   // ------------------------------------
-  // Memory
-  // ------------------------------------
-
-  EXPORT Memory *CALL Dim(int size);
-  EXPORT void CALL Undim(Memory *mem);
-  EXPORT void CALL Redim(Memory *mem, int size);
-  EXPORT Memory *CALL LoadDim(const char *filename);
-  EXPORT void CALL SaveDim(Memory *mem, const char *filename);
-  EXPORT int CALL DimSize(Memory *mem);
-  EXPORT int CALL PeekByte(Memory *mem, int offset);
-  EXPORT int CALL PeekShort(Memory *mem, int offset);
-  EXPORT int CALL PeekInt(Memory *mem, int offset);
-  EXPORT float CALL PeekFloat(Memory *mem, int offset);
-  EXPORT const char *CALL PeekString(Memory *mem, int offset);
-  EXPORT void *CALL PeekRef(Memory *mem, int offset);
-  EXPORT void CALL PokeByte(Memory *mem, int offset, int val);
-  EXPORT void CALL PokeShort(Memory *mem, int offset, int val);
-  EXPORT void CALL PokeInt(Memory *mem, int offset, int val);
-  EXPORT void CALL PokeFloat(Memory *mem, int offset, float val);
-  EXPORT void CALL PokeString(Memory *mem, int offset, const char *val);
-  EXPORT void CALL PokeRef(Memory *mem, int offset, void *val);
-
-  // ------------------------------------
   // String
   // ------------------------------------
 
