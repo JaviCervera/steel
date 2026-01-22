@@ -126,6 +126,11 @@ struct Memory;
   float Sqrt(float x);
   float Tan(float x);
   int Int(float num);
+  int Rand(int min, int max);
+  void RandSeed(int seed);
+  float Deg(float rad);
+  float Rad(float deg);
+  float Wrap(float val, float mod);
 
   // ------------------------------------
   // Memory

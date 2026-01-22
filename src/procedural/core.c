@@ -705,6 +705,9 @@ void ClearDict(Dict *dict)
 // Math
 // ------------------------------------
 
+#define DEG2RAD (0.017453292f)
+#define RAD2DEG (57.29577951f)
+
 float ACos(float x)
 {
   return acos(x);
@@ -798,6 +801,33 @@ float Tan(float x)
 int Int(float num)
 {
   return (int)num;
+}
+
+int Rand(int min, int max)
+{
+  return (rand() % (max - min)) + min;
+}
+
+void RandSeed(int seed)
+{
+  return srand(seed);
+}
+
+float Deg(float rad)
+{
+  return rad * RAD2DEG;
+}
+
+float Rad(float deg)
+{
+  return deg * DEG2RAD;
+}
+
+float Wrap(float val, float mod)
+{
+  return (mod != 0)
+             ? (val - mod * floor(val / mod))
+             : val;
 }
 
 // ------------------------------------
