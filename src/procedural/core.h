@@ -10,6 +10,8 @@
 #endif
 #endif
 
+#include "common.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -27,9 +29,9 @@ struct Memory;
   // App
   // ------------------------------------
 
-  const char *AppName();
-  struct List *AppArgs();
-  const char *Run(const char *command);
+  EXPORT const char *CALL AppName();
+  EXPORT struct List *CALL AppArgs();
+  EXPORT const char *CALL Run(const char *command);
   void *_IncRef(void *ptr);
   void _DecRef(void *ptr);
   void *_AutoDec(void *ptr);
@@ -39,24 +41,24 @@ struct Memory;
   // Console
   // ------------------------------------
 
-  const char *Input(const char *prompt);
-  void Print(const char *msg);
+  EXPORT const char *CALL Input(const char *prompt);
+  EXPORT void CALL Print(const char *msg);
 
   // ------------------------------------
   // Dir
   // ------------------------------------
 
-  struct List *DirContents(const char *path);
-  const char *CurrentDir();
-  void ChangeDir(const char *dir);
-  const char *FullPath(const char *filename);
+  EXPORT struct List *CALL DirContents(const char *path);
+  EXPORT const char *CALL CurrentDir();
+  EXPORT void CALL ChangeDir(const char *dir);
+  EXPORT const char *CALL FullPath(const char *filename);
 
   // ------------------------------------
   // File
   // ------------------------------------
 
-  int FileType(const char *filename);
-  void DeleteFile(const char *filename);
+  EXPORT int CALL FileType(const char *filename);
+  EXPORT void CALL DeleteFile(const char *filename);
 
   // ------------------------------------
   // List
@@ -76,9 +78,9 @@ struct Memory;
   struct Dict *_ListDict(struct List *list, size_t index);
   void *_ListRef(struct List *list, size_t index);
   const char *_ListToString(struct List *list);
-  void RemoveIndex(struct List *list, int index);
-  int ListSize(struct List *list);
-  void ClearList(struct List *list);
+  EXPORT void CALL RemoveIndex(struct List *list, int index);
+  EXPORT int CALL ListSize(struct List *list);
+  EXPORT void CALL ClearList(struct List *list);
 
   // ------------------------------------
   // Dict
@@ -98,103 +100,103 @@ struct Memory;
   struct Dict *_DictDict(struct Dict *dict, const char *key);
   void *_DictRef(struct Dict *dict, const char *key);
   const char *_DictToString(struct Dict *dict);
-  int Contains(struct Dict *dict, const char *key);
-  void RemoveKey(struct Dict *dict, const char *key);
-  int DictSize(struct Dict *dict);
-  void ClearDict(struct Dict *dict);
+  EXPORT int CALL Contains(struct Dict *dict, const char *key);
+  EXPORT void CALL RemoveKey(struct Dict *dict, const char *key);
+  EXPORT int CALL DictSize(struct Dict *dict);
+  EXPORT void CALL ClearDict(struct Dict *dict);
 
   // ------------------------------------
   // Math
   // ------------------------------------
 
-  float ACos(float x);
-  float ASin(float x);
-  float ATan(float x);
-  float ATan2(float x, float y);
-  float Abs(float x);
-  float Ceil(float x);
-  float Clamp(float x, float min, float max);
-  float Cos(float x);
-  float Exp(float x);
-  float Floor(float x);
-  float Log(float x);
-  float Max(float x, float y);
-  float Min(float x, float y);
-  float Pow(float x, float y);
-  float Sgn(float x);
-  float Sin(float x);
-  float Sqrt(float x);
-  float Tan(float x);
-  int Int(float num);
-  int Rand(int min, int max);
-  void RandSeed(int seed);
-  float Deg(float rad);
-  float Rad(float deg);
-  float Wrap(float val, float mod);
+  EXPORT float CALL ACos(float x);
+  EXPORT float CALL ASin(float x);
+  EXPORT float CALL ATan(float x);
+  EXPORT float CALL ATan2(float x, float y);
+  EXPORT float CALL Abs(float x);
+  EXPORT float CALL Ceil(float x);
+  EXPORT float CALL Clamp(float x, float min, float max);
+  EXPORT float CALL Cos(float x);
+  EXPORT float CALL Exp(float x);
+  EXPORT float CALL Floor(float x);
+  EXPORT float CALL Log(float x);
+  EXPORT float CALL Max(float x, float y);
+  EXPORT float CALL Min(float x, float y);
+  EXPORT float CALL Pow(float x, float y);
+  EXPORT float CALL Sgn(float x);
+  EXPORT float CALL Sin(float x);
+  EXPORT float CALL Sqrt(float x);
+  EXPORT float CALL Tan(float x);
+  EXPORT int CALL Int(float num);
+  EXPORT int CALL Rand(int min, int max);
+  EXPORT void CALL RandSeed(int seed);
+  EXPORT float CALL Deg(float rad);
+  EXPORT float CALL Rad(float deg);
+  EXPORT float CALL Wrap(float val, float mod);
 
   // ------------------------------------
   // Memory
   // ------------------------------------
 
-  Memory *Dim(int size);
-  void Undim(Memory *mem);
-  void Redim(Memory *mem, int size);
-  Memory *LoadDim(const char *filename);
-  void SaveDim(Memory *mem, const char *filename);
-  int DimSize(Memory *mem);
-  int PeekByte(Memory *mem, int offset);
-  int PeekShort(Memory *mem, int offset);
-  int PeekInt(Memory *mem, int offset);
-  float PeekFloat(Memory *mem, int offset);
-  const char *PeekString(Memory *mem, int offset);
-  void *PeekRef(Memory *mem, int offset);
-  void PokeByte(Memory *mem, int offset, int val);
-  void PokeShort(Memory *mem, int offset, int val);
-  void PokeInt(Memory *mem, int offset, int val);
-  void PokeFloat(Memory *mem, int offset, float val);
-  void PokeString(Memory *mem, int offset, const char *val);
-  void PokeRef(Memory *mem, int offset, void *val);
+  EXPORT Memory *CALL Dim(int size);
+  EXPORT void CALL Undim(Memory *mem);
+  EXPORT void CALL Redim(Memory *mem, int size);
+  EXPORT Memory *CALL LoadDim(const char *filename);
+  EXPORT void CALL SaveDim(Memory *mem, const char *filename);
+  EXPORT int CALL DimSize(Memory *mem);
+  EXPORT int CALL PeekByte(Memory *mem, int offset);
+  EXPORT int CALL PeekShort(Memory *mem, int offset);
+  EXPORT int CALL PeekInt(Memory *mem, int offset);
+  EXPORT float CALL PeekFloat(Memory *mem, int offset);
+  EXPORT const char *CALL PeekString(Memory *mem, int offset);
+  EXPORT void *CALL PeekRef(Memory *mem, int offset);
+  EXPORT void CALL PokeByte(Memory *mem, int offset, int val);
+  EXPORT void CALL PokeShort(Memory *mem, int offset, int val);
+  EXPORT void CALL PokeInt(Memory *mem, int offset, int val);
+  EXPORT void CALL PokeFloat(Memory *mem, int offset, float val);
+  EXPORT void CALL PokeString(Memory *mem, int offset, const char *val);
+  EXPORT void CALL PokeRef(Memory *mem, int offset, void *val);
 
   // ------------------------------------
   // String
   // ------------------------------------
 
-  int Len(const char *str);
-  const char *Left(const char *str, int count);
-  const char *Right(const char *str, int count);
-  const char *Mid(const char *str, int offset, int count);
-  const char *Lower(const char *str);
-  const char *Upper(const char *str);
-  int Find(const char *str, const char *find, int offset);
-  const char *Replace(const char *str, const char *find, const char *replace);
-  const char *Trim(const char *str);
-  const char *Join(struct List *list, const char *separator);
-  struct List *Split(const char *str, const char *separator);
-  const char *StripExt(const char *filename);
-  const char *StripDir(const char *filename);
-  const char *ExtractExt(const char *filename);
-  const char *ExtractDir(const char *filename);
-  int Asc(const char *str, int index);
-  const char *Chr(int c);
-  const char *Str(int val);
-  const char *StrF(float val);
-  int Val(const char *str);
-  float ValF(const char *str);
-  const char *LoadString(const char *filename);
-  void SaveString(const char *filename, const char *str, int append);
+  EXPORT int CALL Len(const char *str);
+  EXPORT const char *CALL Left(const char *str, int count);
+  EXPORT const char *CALL Right(const char *str, int count);
+  EXPORT const char *CALL Mid(const char *str, int offset, int count);
+  EXPORT const char *CALL Lower(const char *str);
+  EXPORT const char *CALL Upper(const char *str);
+  EXPORT int CALL Find(const char *str, const char *find, int offset);
+  EXPORT const char *CALL Replace(const char *str, const char *find, const char *replace);
+  EXPORT const char *CALL Trim(const char *str);
+  EXPORT const char *CALL Join(struct List *list, const char *separator);
+  EXPORT struct List *CALL Split(const char *str, const char *separator);
+  EXPORT const char *CALL StripExt(const char *filename);
+  EXPORT const char *CALL StripDir(const char *filename);
+  EXPORT const char *CALL ExtractExt(const char *filename);
+  EXPORT const char *CALL ExtractDir(const char *filename);
+  EXPORT int CALL Asc(const char *str, int index);
+  EXPORT const char *CALL Chr(int c);
+  EXPORT const char *CALL Str(int val);
+  EXPORT const char *CALL StrF(float val);
+  EXPORT int CALL Val(const char *str);
+  EXPORT float CALL ValF(const char *str);
+  EXPORT const char *CALL LoadString(const char *filename);
+  EXPORT void CALL SaveString(const char *filename, const char *str, int append);
 
   // ------------------------------------
   // Callable
   // ------------------------------------
 
-  void AddIntArg(int arg);
-  void AddFloatArg(float arg);
-  void AddStringArg(const char *arg);
-  void Call(const char *name);
-  int CallInt(const char *name);
-  float CallFloat(const char *name);
-  const char *CallString(const char *name);
-  int Callable(const char *name);
+  EXPORT void CALL AddIntArg(int arg);
+  EXPORT void CALL AddFloatArg(float arg);
+  EXPORT void CALL AddStringArg(const char *arg);
+  EXPORT void CALL Call(const char *name);
+  EXPORT int CALL CallInt(const char *name);
+  EXPORT float CALL CallFloat(const char *name);
+  EXPORT const char *CALL CallString(const char *name);
+  EXPORT int CALL Callable(const char *name);
 
 #ifdef __cplusplus
 }

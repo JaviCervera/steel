@@ -53,17 +53,17 @@ void _SetArgs(int argc, const char *argv[])
   }
 }
 
-const char *AppName()
+EXPORT const char *CALL AppName()
 {
   return leaf_appName;
 }
 
-struct List *AppArgs()
+EXPORT struct List *CALL AppArgs()
 {
   return leaf_appArgs;
 }
 
-const char *Run(const char *command)
+EXPORT const char *CALL Run(const char *command)
 {
   char tmp[65536];
   tmp[0] = '\0';
@@ -105,7 +105,7 @@ void _DoAutoDec()
 // Console
 // ------------------------------------
 
-const char *Input(const char *prompt)
+EXPORT const char *CALL Input(const char *prompt)
 {
   char buffer[1024];
   printf("%s", prompt);
@@ -113,7 +113,7 @@ const char *Input(const char *prompt)
   return lstr_get(buffer);
 }
 
-void Print(const char *msg)
+EXPORT void CALL Print(const char *msg)
 {
   printf("%s\n", msg);
   fflush(stdout);
@@ -123,7 +123,7 @@ void Print(const char *msg)
 // Dir
 // ------------------------------------
 
-struct List *DirContents(const char *path)
+EXPORT struct List *CALL DirContents(const char *path)
 {
   struct List *list = _CreateList();
   DIR *d = (DIR *)opendir(path);
@@ -139,19 +139,19 @@ struct List *DirContents(const char *path)
   return list;
 }
 
-const char *CurrentDir()
+EXPORT const char *CALL CurrentDir()
 {
   char buf[FILENAME_MAX];
   _getcwd(buf, FILENAME_MAX);
   return lstr_get(buf);
 }
 
-void ChangeDir(const char *dir)
+EXPORT void CALL ChangeDir(const char *dir)
 {
   _chdir(dir);
 }
 
-const char *FullPath(const char *filename)
+EXPORT const char *CALL FullPath(const char *filename)
 {
   char out_path[FILENAME_MAX];
   realpath(filename, out_path);
@@ -162,7 +162,7 @@ const char *FullPath(const char *filename)
 // File
 // ------------------------------------
 
-int FileType(const char *filename)
+EXPORT int CALL FileType(const char *filename)
 {
   struct stat statbuf;
   if (stat(filename, &statbuf) == -1)
@@ -173,7 +173,7 @@ int FileType(const char *filename)
     return 1;
 }
 
-void DeleteFile(const char *filename)
+EXPORT void CALL DeleteFile(const char *filename)
 {
   remove(filename);
 }
@@ -196,7 +196,7 @@ typedef struct
   } value;
 } Value;
 
-Value ValueFromInt(int i)
+EXPORT Value CALL ValueFromInt(int i)
 {
   Value v = {0};
   v.type = TYPE_INT;
@@ -204,7 +204,7 @@ Value ValueFromInt(int i)
   return v;
 }
 
-Value ValueFromFloat(float f)
+EXPORT Value CALL ValueFromFloat(float f)
 {
   Value v = {0};
   v.type = TYPE_FLOAT;
@@ -212,7 +212,7 @@ Value ValueFromFloat(float f)
   return v;
 }
 
-Value ValueFromString(const char *s)
+EXPORT Value CALL ValueFromString(const char *s)
 {
   Value v = {0};
   v.type = TYPE_STRING;
@@ -220,7 +220,7 @@ Value ValueFromString(const char *s)
   return v;
 }
 
-Value ValueFromList(struct List *l)
+EXPORT Value CALL ValueFromList(struct List *l)
 {
   Value v = {0};
   v.type = TYPE_LIST;
@@ -228,7 +228,7 @@ Value ValueFromList(struct List *l)
   return v;
 }
 
-Value ValueFromDict(struct Dict *h)
+EXPORT Value CALL ValueFromDict(struct Dict *h)
 {
   Value v = {0};
   v.type = TYPE_DICT;
@@ -236,7 +236,7 @@ Value ValueFromDict(struct Dict *h)
   return v;
 }
 
-Value ValueFromRef(void *r)
+EXPORT Value CALL ValueFromRef(void *r)
 {
   Value v = {0};
   v.type = TYPE_RAW;
@@ -244,7 +244,7 @@ Value ValueFromRef(void *r)
   return v;
 }
 
-int ValueToInt(const Value v)
+EXPORT int CALL ValueToInt(const Value v)
 {
   switch (v.type)
   {
@@ -259,7 +259,7 @@ int ValueToInt(const Value v)
   }
 }
 
-float ValueToFloat(const Value v)
+EXPORT float CALL ValueToFloat(const Value v)
 {
   switch (v.type)
   {
@@ -274,7 +274,7 @@ float ValueToFloat(const Value v)
   }
 }
 
-const char *ValueToString(const Value v)
+EXPORT const char *CALL ValueToString(const Value v)
 {
   switch (v.type)
   {
@@ -293,7 +293,7 @@ const char *ValueToString(const Value v)
   }
 }
 
-struct List *ValueToList(const Value v)
+EXPORT struct List *CALL ValueToList(const Value v)
 {
   switch (v.type)
   {
@@ -306,7 +306,7 @@ struct List *ValueToList(const Value v)
   }
 }
 
-struct Dict *ValueToDict(const Value v)
+EXPORT struct Dict *CALL ValueToDict(const Value v)
 {
   switch (v.type)
   {
@@ -319,7 +319,7 @@ struct Dict *ValueToDict(const Value v)
   }
 }
 
-void *ValueToRef(const Value v)
+EXPORT void *CALL ValueToRef(const Value v)
 {
   switch (v.type)
   {
@@ -338,7 +338,7 @@ void *ValueToRef(const Value v)
   }
 }
 
-int ValueIsManaged(const Value v)
+EXPORT int CALL ValueIsManaged(const Value v)
 {
   return v.type == TYPE_STRING || v.type == TYPE_LIST || v.type == TYPE_DICT;
 }
@@ -500,7 +500,7 @@ const char *_ListToString(List *list)
   return lstr_get(content);
 }
 
-void RemoveIndex(List *list, int index)
+EXPORT void CALL RemoveIndex(List *list, int index)
 {
   if (index >= 0 && index < ListSize(list))
   {
@@ -509,12 +509,12 @@ void RemoveIndex(List *list, int index)
   }
 }
 
-int ListSize(List *list)
+EXPORT int CALL ListSize(List *list)
 {
   return arrlenu(list->elems);
 }
 
-void ClearList(List *list)
+EXPORT void CALL ClearList(List *list)
 {
   _DestroyList(list);
 }
@@ -677,12 +677,12 @@ const char *_DictToString(Dict *dict)
   return lstr_get(content);
 }
 
-int Contains(Dict *dict, const char *key)
+EXPORT int CALL Contains(Dict *dict, const char *key)
 {
   return shlenu(dict->entries) > 0;
 }
 
-void RemoveKey(Dict *dict, const char *key)
+EXPORT void CALL RemoveKey(Dict *dict, const char *key)
 {
   if (Contains(dict, key))
   {
@@ -691,12 +691,12 @@ void RemoveKey(Dict *dict, const char *key)
   }
 }
 
-int DictSize(Dict *dict)
+EXPORT int CALL DictSize(Dict *dict)
 {
   return shlenu(dict->entries);
 }
 
-void ClearDict(Dict *dict)
+EXPORT void CALL ClearDict(Dict *dict)
 {
   _DestroyDict(dict);
 }
@@ -708,122 +708,122 @@ void ClearDict(Dict *dict)
 #define DEG2RAD (0.017453292f)
 #define RAD2DEG (57.29577951f)
 
-float ACos(float x)
+EXPORT float CALL ACos(float x)
 {
   return acos(x);
 }
 
-float ASin(float x)
+EXPORT float CALL ASin(float x)
 {
   return asin(x);
 }
 
-float ATan(float x)
+EXPORT float CALL ATan(float x)
 {
   return atan(x);
 }
 
-float ATan2(float x, float y)
+EXPORT float CALL ATan2(float x, float y)
 {
   return atan2(x, y);
 }
 
-float Abs(float x)
+EXPORT float CALL Abs(float x)
 {
   return fabsf(x);
 }
 
-float Ceil(float x)
+EXPORT float CALL Ceil(float x)
 {
   return ceil(x);
 }
 
-float Clamp(float x, float min, float max)
+EXPORT float CALL Clamp(float x, float min, float max)
 {
   return Min(Max(x, min), max);
 }
 
-float Cos(float x)
+EXPORT float CALL Cos(float x)
 {
   return cos(x);
 }
 
-float Exp(float x)
+EXPORT float CALL Exp(float x)
 {
   return exp(x);
 }
 
-float Floor(float x)
+EXPORT float CALL Floor(float x)
 {
   return floor(x);
 }
 
-float Log(float x)
+EXPORT float CALL Log(float x)
 {
   return log(x);
 }
 
-float Max(float x, float y)
+EXPORT float CALL Max(float x, float y)
 {
   return (x >= y) ? x : y;
 }
 
-float Min(float x, float y)
+EXPORT float CALL Min(float x, float y)
 {
   return (x <= y) ? x : y;
 }
 
-float Pow(float x, float y)
+EXPORT float CALL Pow(float x, float y)
 {
   return pow(x, y);
 }
 
-float Sgn(float x)
+EXPORT float CALL Sgn(float x)
 {
   return (0 < x) - (x < 0);
 }
 
-float Sin(float x)
+EXPORT float CALL Sin(float x)
 {
   return sin(x);
 }
 
-float Sqrt(float x)
+EXPORT float CALL Sqrt(float x)
 {
   return sqrt(x);
 }
 
-float Tan(float x)
+EXPORT float CALL Tan(float x)
 {
   return tan(x);
 }
 
-int Int(float num)
+EXPORT int CALL Int(float num)
 {
   return (int)num;
 }
 
-int Rand(int min, int max)
+EXPORT int CALL Rand(int min, int max)
 {
   return (rand() % (max - min)) + min;
 }
 
-void RandSeed(int seed)
+EXPORT void CALL RandSeed(int seed)
 {
   return srand(seed);
 }
 
-float Deg(float rad)
+EXPORT float CALL Deg(float rad)
 {
   return rad * RAD2DEG;
 }
 
-float Rad(float deg)
+EXPORT float CALL Rad(float deg)
 {
   return deg * DEG2RAD;
 }
 
-float Wrap(float val, float mod)
+EXPORT float CALL Wrap(float val, float mod)
 {
   return (mod != 0)
              ? (val - mod * floor(val / mod))
@@ -834,7 +834,7 @@ float Wrap(float val, float mod)
 // Memory
 // ------------------------------------
 
-Memory *Dim(int size)
+EXPORT Memory *CALL Dim(int size)
 {
   Memory *mem = (Memory *)malloc(sizeof(Memory));
   mem->ptr = (char *)calloc(1, size);
@@ -842,19 +842,19 @@ Memory *Dim(int size)
   return mem;
 }
 
-void Undim(Memory *mem)
+EXPORT void CALL Undim(Memory *mem)
 {
   free(mem->ptr);
   free(mem);
 }
 
-void Redim(Memory *mem, int size)
+EXPORT void CALL Redim(Memory *mem, int size)
 {
   mem->ptr = (char *)realloc(mem->ptr, size);
   mem->size = size;
 }
 
-Memory *LoadDim(const char *filename)
+EXPORT Memory *CALL LoadDim(const char *filename)
 {
   FILE *f = fopen(filename, "rb");
   if (!f)
@@ -868,7 +868,7 @@ Memory *LoadDim(const char *filename)
   return mem;
 }
 
-void SaveDim(Memory *mem, const char *filename)
+EXPORT void CALL SaveDim(Memory *mem, const char *filename)
 {
   FILE *f = fopen(filename, "wb");
   if (!f)
@@ -877,40 +877,40 @@ void SaveDim(Memory *mem, const char *filename)
   fclose(f);
 }
 
-int DimSize(Memory *mem)
+EXPORT int CALL DimSize(Memory *mem)
 {
   return (int)mem->size;
 }
 
-int PeekByte(Memory *mem, int offset)
+EXPORT int CALL PeekByte(Memory *mem, int offset)
 {
   unsigned char v;
   memcpy(&v, &mem->ptr[offset], sizeof(v));
   return (int)v;
 }
 
-int PeekShort(Memory *mem, int offset)
+EXPORT int CALL PeekShort(Memory *mem, int offset)
 {
   unsigned short v;
   memcpy(&v, &mem->ptr[offset], sizeof(v));
   return (int)v;
 }
 
-int PeekInt(Memory *mem, int offset)
+EXPORT int CALL PeekInt(Memory *mem, int offset)
 {
   int v;
   memcpy(&v, &mem->ptr[offset], sizeof(v));
   return v;
 }
 
-float PeekFloat(Memory *mem, int offset)
+EXPORT float CALL PeekFloat(Memory *mem, int offset)
 {
   float v;
   memcpy(&v, &mem->ptr[offset], sizeof(v));
   return v;
 }
 
-const char *PeekString(Memory *mem, int offset)
+EXPORT const char *CALL PeekString(Memory *mem, int offset)
 {
   char result[65536];
   result[0] = '\0';
@@ -924,41 +924,41 @@ const char *PeekString(Memory *mem, int offset)
   return lstr_get(result);
 }
 
-void *PeekRef(Memory *mem, int offset)
+EXPORT void *CALL PeekRef(Memory *mem, int offset)
 {
   void *v;
   memcpy(&v, &mem->ptr[offset], sizeof(v));
   return v;
 }
 
-void PokeByte(Memory *mem, int offset, int val)
+EXPORT void CALL PokeByte(Memory *mem, int offset, int val)
 {
   unsigned char *b = (unsigned char *)&val;
   memcpy(&(mem->ptr[offset]), &b[3], sizeof(unsigned char));
 }
 
-void PokeShort(Memory *mem, int offset, int val)
+EXPORT void CALL PokeShort(Memory *mem, int offset, int val)
 {
   unsigned short *s = (unsigned short *)&val;
   memcpy(&(mem->ptr[offset]), &s[1], sizeof(unsigned short));
 }
 
-void PokeInt(Memory *mem, int offset, int val)
+EXPORT void CALL PokeInt(Memory *mem, int offset, int val)
 {
   memcpy(&(mem->ptr[offset]), &val, sizeof(val));
 }
 
-void PokeFloat(Memory *mem, int offset, float val)
+EXPORT void CALL PokeFloat(Memory *mem, int offset, float val)
 {
   memcpy(&(mem->ptr[offset]), &val, sizeof(val));
 }
 
-void PokeString(Memory *mem, int offset, const char *val)
+EXPORT void CALL PokeString(Memory *mem, int offset, const char *val)
 {
   memcpy(&(mem->ptr[offset]), val, strlen(val) + 1);
 }
 
-void PokeRef(Memory *mem, int offset, void *val)
+EXPORT void CALL PokeRef(Memory *mem, int offset, void *val)
 {
   memcpy(&(mem->ptr[offset]), &val, sizeof(val));
 }
@@ -967,33 +967,33 @@ void PokeRef(Memory *mem, int offset, void *val)
 // String
 // ------------------------------------
 
-int Len(const char *str)
+EXPORT int CALL Len(const char *str)
 {
   return strlen(str);
 }
 
-const char *Left(const char *str, int count)
+EXPORT const char *CALL Left(const char *str, int count)
 {
   char *result = lstr_allocempty(count);
   strncpy(result, str, count);
   return (const char *)lmem_autorelease(result);
 }
 
-const char *Right(const char *str, int count)
+EXPORT const char *CALL Right(const char *str, int count)
 {
   char *result = lstr_allocempty(count);
   strncpy(result, str + strlen(str) - count, count);
   return (const char *)lmem_autorelease(result);
 }
 
-const char *Mid(const char *str, int offset, int count)
+EXPORT const char *CALL Mid(const char *str, int offset, int count)
 {
   char *result = lstr_allocempty(count);
   strncpy(result, str + offset, count);
   return (const char *)lmem_autorelease(result);
 }
 
-const char *Lower(const char *str)
+EXPORT const char *CALL Lower(const char *str)
 {
   const size_t len = strlen(str);
   char *result = lstr_allocempty(len);
@@ -1004,7 +1004,7 @@ const char *Lower(const char *str)
   return (const char *)lmem_autorelease(result);
 }
 
-const char *Upper(const char *str)
+EXPORT const char *CALL Upper(const char *str)
 {
   const size_t len = strlen(str);
   char *result = lstr_allocempty(len);
@@ -1015,7 +1015,7 @@ const char *Upper(const char *str)
   return (const char *)lmem_autorelease(result);
 }
 
-int Find(const char *str, const char *find, int offset)
+EXPORT int CALL Find(const char *str, const char *find, int offset)
 {
   const char *p = strstr(&str[offset], find);
   if (p == NULL)
@@ -1033,7 +1033,7 @@ char *_ReplaceOne(const char *str, size_t pos, size_t len, const char *rep, size
   return (char *)lmem_autorelease(result);
 }
 
-const char *Replace(const char *str, const char *find, const char *replace)
+EXPORT const char *CALL Replace(const char *str, const char *find, const char *replace)
 {
   char *result = lstr_get(str);
   const size_t rlen = strlen(replace);
@@ -1047,7 +1047,7 @@ const char *Replace(const char *str, const char *find, const char *replace)
   return result;
 }
 
-const char *Trim(const char *str)
+EXPORT const char *CALL Trim(const char *str)
 {
   const size_t len = strlen(str);
   size_t offset = 0;
@@ -1059,7 +1059,7 @@ const char *Trim(const char *str)
   return Mid(str, offset, count + 1);
 }
 
-const char *Join(List *list, const char *separator)
+EXPORT const char *CALL Join(List *list, const char *separator)
 {
   size_t current_len = 0;
   size_t current_max = 1000;
@@ -1115,7 +1115,7 @@ List *_SplitBySep(const char *str, const char *separator)
   return list;
 }
 
-List *Split(const char *str, const char *separator)
+EXPORT List *CALL Split(const char *str, const char *separator)
 {
   if (strcmp(separator, "") == 0)
   {
@@ -1127,7 +1127,7 @@ List *Split(const char *str, const char *separator)
   }
 }
 
-const char *StripExt(const char *filename)
+EXPORT const char *CALL StripExt(const char *filename)
 {
   const char *endp = strrchr(filename, '.');
   if (!endp)
@@ -1135,7 +1135,7 @@ const char *StripExt(const char *filename)
   return Mid(filename, 0, endp - filename);
 }
 
-const char *StripDir(const char *filename)
+EXPORT const char *CALL StripDir(const char *filename)
 {
   const char *fendp = strrchr(filename, '/');
   const char *bendp = strrchr(filename, '\\');
@@ -1145,7 +1145,7 @@ const char *StripDir(const char *filename)
   return Mid(filename, 0, endp - filename);
 }
 
-const char *ExtractExt(const char *filename)
+EXPORT const char *CALL ExtractExt(const char *filename)
 {
   const char *endp = strrchr(filename, '.');
   if (!endp)
@@ -1154,7 +1154,7 @@ const char *ExtractExt(const char *filename)
   return Mid(filename, offset, strlen(filename) - offset);
 }
 
-const char *ExtractDir(const char *filename)
+EXPORT const char *CALL ExtractDir(const char *filename)
 {
   const char *fendp = strrchr(filename, '/');
   const char *bendp = strrchr(filename, '\\');
@@ -1165,46 +1165,46 @@ const char *ExtractDir(const char *filename)
   return Mid(filename, 0, size);
 }
 
-int Asc(const char *str, int index)
+EXPORT int CALL Asc(const char *str, int index)
 {
   return (int)str[index];
 }
 
-const char *Chr(int c)
+EXPORT const char *CALL Chr(int c)
 {
   const char str[] = {(char)c, '\0'};
   return lstr_get(str);
 }
 
-const char *Str(int val)
+EXPORT const char *CALL Str(int val)
 {
   char str[64];
   sprintf(str, "%i", val);
   return lstr_get(str);
 }
 
-const char *StrF(float val)
+EXPORT const char *CALL StrF(float val)
 {
   char str[64];
   sprintf(str, "%f", val);
   return lstr_get(str);
 }
 
-int Val(const char *str)
+EXPORT int CALL Val(const char *str)
 {
   int val = 0;
   sscanf(str, "%i", &val);
   return val;
 }
 
-float ValF(const char *str)
+EXPORT float CALL ValF(const char *str)
 {
   float val = 0;
   sscanf(str, "%f", &val);
   return val;
 }
 
-const char *LoadString(const char *filename)
+EXPORT const char *CALL LoadString(const char *filename)
 {
   FILE *f = fopen(filename, "rb");
   if (!f)
@@ -1220,7 +1220,7 @@ const char *LoadString(const char *filename)
   return result;
 }
 
-void SaveString(const char *filename, const char *str, int append)
+EXPORT void CALL SaveString(const char *filename, const char *str, int append)
 {
   FILE *f = fopen(filename, append ? "ab" : "wb");
   if (!f)
@@ -1233,38 +1233,38 @@ void SaveString(const char *filename, const char *str, int append)
 // Callable
 // ------------------------------------
 
-void AddIntArg(int arg)
+EXPORT void CALL AddIntArg(int arg)
 {
 }
 
-void AddFloatArg(float arg)
+EXPORT void CALL AddFloatArg(float arg)
 {
 }
 
-void AddStringArg(const char *arg)
+EXPORT void CALL AddStringArg(const char *arg)
 {
 }
 
-void Call(const char *name)
+EXPORT void CALL Call(const char *name)
 {
 }
 
-int CallInt(const char *name)
+EXPORT int CALL CallInt(const char *name)
 {
   return 0;
 }
 
-float CallFloat(const char *name)
+EXPORT float CALL CallFloat(const char *name)
 {
   return 0.0f;
 }
 
-const char *CallString(const char *name)
+EXPORT const char *CALL CallString(const char *name)
 {
   return lstr_get("");
 }
 
-int Callable(const char *name)
+EXPORT int CALL Callable(const char *name)
 {
   return 0;
 }
