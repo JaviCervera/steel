@@ -28,4 +28,19 @@ extern "C"
 	{
 		GetEngine().graphics().rect(x, y, width, height);
 	}
+
+	EXPORT void CALL DrawTexture(Texture *tex, float x, float y)
+	{
+		GetEngine().graphics().texture(tex, 0, 0, 0, 0, x, y, 0, 0);
+	}
+
+	EXPORT void CALL DrawTextureEx(Texture *tex, float x, float y, float width, float height)
+	{
+		GetEngine().graphics().texture(tex, 0, 0, 0, 0, x, y, width, height);
+	}
+
+	EXPORT void CALL DrawTextureRect(Texture *tex, float src_x, float src_y, float src_width, float src_height, float dst_x, float dst_y, float dst_width, float dst_height)
+	{
+		GetEngine().graphics().texture(tex, src_x, src_y, src_width, src_height, dst_x, dst_y, dst_width, dst_height);
+	}
 }

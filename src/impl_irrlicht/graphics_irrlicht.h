@@ -37,6 +37,29 @@ struct GraphicsIrrlicht : public Graphics
 		video().draw2DRectangle(m_color, irr::core::rect<irr::s32>(x, y, x + width, y + height));
 	}
 
+	void texture(const Texture *tex, int src_x, int src_y, int src_width, int src_height, int dst_x, int dst_y, int dst_width, int dst_height)
+	{
+		if (!tex)
+			return;
+		irr::video::ITexture *itex = reinterpret_cast<irr::video::ITexture *>(const_cast<Texture *>(tex));
+		if (src_width == 0)
+			src_width = itex->getOriginalSize().Width - src_x;
+		if (src_height == 0)
+			src_height = itex->getOriginalSize().Height - src_y;
+		if (dst_width == 0)
+			dst_width = src_width;
+		if (dst_height == 0)
+			dst_height = src_height;
+		irr::video::SColor colors[] = {m_color, m_color, m_color, m_color};
+		video().draw2DImage(
+				itex,
+				irr::core::rect<irr::s32>(dst_x, dst_y, dst_x + dst_width, dst_y + dst_height),
+				irr::core::rect<irr::s32>(src_x, src_y, src_x + src_width, src_y + src_height),
+				NULL,
+				colors,
+				true);
+	}
+
 private:
 	PlatformIrrlicht *m_platform;
 	irr::video::SColor m_color;

@@ -40,7 +40,7 @@ while IsScreenOpened() do -- and not KeyHit(KEY_ESC) do
 		)
 	end
 
-	--Clear the screen to black
+	-- Clear the screen to black
 	Cls(RGB(0, 0, 0))
 
 	-- Draw all primitives

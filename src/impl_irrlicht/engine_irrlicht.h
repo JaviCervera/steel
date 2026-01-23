@@ -5,6 +5,7 @@
 #include "graphics_irrlicht.h"
 #include "platform_irrlicht.h"
 #include "screen_irrlicht.h"
+#include "texture_manager_irrlicht.h"
 
 struct EngineIrrlicht : public Engine
 {
@@ -12,7 +13,8 @@ struct EngineIrrlicht : public Engine
 			: m_platform(),
 				m_fs(m_platform),
 				m_graphics(m_platform),
-				m_screen(m_platform)
+				m_screen(m_platform),
+				m_tex_mgr(m_platform)
 	{
 	}
 
@@ -31,9 +33,15 @@ struct EngineIrrlicht : public Engine
 		return m_screen;
 	}
 
+	TextureManager &textureManager()
+	{
+		return m_tex_mgr;
+	}
+
 private:
 	PlatformIrrlicht m_platform;
 	FileSystemIrrlicht m_fs;
 	GraphicsIrrlicht m_graphics;
 	ScreenIrrlicht m_screen;
+	TextureManagerIrrlicht m_tex_mgr;
 };

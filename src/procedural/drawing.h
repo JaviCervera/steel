@@ -2,6 +2,8 @@
 
 #include "common.h"
 
+struct Texture;
+
 extern "C"
 {
 	EXPORT void CALL Cls(int color);
@@ -9,4 +11,7 @@ extern "C"
 	EXPORT void CALL DrawPlot(float x, float y);
 	EXPORT void CALL DrawLine(float x1, float y1, float x2, float y2);
 	EXPORT void CALL DrawRect(float x, float y, float width, float height);
+	EXPORT void CALL DrawTexture(Texture *tex, float x, float y);
+	EXPORT void CALL DrawTextureEx(Texture *tex, float x, float y, float width, float height);
+	EXPORT void CALL DrawTextureRect(Texture *tex, float src_x, float src_y, float src_width, float src_height, float dst_x, float dst_y, float dst_width, float dst_height);
 }
