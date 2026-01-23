@@ -27,7 +27,7 @@ end
 
 local primitives = {}
 
-while IsScreenOpened() do -- and not KeyHit(KEY_ESC) do
+while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- If we are below the limit, add a new primitive with random values
 	if #primitives < MAX_PRIMITIVES then
 		primitives[#primitives+1] = CreatePrimitive(

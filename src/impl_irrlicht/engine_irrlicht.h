@@ -3,6 +3,7 @@
 #include "../interface/engine.h"
 #include "file_system_irrlicht.h"
 #include "graphics_irrlicht.h"
+#include "input_irrlicht.h"
 #include "platform_irrlicht.h"
 #include "screen_irrlicht.h"
 #include "texture_manager_irrlicht.h"
@@ -13,6 +14,7 @@ struct EngineIrrlicht : public Engine
 			: m_platform(),
 				m_fs(m_platform),
 				m_graphics(m_platform),
+				m_input(m_platform),
 				m_screen(m_platform),
 				m_tex_mgr(m_platform)
 	{
@@ -26,6 +28,11 @@ struct EngineIrrlicht : public Engine
 	Graphics &graphics()
 	{
 		return m_graphics;
+	}
+
+	Input &input()
+	{
+		return m_input;
 	}
 
 	Screen &screen()
@@ -42,6 +49,7 @@ private:
 	PlatformIrrlicht m_platform;
 	FileSystemIrrlicht m_fs;
 	GraphicsIrrlicht m_graphics;
+	InputIrrlicht m_input;
 	ScreenIrrlicht m_screen;
 	TextureManagerIrrlicht m_tex_mgr;
 };

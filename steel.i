@@ -2,6 +2,7 @@
 %{
   #include "procedural/color.h"
   #include "procedural/drawing.h"
+  #include "procedural/input.h"
   #include "procedural/math.h"
   #include "procedural/memblock.h"
   #include "procedural/screen.h"
@@ -10,9 +11,11 @@
 
 typedef bool bool_t;
 
+%include "src/interface/input_codes.h"
 %include "src/procedural/common.h"
 %include "src/procedural/color.h"
 %include "src/procedural/drawing.h"
+%include "src/procedural/input.h"
 %include "src/procedural/math.h"
 %include "src/procedural/memblock.h"
 %include "src/procedural/screen.h"

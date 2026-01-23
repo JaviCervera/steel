@@ -114,6 +114,10 @@ SOURCE=..\src\procedural\memblock.cpp
 
 SOURCE=..\src\procedural\screen.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\texture.cpp
+# End Source File
 # End Group
 # Begin Group "lua"
 

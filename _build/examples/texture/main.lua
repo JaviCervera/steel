@@ -1,6 +1,8 @@
+SetScreenResizable(true)
+
 local tex = LoadTexture("logo_small.png")
 
-while IsScreenOpened() do -- and not KeyHit(KEY_ESC) do
+while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- Clear the screen to black
 	Cls(RGB(0, 0, 0))
 
