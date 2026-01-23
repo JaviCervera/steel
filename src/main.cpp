@@ -14,15 +14,15 @@
 
 int main(int argc, char *argv[])
 {
-  InitEngine();
-  atexit(FinishEngine);
-  OpenScreen(640, 480, FALSE);
-  const std::string path = (argc > 1) ? (std::string(argv[1]) + "/") : "";
-  if (path != "")
-    GetEngine().fileSystem().changeDir(path.c_str());
-  GetEngine().fileSystem().addZip(PACKAGE_FILE);
-  ScriptingLua vm;
-  if (!vm.load(SCRIPT_FILE))
-    Error(vm.error());
-  return 0;
+	InitEngine();
+	atexit(FinishEngine);
+	OpenScreen(640, 480, FALSE);
+	const std::string path = (argc > 1) ? (std::string(argv[1]) + "/") : "";
+	if (path != "")
+		GetEngine().fileSystem().changeDir(path.c_str());
+	GetEngine().fileSystem().addZip(PACKAGE_FILE);
+	ScriptingLua vm;
+	if (!vm.load(SCRIPT_FILE))
+		Error(vm.error());
+	return 0;
 }

@@ -10,9 +10,9 @@
 void Error(const char *msg)
 {
 #ifdef _WIN32
-  MessageBoxA(NULL, msg, "Error", MB_OK | MB_ICONERROR);
+	MessageBoxA(NULL, msg, "Error", MB_OK | MB_ICONERROR);
 #else
-  fprintf(stderr, "Error: %s\n", msg);
+	fprintf(stderr, "Error: %s\n", msg);
 #endif
-  exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }

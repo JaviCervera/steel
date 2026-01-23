@@ -16,79 +16,79 @@
 
 struct Color
 {
-  static int rgb(int r, int g, int b, int a = 255)
-  {
-    r = clamp(r, 0, 255);
-    g = clamp(g, 0, 255);
-    b = clamp(b, 0, 255);
-    a = clamp(a, 0, 255);
-    return (a << 24) | (r << 16) | (g << 8) | b;
-  }
+	static int rgb(int r, int g, int b, int a = 255)
+	{
+		r = clamp(r, 0, 255);
+		g = clamp(g, 0, 255);
+		b = clamp(b, 0, 255);
+		a = clamp(a, 0, 255);
+		return (a << 24) | (r << 16) | (g << 8) | b;
+	}
 
-  static int rgbf(float r, float g, float b, float a)
-  {
-    return rgb(int(r * 255), int(g * 255), int(b * 255), int(a * 255));
-  }
+	static int rgbf(float r, float g, float b, float a)
+	{
+		return rgb(int(r * 255), int(g * 255), int(b * 255), int(a * 255));
+	}
 
-  static int red(int color)
-  {
-    return (color >> 16) & 0xff;
-  }
+	static int red(int color)
+	{
+		return (color >> 16) & 0xff;
+	}
 
-  static int green(int color)
-  {
-    return (color >> 8) & 0xff;
-  }
+	static int green(int color)
+	{
+		return (color >> 8) & 0xff;
+	}
 
-  static int blue(int color)
-  {
-    return color & 0xff;
-  }
+	static int blue(int color)
+	{
+		return color & 0xff;
+	}
 
-  static int alpha(int color)
-  {
-    return (color >> 24) & 0xff;
-  }
+	static int alpha(int color)
+	{
+		return (color >> 24) & 0xff;
+	}
 
-  static float redf(int color)
-  {
-    return float(red(color)) / 255.0f;
-  }
+	static float redf(int color)
+	{
+		return float(red(color)) / 255.0f;
+	}
 
-  static float greenf(int color)
-  {
-    return float(green(color)) / 255.0f;
-  }
+	static float greenf(int color)
+	{
+		return float(green(color)) / 255.0f;
+	}
 
-  static float bluef(int color)
-  {
-    return float(blue(color)) / 255.0f;
-  }
+	static float bluef(int color)
+	{
+		return float(blue(color)) / 255.0f;
+	}
 
-  static float alphaf(int color)
-  {
-    return float(alpha(color)) / 255.0f;
-  }
+	static float alphaf(int color)
+	{
+		return float(alpha(color)) / 255.0f;
+	}
 
-  static int fade(int color, int new_alpha)
-  {
-    return (clamp(new_alpha, 0, 255) << 24) | (color & 0x00ffffff);
-  }
+	static int fade(int color, int new_alpha)
+	{
+		return (clamp(new_alpha, 0, 255) << 24) | (color & 0x00ffffff);
+	}
 
-  static int multiply(int color, float factor)
-  {
-    return rgbf(redf(color) * factor, greenf(color) * factor, bluef(color) * factor, alphaf(color));
-  }
+	static int multiply(int color, float factor)
+	{
+		return rgbf(redf(color) * factor, greenf(color) * factor, bluef(color) * factor, alphaf(color));
+	}
 
-  static int swap(int color)
-  {
-    return rgb(blue(color), green(color), red(color), alpha(color));
-  }
+	static int swap(int color)
+	{
+		return rgb(blue(color), green(color), red(color), alpha(color));
+	}
 
 private:
-  static int clamp(int value, int min, int max)
-  {
-    return (value < min) ? min : (value > max) ? max
-                                               : value;
-  }
+	static int clamp(int value, int min, int max)
+	{
+		return (value < min) ? min : (value > max) ? max
+																							 : value;
+	}
 };

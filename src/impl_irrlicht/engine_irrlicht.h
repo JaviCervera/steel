@@ -8,32 +8,32 @@
 
 struct EngineIrrlicht : public Engine
 {
-  EngineIrrlicht()
-      : m_platform(),
-        m_fs(m_platform),
-        m_graphics(m_platform),
-        m_screen(m_platform)
-  {
-  }
+	EngineIrrlicht()
+			: m_platform(),
+				m_fs(m_platform),
+				m_graphics(m_platform),
+				m_screen(m_platform)
+	{
+	}
 
-  FileSystem &fileSystem()
-  {
-    return m_fs;
-  }
+	FileSystem &fileSystem()
+	{
+		return m_fs;
+	}
 
-  Graphics &graphics()
-  {
-    return m_graphics;
-  }
+	Graphics &graphics()
+	{
+		return m_graphics;
+	}
 
-  Screen &screen()
-  {
-    return m_screen;
-  }
+	Screen &screen()
+	{
+		return m_screen;
+	}
 
 private:
-  PlatformIrrlicht m_platform;
-  FileSystemIrrlicht m_fs;
-  GraphicsIrrlicht m_graphics;
-  ScreenIrrlicht m_screen;
+	PlatformIrrlicht m_platform;
+	FileSystemIrrlicht m_fs;
+	GraphicsIrrlicht m_graphics;
+	ScreenIrrlicht m_screen;
 };
