@@ -63,7 +63,7 @@ private:
 		if (lua_gettop(L) > 0)
 		{
 			const std::string filename = lua_tostring(L, 1);
-			const std::string fixedFilename = (filename.find(".") == std::string::npos)
+			const std::string fixedFilename = (filename.find(".") == -1)
 																						? (const std::string)(filename + std::string(".lua"))
 																						: filename;
 			Memblock *memblock = LoadMemblock(fixedFilename.c_str());

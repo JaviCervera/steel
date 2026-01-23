@@ -114,7 +114,7 @@ extern "C"
 
 	EXPORT void CALL RandSeed(int seed)
 	{
-		return srand(seed);
+		srand(seed);
 	}
 
 	EXPORT float CALL Deg(float rad)

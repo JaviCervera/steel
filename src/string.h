@@ -4,15 +4,13 @@
 
 namespace std
 {
-	struct string : public irr::core::stringc
+	struct string : public irr::core::string<irr::c8>
 	{
-		static const size_t npos = -1;
+		string(const char *s = "") : irr::core::string<irr::c8>(s) {}
 
-		string(const char *s = "") : irr::core::stringc(s) {}
+		string(const string &other) : irr::core::string<irr::c8>(other) {}
 
-		string(const string &other) : irr::core::stringc(other) {}
-
-		string(const irr::core::stringc &other) : irr::core::stringc(other) {}
+		string(const irr::core::stringc &other) : irr::core::string<irr::c8>(other) {}
 
 		size_t length() const { return size(); }
 
@@ -24,9 +22,9 @@ namespace std
 				append(c);
 		}
 
-		string substr(size_t pos, size_t len = npos) const
+		string substr(size_t pos, size_t len = -1) const
 		{
-			return subString(pos, (len != npos) ? len : (size() - pos));
+			return subString(pos, (len != -1) ? len : (size() - pos));
 		}
 	};
 

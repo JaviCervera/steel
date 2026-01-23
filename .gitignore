@@ -34,8 +34,14 @@
 .vscode
 _CMAKE
 _build/help/index.html
+!_build/Irrlicht.dll
+!lib/irrlicht131/lib/Irrlicht.lib
 build
 doc_out
-lib/irrlicht12/Irrlicht.chw
 src/lua_wrapper.cpp
+vc6/Debug
+vc6/Release
+vc6/steel.ncb
+vc6/steel.opt
+vc6/steel.plg
 TDM-GCC-32
