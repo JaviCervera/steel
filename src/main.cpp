@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     GetEngine().fileSystem().changeDir(path.c_str());
   GetEngine().fileSystem().addZip(PACKAGE_FILE);
   ScriptingLua vm;
-  if (!vm.loadScript(SCRIPT_FILE))
+  if (!vm.load(SCRIPT_FILE))
     Error(vm.error());
   return 0;
 }
