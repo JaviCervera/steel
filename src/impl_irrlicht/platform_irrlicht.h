@@ -20,7 +20,18 @@ struct PlatformIrrlicht
 	void openScreen(int width, int height, bool fullscreen)
 	{
 		closeScreen();
-		m_device = irr::createDevice(irr::video::EDT_OPENGL, irr::core::dimension2d<irr::s32>(width, height), 32, fullscreen, false, false, NULL);
+		m_device = irr::createDevice(
+#ifdef _MSC_VER
+				irr::video::EDT_BURNINGSVIDEO,
+#else
+				irr::video::EDT_OPENGL,
+#endif
+				irr::core::dimension2d<irr::s32>(width, height),
+				32, // TODO: Use desktop depth
+				fullscreen,
+				false,
+				false,
+				NULL);
 		if (m_device)
 		{
 			m_device->getVideoDriver()->beginScene(false, false, irr::video::SColor());
