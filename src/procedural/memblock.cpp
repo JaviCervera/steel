@@ -7,14 +7,14 @@
 
 extern "C"
 {
-  Memblock *CreateMemblock(int size)
+  EXPORT Memblock *CALL CreateMemblock(int size)
   {
     char *memblock = (char *)calloc(1, size + 4);
     ((int *)memblock)[0] = (int)size;
     return (Memblock *)((int *)memblock + 1);
   }
 
-  Memblock *LoadMemblock(const char *filename)
+  EXPORT Memblock *CALL LoadMemblock(const char *filename)
   {
     const size_t size = GetEngine().fileSystem().fileSize(filename);
     if (size == size_t(-1))
@@ -24,7 +24,7 @@ extern "C"
     return memblock;
   }
 
-  void SaveMemblock(Memblock *memblock, const char *filename)
+  EXPORT void CALL SaveMemblock(Memblock *memblock, const char *filename)
   {
     FILE *f = fopen(filename, "wb");
     if (!f)
@@ -33,39 +33,39 @@ extern "C"
     fclose(f);
   }
 
-  void FreeMemblock(Memblock *memblock)
+  EXPORT void CALL FreeMemblock(Memblock *memblock)
   {
     free((int *)memblock - 1);
   }
 
-  int GetMemblockSize(const Memblock *memblock)
+  EXPORT int CALL GetMemblockSize(const Memblock *memblock)
   {
     return ((const int *)memblock - 1)[0];
   }
 
-  void PokeByte(Memblock *memblock, int offset, int val)
+  EXPORT void CALL PokeByte(Memblock *memblock, int offset, int val)
   {
     unsigned char b = (unsigned char)val;
     memcpy((char *)memblock + offset, &b, sizeof(unsigned char));
   }
 
-  void PokeShort(Memblock *memblock, int offset, int val)
+  EXPORT void CALL PokeShort(Memblock *memblock, int offset, int val)
   {
     unsigned short s = (unsigned short)val;
     memcpy((char *)memblock + offset, &s, sizeof(unsigned short));
   }
 
-  void PokeInt(Memblock *memblock, int offset, int val)
+  EXPORT void CALL PokeInt(Memblock *memblock, int offset, int val)
   {
     memcpy((char *)memblock + offset, &val, sizeof(val));
   }
 
-  void PokeFloat(Memblock *memblock, int offset, float val)
+  EXPORT void CALL PokeFloat(Memblock *memblock, int offset, float val)
   {
     memcpy((char *)memblock + offset, &val, sizeof(val));
   }
 
-  void PokeString(Memblock *memblock, int offset, const char *val)
+  EXPORT void CALL PokeString(Memblock *memblock, int offset, const char *val)
   {
     const int len = (int)strlen(val);
     PokeInt(memblock, offset, len);
@@ -75,35 +75,35 @@ extern "C"
     }
   }
 
-  int PeekByte(const Memblock *memblock, int offset)
+  EXPORT int CALL PeekByte(const Memblock *memblock, int offset)
   {
     unsigned char val;
     memcpy(&val, (const char *)memblock + offset, sizeof(val));
     return val;
   }
 
-  int PeekShort(const Memblock *memblock, int offset)
+  EXPORT int CALL PeekShort(const Memblock *memblock, int offset)
   {
     unsigned short val;
     memcpy(&val, (const char *)memblock + offset, sizeof(val));
     return val;
   }
 
-  int PeekInt(const Memblock *memblock, int offset)
+  EXPORT int CALL PeekInt(const Memblock *memblock, int offset)
   {
     int val;
     memcpy(&val, (const char *)memblock + offset, sizeof(val));
     return val;
   }
 
-  float PeekFloat(const Memblock *memblock, int offset)
+  EXPORT float CALL PeekFloat(const Memblock *memblock, int offset)
   {
     float val;
     memcpy(&val, (const char *)memblock + offset, sizeof(val));
     return val;
   }
 
-  const char *PeekString(const Memblock *memblock, int offset)
+  EXPORT const char *CALL PeekString(const Memblock *memblock, int offset)
   {
     static char *result = NULL;
     if (result)
