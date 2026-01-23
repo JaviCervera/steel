@@ -10,7 +10,7 @@
 #include "string.h"
 
 #define SCRIPT_FILE "main.lua"
-#define PACKAGE_FILE "package.dat"
+#define PACKAGE_FILE "main.dat"
 
 int main(int argc, char *argv[])
 {
