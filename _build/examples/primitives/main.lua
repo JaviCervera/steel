@@ -1,3 +1,6 @@
+SetScreenTitle("STEEL Game Engine - Primitive Drawing Example")
+SetScreenResizable(true)
+
 -- Max number of primitives to draw
 MAX_PRIMITIVES = 1000
 

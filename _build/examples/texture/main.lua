@@ -1,3 +1,4 @@
+SetScreenTitle("STEEL Game Engine - Texture Drawing Example")
 SetScreenResizable(true)
 
 local tex = LoadTexture("logo_small.png")

@@ -1,3 +1,4 @@
+SetScreenTitle("STEEL Game Engine - Pixmap Example")
 SetScreenResizable(true)
 
 -- Create a pixmap
