@@ -24,16 +24,6 @@ extern "C"
 		GetEngine().textureManager().clearTextureCache();
 	}
 
-	EXPORT void CALL SetTextureColorKey(Texture *tex, int color)
-	{
-		GetEngine().textureManager().textureColorKey(tex, color);
-	}
-
-	EXPORT void CALL NormalizeTexture(Texture *tex, float amplitude)
-	{
-		GetEngine().textureManager().normalizeTexture(tex, amplitude);
-	}
-
 	EXPORT int CALL GetTextureWidth(const Texture *tex)
 	{
 		return GetEngine().textureManager().textureWidth(tex);

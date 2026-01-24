@@ -35,18 +35,6 @@ struct TextureManagerIrrlicht : public TextureManager
 		video().removeAllTextures();
 	}
 
-	void textureColorKey(Texture *tex, int color)
-	{
-		if (tex)
-			video().makeColorKeyTexture(reinterpret_cast<irr::video::ITexture *>(tex), irr::video::SColor(color));
-	}
-
-	void normalizeTexture(Texture *tex, float amplitude)
-	{
-		if (tex)
-			video().makeNormalMapTexture(reinterpret_cast<irr::video::ITexture *>(tex), amplitude);
-	}
-
 	int textureWidth(const Texture *tex)
 	{
 		return tex
