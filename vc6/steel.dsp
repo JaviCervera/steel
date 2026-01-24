@@ -104,11 +104,23 @@ SOURCE=..\src\procedural\engine.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\font.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\input.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\math.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=..\src\procedural\memblock.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\pixmap.cpp
 # End Source File
 # Begin Source File
 
