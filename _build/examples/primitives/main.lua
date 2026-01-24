@@ -1,6 +1,3 @@
-SetScreenTitle("STEEL Game Engine - Primitive Drawing Example")
-SetScreenResizable(true)
-
 -- Max number of primitives to draw
 MAX_PRIMITIVES = 1000
 
@@ -28,7 +25,11 @@ function DrawPrimitive(prim)
 	end
 end
 
+SetScreenTitle("STEEL Game Engine - Primitive Drawing Example")
+SetScreenResizable(true)
+
 local primitives = {}
+local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- If we are below the limit, add a new primitive with random values
@@ -52,8 +53,9 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	end
 
 	-- Draw statistics texts
-	--DrawText(nil, Str(ScreenFPS()) .. " FPS", 2, 2, RGB(255, 255, 255))
-	--DrawText(nil, Str(#primitives) .. " primitives", 2, 14, RGB(255, 255, 255))
+	SetColor(RGB(255, 255, 255))
+	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	DrawText(font, tostring(#primitives) .. " primitives", 2, 22)
 
 	-- Present changes on screen
 	RefreshScreen()

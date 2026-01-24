@@ -2,6 +2,7 @@
 
 #include "../interface/engine.h"
 #include "file_system_irrlicht.h"
+#include "font_manager_impl.h"
 #include "graphics_irrlicht.h"
 #include "input_irrlicht.h"
 #include "pixmap_manager_irrlicht.h"
@@ -18,13 +19,19 @@ struct EngineIrrlicht : public Engine
 				m_input(m_platform),
 				m_pixmap_mgr(m_platform),
 				m_screen(m_platform),
-				m_tex_mgr(m_platform)
+				m_tex_mgr(m_platform),
+				m_font_mgr(m_graphics, m_pixmap_mgr, m_tex_mgr, m_fs)
 	{
 	}
 
 	FileSystem &fileSystem()
 	{
 		return m_fs;
+	}
+
+	FontManager &fontManager()
+	{
+		return m_font_mgr;
 	}
 
 	Graphics &graphics()
@@ -60,4 +67,5 @@ private:
 	PixmapManagerIrrlicht m_pixmap_mgr;
 	ScreenIrrlicht m_screen;
 	TextureManagerIrrlicht m_tex_mgr;
+	FontManagerImpl m_font_mgr;
 };

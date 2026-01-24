@@ -1,6 +1,7 @@
 SetScreenTitle("STEEL Game Engine - Texture Drawing Example")
 SetScreenResizable(true)
 
+local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
 local tex = LoadTexture("logo_small.png")
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
@@ -17,6 +18,9 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 		tex,
 		(GetScreenWidth() - GetTextureWidth(tex)) / 2,
 		(GetScreenHeight() - GetTextureHeight(tex)) / 2)
+
+	-- Draw fps
+	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 
 	-- Present changes on screen
 	RefreshScreen()

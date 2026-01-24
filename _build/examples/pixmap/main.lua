@@ -1,6 +1,8 @@
 SetScreenTitle("STEEL Game Engine - Pixmap Example")
 SetScreenResizable(true)
 
+local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+
 -- Create a pixmap
 local pixmap = CreatePixmap(256, 256)
 
@@ -26,6 +28,9 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 
 	-- Draw texture covering full screen
 	DrawTextureEx(tex, 0, 0, GetScreenWidth(), GetScreenHeight())
+
+	-- Draw fps
+	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 
 	-- Present changes on screen
 	RefreshScreen()

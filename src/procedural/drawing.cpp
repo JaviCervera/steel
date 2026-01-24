@@ -1,3 +1,4 @@
+#include "../interface/font_manager.h"
 #include "../interface/graphics.h"
 #include "engine_internal.h"
 #include "drawing.h"
@@ -27,6 +28,11 @@ extern "C"
 	EXPORT void CALL DrawRect(float x, float y, float width, float height)
 	{
 		GetEngine().graphics().rect(x, y, width, height);
+	}
+
+	EXPORT void CALL DrawText(Font *font, const char *text, int x, int y)
+	{
+		GetEngine().fontManager().drawText(font, text, x, y);
 	}
 
 	EXPORT void CALL DrawTexture(Texture *tex, float x, float y)
