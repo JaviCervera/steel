@@ -15,7 +15,7 @@ struct TextureManagerIrrlicht : public TextureManager
 		return reinterpret_cast<Texture *>(video().addTexture(
 				irr::core::dimension2di(width, height),
 				"",
-				format()));
+				m_platform->colorFormat()));
 	}
 
 	Texture *createTexture(const Pixmap *pixmap)
@@ -33,17 +33,6 @@ struct TextureManagerIrrlicht : public TextureManager
 	void clearTextureCache()
 	{
 		video().removeAllTextures();
-	}
-
-	void *lockTexture(Texture *tex)
-	{
-		return tex ? reinterpret_cast<irr::video::ITexture *>(tex)->lock() : NULL;
-	}
-
-	void unlockTexture(Texture *tex)
-	{
-		if (tex)
-			reinterpret_cast<irr::video::ITexture *>(tex)->unlock();
 	}
 
 	void textureColorKey(Texture *tex, int color)
@@ -85,12 +74,5 @@ private:
 	irr::video::IVideoDriver &video()
 	{
 		return *m_platform->device().getVideoDriver();
-	}
-
-	irr::video::ECOLOR_FORMAT format()
-	{
-		return video().getTextureCreationFlag(irr::video::ETCF_ALWAYS_32_BIT)
-							 ? irr::video::ECF_A8R8G8B8
-							 : irr::video::ECF_A1R5G5B5;
 	}
 };

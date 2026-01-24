@@ -24,16 +24,6 @@ extern "C"
 		GetEngine().textureManager().clearTextureCache();
 	}
 
-	EXPORT void *CALL LockTexture(Texture *tex)
-	{
-		return GetEngine().textureManager().lockTexture(tex);
-	}
-
-	EXPORT void CALL UnlockTexture(Texture *tex)
-	{
-		GetEngine().textureManager().unlockTexture(tex);
-	}
-
 	EXPORT void CALL SetTextureColorKey(Texture *tex, int color)
 	{
 		GetEngine().textureManager().textureColorKey(tex, color);

@@ -11,8 +11,6 @@ extern "C"
 	EXPORT Texture *CALL CreateTextureFromPixmap(Pixmap *pixmap);
 	EXPORT Texture *CALL LoadTexture(const char *filename);
 	EXPORT void CALL ClearTextureCache();
-	EXPORT void *CALL LockTexture(Texture *tex);
-	EXPORT void CALL UnlockTexture(Texture *tex);
 	EXPORT void CALL SetTextureColorKey(Texture *tex, int color);
 	EXPORT void CALL NormalizeTexture(Texture *tex, float amplitude);
 	EXPORT int CALL GetTextureWidth(const Texture *tex);

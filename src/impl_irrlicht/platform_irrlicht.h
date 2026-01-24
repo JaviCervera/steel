@@ -280,6 +280,13 @@ struct PlatformIrrlicht
 		return Color::rgb(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 	}
 
+	irr::video::ECOLOR_FORMAT colorFormat()
+	{
+		return m_device->getVideoDriver()->getTextureCreationFlag(irr::video::ETCF_ALWAYS_32_BIT)
+							 ? irr::video::ECF_A8R8G8B8
+							 : irr::video::ECF_A1R5G5B5;
+	}
+
 private:
 	irr::IrrlichtDevice *m_device;
 	bool m_running;

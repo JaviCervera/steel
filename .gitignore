@@ -38,6 +38,7 @@ _build/help/index.html
 !lib/irrlicht131/lib/Irrlicht.lib
 build
 doc_out
+lib/irrlicht131/doc/irrlicht.chw
 src/lua_wrapper.cpp
 vc6/Debug
 vc6/Release

@@ -5,6 +5,7 @@
   #include "procedural/input.h"
   #include "procedural/math.h"
   #include "procedural/memblock.h"
+  #include "procedural/pixmap.h"
   #include "procedural/screen.h"
   #include "procedural/texture.h"
 %}
@@ -18,5 +19,6 @@ typedef bool bool_t;
 %include "src/procedural/input.h"
 %include "src/procedural/math.h"
 %include "src/procedural/memblock.h"
+%include "src/procedural/pixmap.h"
 %include "src/procedural/screen.h"
 %include "src/procedural/texture.h"
