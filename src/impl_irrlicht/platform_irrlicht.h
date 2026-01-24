@@ -266,20 +266,6 @@ struct PlatformIrrlicht
 		return *m_device;
 	}
 
-	static irr::video::SColor irrColor(int color)
-	{
-		return irr::video::SColor(
-				Color::alpha(color),
-				Color::red(color),
-				Color::green(color),
-				Color::blue(color));
-	}
-
-	static int color(const irr::video::SColor &color)
-	{
-		return Color::rgb(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
-	}
-
 	irr::video::ECOLOR_FORMAT colorFormat()
 	{
 		return m_device->getVideoDriver()->getTextureCreationFlag(irr::video::ETCF_ALWAYS_32_BIT)

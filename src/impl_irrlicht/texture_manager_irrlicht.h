@@ -38,7 +38,7 @@ struct TextureManagerIrrlicht : public TextureManager
 	void textureColorKey(Texture *tex, int color)
 	{
 		if (tex)
-			video().makeColorKeyTexture(reinterpret_cast<irr::video::ITexture *>(tex), m_platform->irrColor(color));
+			video().makeColorKeyTexture(reinterpret_cast<irr::video::ITexture *>(tex), irr::video::SColor(color));
 	}
 
 	void normalizeTexture(Texture *tex, float amplitude)

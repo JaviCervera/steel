@@ -14,12 +14,12 @@ struct GraphicsIrrlicht : public Graphics
 
 	void cls(int color)
 	{
-		video().setRenderTarget(NULL, true, false, m_platform->irrColor(color));
+		video().setRenderTarget(NULL, true, false, irr::video::SColor(color));
 	}
 
 	void color(int color)
 	{
-		m_color = m_platform->irrColor(color);
+		m_color = irr::video::SColor(color);
 	}
 
 	void plot(float x, float y)
