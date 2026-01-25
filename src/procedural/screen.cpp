@@ -1,4 +1,6 @@
+#include "../interface/file_system.h"
 #include "../interface/screen.h"
+#include "data_file.h"
 #include "engine_internal.h"
 #include "screen.h"
 
@@ -7,6 +9,7 @@ extern "C"
 	EXPORT void CALL OpenScreen(int width, int height, bool_t fullscreen)
 	{
 		GetEngine().screen().open(width, height, fullscreen);
+		GetEngine().fileSystem().addZip(DATA_FILE);
 	}
 
 	EXPORT void CALL CloseScreen()

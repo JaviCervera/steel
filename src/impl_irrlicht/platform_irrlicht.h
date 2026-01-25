@@ -77,12 +77,13 @@ private:
 		m_mouse_button_was_hit[button] = pressed;
 		m_mouse_button_down[button] = pressed;
 	}
-} g_event_receiver;
+};
 
 struct PlatformIrrlicht
 {
 	PlatformIrrlicht()
-			: m_device(NULL),
+			: m_event_receiver(),
+				m_device(NULL),
 				m_running(false),
 				m_last_msecs(0),
 				m_frame_msecs(0),
@@ -108,7 +109,7 @@ struct PlatformIrrlicht
 				fullscreen,
 				false,
 				false,
-				&g_event_receiver);
+				&m_event_receiver);
 		if (m_device)
 		{
 			m_device->getVideoDriver()->beginScene(false, false, irr::video::SColor());
@@ -226,27 +227,27 @@ struct PlatformIrrlicht
 
 	int getMouseZ() const
 	{
-		return g_event_receiver.m_mouse_wheel;
+		return m_event_receiver.m_mouse_wheel;
 	}
 
 	bool isMouseButtonDown(int button) const
 	{
-		return g_event_receiver.m_mouse_button_down[button];
+		return m_event_receiver.m_mouse_button_down[button];
 	}
 
 	bool isMouseButtonHit(int button) const
 	{
-		return g_event_receiver.m_mouse_button_hit[button];
+		return m_event_receiver.m_mouse_button_hit[button];
 	}
 
 	bool isKeyDown(int key) const
 	{
-		return g_event_receiver.m_key_down[key];
+		return m_event_receiver.m_key_down[key];
 	}
 
 	bool isKeyHit(int key) const
 	{
-		return g_event_receiver.m_key_hit[key];
+		return m_event_receiver.m_key_hit[key];
 	}
 
 	irr::IrrlichtDevice &device()
@@ -264,6 +265,7 @@ struct PlatformIrrlicht
 	}
 
 private:
+	IrrlichtEventReceiver m_event_receiver;
 	irr::IrrlichtDevice *m_device;
 	bool m_running;
 	int m_last_msecs;

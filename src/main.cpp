@@ -2,6 +2,7 @@
 #include "error.h"
 #include "interface/file_system.h"
 #include "procedural/color.h"
+#include "procedural/data_file.h"
 #include "procedural/drawing.h"
 #include "procedural/engine.h"
 #include "procedural/engine_internal.h"
@@ -10,7 +11,6 @@
 #include "string.h"
 
 #define SCRIPT_FILE "main.lua"
-#define PACKAGE_FILE "main.dat"
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	const std::string path = (argc > 1) ? (std::string(argv[1]) + "/") : "";
 	if (path != "")
 		GetEngine().fileSystem().changeDir(path.c_str());
-	GetEngine().fileSystem().addZip(PACKAGE_FILE);
+	GetEngine().fileSystem().addZip(DATA_FILE);
 	ScriptingLua vm;
 	if (!vm.load(SCRIPT_FILE))
 		Error(vm.error());
