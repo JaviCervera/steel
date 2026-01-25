@@ -7,6 +7,7 @@ struct FontManager;
 struct GraphicsManager;
 struct InputManager;
 struct PixmapManager;
+struct SceneManager;
 struct ScreenManager;
 struct TextureManager;
 
@@ -20,6 +21,7 @@ struct Engine
 	virtual GraphicsManager &graphicsManager() = 0;
 	virtual InputManager &inputManager() = 0;
 	virtual PixmapManager &pixmapManager() = 0;
+	virtual SceneManager &sceneManager() = 0;
 	virtual ScreenManager &screenManager() = 0;
 	virtual TextureManager &textureManager() = 0;
 };
