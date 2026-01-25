@@ -112,7 +112,7 @@ struct PlatformIrrlicht
 				&m_event_receiver);
 		if (m_device)
 		{
-			m_device->getVideoDriver()->beginScene(false, false, irr::video::SColor());
+			m_device->getVideoDriver()->beginScene(false, false, irr::video::SColor(COLOR_BLACK));
 			m_running = true;
 			m_last_msecs = m_device->getTimer()->getRealTime();
 			m_delta = 0;
@@ -125,6 +125,7 @@ struct PlatformIrrlicht
 		{
 			m_device->getVideoDriver()->endScene();
 			m_device->closeDevice();
+			m_device->run();
 			m_device->drop();
 			m_device = NULL;
 			m_running = false;
@@ -155,11 +156,13 @@ struct PlatformIrrlicht
 		{
 			m_device->getVideoDriver()->endScene();
 			m_running = m_device->run() && m_device->getVideoDriver() != NULL;
+			if (!m_running)
+				return;
 			const int msecs = m_device->getTimer()->getRealTime();
 			const int delta_msecs = msecs - m_last_msecs;
 			const int wait = m_frame_msecs - delta_msecs;
 			const int fixed_wait = (wait > 0) ? wait : 0;
-			if (m_running && fixed_wait > 0)
+			if (fixed_wait > 0)
 				m_device->sleep(fixed_wait);
 			const int msecs_after = m_device->getTimer()->getRealTime();
 			m_delta = (msecs_after - m_last_msecs) / 1000.0f;
