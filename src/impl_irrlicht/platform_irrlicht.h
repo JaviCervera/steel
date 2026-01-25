@@ -104,7 +104,7 @@ struct PlatformIrrlicht
 				irr::video::EDT_OPENGL,
 				// #endif
 				irr::core::dimension2d<irr::s32>(width, height),
-				32, // TODO: Use desktop depth
+				desktopDepth(),
 				fullscreen,
 				false,
 				false,
@@ -174,37 +174,27 @@ struct PlatformIrrlicht
 
 	int screenWidth() const
 	{
-		if (m_device)
-			return m_device->getVideoDriver()->getScreenSize().Width;
-		return 0;
+		return m_device ? m_device->getVideoDriver()->getScreenSize().Width : 0;
 	}
 
 	int screenHeight() const
 	{
-		if (m_device)
-			return m_device->getVideoDriver()->getScreenSize().Height;
-		return 0;
+		return m_device ? m_device->getVideoDriver()->getScreenSize().Height : 0;
 	}
 
 	int screenFPS() const
 	{
-		if (m_device)
-			return m_device->getVideoDriver()->getFPS();
-		return 0;
+		return m_device ? m_device->getVideoDriver()->getFPS() : 0;
 	}
 
 	int desktopWidth() const
 	{
-		if (m_device)
-			return m_device->getVideoModeList()->getDesktopResolution().Width;
-		return 0;
+		return m_device ? m_device->getVideoModeList()->getDesktopResolution().Width : 0;
 	}
 
 	int desktopHeight() const
 	{
-		if (m_device)
-			return m_device->getVideoModeList()->getDesktopResolution().Height;
-		return 0;
+		return m_device ? m_device->getVideoModeList()->getDesktopResolution().Height : 0;
 	}
 
 	float delta() const
@@ -279,4 +269,12 @@ private:
 	int m_last_msecs;
 	int m_frame_msecs;
 	float m_delta;
+
+	static int desktopDepth()
+	{
+		irr::IrrlichtDevice *device = irr::createDevice(irr::video::EDT_NULL);
+		const int depth = device->getVideoModeList()->getDesktopDepth();
+		device->drop();
+		return depth;
+	}
 };
