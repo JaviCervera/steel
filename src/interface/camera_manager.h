@@ -1,6 +1,10 @@
 #pragma once
 
-struct Camera;
+#include "entity_manager.h"
+
+struct Camera : public Entity
+{
+};
 
 struct CameraManager
 {

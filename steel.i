@@ -8,6 +8,7 @@
   #include "procedural/input.h"
   #include "procedural/math.h"
   #include "procedural/memblock.h"
+  #include "procedural/model.h"
   #include "procedural/pixmap.h"
   #include "procedural/scene.h"
   #include "procedural/screen.h"
@@ -15,6 +16,9 @@
 %}
 
 typedef bool bool_t;
+class Entity { protected: Entity(); ~Entity(); };
+class Camera : public Entity { protected: Camera(); ~Camera(); };
+class Model : public Entity { protected: Model(); ~Model(); };
 
 %include "src/interface/input_codes.h"
 %include "src/procedural/common.h"
@@ -26,6 +30,7 @@ typedef bool bool_t;
 %include "src/procedural/input.h"
 %include "src/procedural/math.h"
 %include "src/procedural/memblock.h"
+%include "src/procedural/model.h"
 %include "src/procedural/pixmap.h"
 %include "src/procedural/scene.h"
 %include "src/procedural/screen.h"

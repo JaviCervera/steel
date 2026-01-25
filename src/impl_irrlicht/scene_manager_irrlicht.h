@@ -6,7 +6,10 @@
 struct SceneManagerIrrlicht : public SceneManager
 {
 	SceneManagerIrrlicht(PlatformIrrlicht &platform)
-			: m_platform(&platform), m_coords() {}
+			: m_platform(&platform), m_coords()
+	{
+		scene().setAmbientLight(irr::video::SColor(COLOR_WHITE));
+	}
 
 	void drawScene(const Camera *camera)
 	{

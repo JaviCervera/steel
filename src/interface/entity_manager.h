@@ -2,7 +2,10 @@
 
 #include <stddef.h>
 
-struct Entity;
+struct Entity
+{
+};
+
 struct Material;
 
 struct EntityManager
