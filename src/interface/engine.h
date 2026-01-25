@@ -1,5 +1,6 @@
 #pragma once
 
+struct EntityManager;
 struct FileSystem;
 struct FontManager;
 struct GraphicsManager;
@@ -11,6 +12,7 @@ struct TextureManager;
 struct Engine
 {
 	virtual ~Engine() {};
+	virtual EntityManager &entityManager() = 0;
 	virtual FileSystem &fileSystem() = 0;
 	virtual FontManager &fontManager() = 0;
 	virtual GraphicsManager &graphicsManager() = 0;

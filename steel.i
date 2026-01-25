@@ -2,6 +2,7 @@
 %{
   #include "procedural/color.h"
   #include "procedural/drawing.h"
+  #include "procedural/entity.h"
   #include "procedural/font.h"
   #include "procedural/input.h"
   #include "procedural/math.h"
@@ -17,6 +18,7 @@ typedef bool bool_t;
 %include "src/procedural/common.h"
 %include "src/procedural/color.h"
 %include "src/procedural/drawing.h"
+%include "src/procedural/entity.h"
 %include "src/procedural/font.h"
 %include "src/procedural/input.h"
 %include "src/procedural/math.h"
