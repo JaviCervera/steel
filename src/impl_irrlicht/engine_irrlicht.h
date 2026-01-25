@@ -7,6 +7,7 @@
 #include "font_manager_impl.h"
 #include "graphics_manager_irrlicht.h"
 #include "input_manager_irrlicht.h"
+#include "material_manager_irrlicht.h"
 #include "model_manager_irrlicht.h"
 #include "pixmap_manager_irrlicht.h"
 #include "platform_irrlicht.h"
@@ -23,6 +24,7 @@ struct EngineIrrlicht : public Engine
 				m_fs(m_platform),
 				m_graphics_mgr(m_platform),
 				m_input_mgr(m_platform),
+				m_material_mgr(),
 				m_model_mgr(m_platform),
 				m_pixmap_mgr(m_platform),
 				m_scene_mgr(m_platform),
@@ -62,6 +64,11 @@ struct EngineIrrlicht : public Engine
 		return m_input_mgr;
 	}
 
+	MaterialManager &materialManager()
+	{
+		return m_material_mgr;
+	}
+
 	ModelManager &modelManager()
 	{
 		return m_model_mgr;
@@ -94,6 +101,7 @@ private:
 	FileSystemIrrlicht m_fs;
 	GraphicsManagerIrrlicht m_graphics_mgr;
 	InputManagerIrrlicht m_input_mgr;
+	MaterialManagerIrrlicht m_material_mgr;
 	ModelManagerIrrlicht m_model_mgr;
 	PixmapManagerIrrlicht m_pixmap_mgr;
 	SceneManagerIrrlicht m_scene_mgr;

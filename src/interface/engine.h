@@ -6,6 +6,7 @@ struct FileSystem;
 struct FontManager;
 struct GraphicsManager;
 struct InputManager;
+struct MaterialManager;
 struct ModelManager;
 struct PixmapManager;
 struct SceneManager;
@@ -21,6 +22,7 @@ struct Engine
 	virtual FontManager &fontManager() = 0;
 	virtual GraphicsManager &graphicsManager() = 0;
 	virtual InputManager &inputManager() = 0;
+	virtual MaterialManager &materialManager() = 0;
 	virtual ModelManager &modelManager() = 0;
 	virtual PixmapManager &pixmapManager() = 0;
 	virtual SceneManager &sceneManager() = 0;
