@@ -2,10 +2,10 @@
 
 struct FileSystem;
 struct FontManager;
-struct Graphics;
-struct Input;
+struct GraphicsManager;
+struct InputManager;
 struct PixmapManager;
-struct Screen;
+struct ScreenManager;
 struct TextureManager;
 
 struct Engine
@@ -13,9 +13,9 @@ struct Engine
 	virtual ~Engine() {};
 	virtual FileSystem &fileSystem() = 0;
 	virtual FontManager &fontManager() = 0;
-	virtual Graphics &graphics() = 0;
-	virtual Input &input() = 0;
+	virtual GraphicsManager &graphicsManager() = 0;
+	virtual InputManager &inputManager() = 0;
 	virtual PixmapManager &pixmapManager() = 0;
-	virtual Screen &screen() = 0;
+	virtual ScreenManager &screenManager() = 0;
 	virtual TextureManager &textureManager() = 0;
 };

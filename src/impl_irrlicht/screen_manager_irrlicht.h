@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../interface/screen.h"
+#include "../interface/screen_manager.h"
 #include "platform_irrlicht.h"
 
-struct ScreenIrrlicht : public Screen
+struct ScreenManagerIrrlicht : public ScreenManager
 {
-	ScreenIrrlicht(PlatformIrrlicht &platform) : m_platform(&platform) {}
+	ScreenManagerIrrlicht(PlatformIrrlicht &platform) : m_platform(&platform) {}
 
 	void open(int width, int height, bool fullscreen)
 	{

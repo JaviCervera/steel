@@ -1,8 +1,8 @@
 #pragma once
 
-struct Screen
+struct ScreenManager
 {
-	virtual ~Screen() {}
+	virtual ~ScreenManager() {}
 	virtual void open(int width, int height, bool fullscreen) = 0;
 	virtual void close() = 0;
 	virtual void title(const char *title) = 0;

@@ -1,8 +1,8 @@
 #pragma once
 
-struct Input
+struct InputManager
 {
-	virtual ~Input() {}
+	virtual ~InputManager() {}
 	virtual void setMouseVisible(bool visible) = 0;
 	virtual void setMousePosition(int x, int y) = 0;
 	virtual int getMouseX() const = 0;

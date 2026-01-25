@@ -1,12 +1,12 @@
 #pragma once
 
 #include <irrlicht.h>
-#include "../interface/graphics.h"
+#include "../interface/graphics_manager.h"
 #include "platform_irrlicht.h"
 
-struct GraphicsIrrlicht : public Graphics
+struct GraphicsManagerIrrlicht : public GraphicsManager
 {
-	GraphicsIrrlicht(PlatformIrrlicht &platform)
+	GraphicsManagerIrrlicht(PlatformIrrlicht &platform)
 			: m_platform(&platform),
 				m_color(255, 255, 255, 255)
 	{

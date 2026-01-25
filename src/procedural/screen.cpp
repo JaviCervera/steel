@@ -1,5 +1,5 @@
 #include "../interface/file_system.h"
-#include "../interface/screen.h"
+#include "../interface/screen_manager.h"
 #include "data_file.h"
 #include "engine_internal.h"
 #include "screen.h"
@@ -8,67 +8,67 @@ extern "C"
 {
 	EXPORT void CALL OpenScreen(int width, int height, bool_t fullscreen)
 	{
-		GetEngine().screen().open(width, height, fullscreen);
+		GetEngine().screenManager().open(width, height, fullscreen);
 		GetEngine().fileSystem().addZip(DATA_FILE);
 	}
 
 	EXPORT void CALL CloseScreen()
 	{
-		GetEngine().screen().close();
+		GetEngine().screenManager().close();
 	}
 
 	EXPORT void CALL SetScreenTitle(const char *title)
 	{
-		GetEngine().screen().title(title);
+		GetEngine().screenManager().title(title);
 	}
 
 	EXPORT void CALL SetScreenResizable(bool_t resizable)
 	{
-		GetEngine().screen().resizable(resizable);
+		GetEngine().screenManager().resizable(resizable);
 	}
 
 	EXPORT void CALL SetScreenFPS(int fps)
 	{
-		GetEngine().screen().fps(fps);
+		GetEngine().screenManager().fps(fps);
 	}
 
 	EXPORT void CALL RefreshScreen()
 	{
-		GetEngine().screen().refresh();
+		GetEngine().screenManager().refresh();
 	}
 
 	EXPORT bool_t CALL IsScreenOpened()
 	{
-		return GetEngine().screen().isRunning();
+		return GetEngine().screenManager().isRunning();
 	}
 
 	EXPORT int CALL GetScreenWidth()
 	{
-		return GetEngine().screen().width();
+		return GetEngine().screenManager().width();
 	}
 
 	EXPORT int CALL GetScreenHeight()
 	{
-		return GetEngine().screen().height();
+		return GetEngine().screenManager().height();
 	}
 
 	EXPORT int CALL GetScreenFPS()
 	{
-		return GetEngine().screen().fps();
+		return GetEngine().screenManager().fps();
 	}
 
 	EXPORT int CALL GetDesktopWidth()
 	{
-		return GetEngine().screen().desktopWidth();
+		return GetEngine().screenManager().desktopWidth();
 	}
 
 	EXPORT int CALL GetDesktopHeight()
 	{
-		return GetEngine().screen().desktopHeight();
+		return GetEngine().screenManager().desktopHeight();
 	}
 
 	EXPORT float CALL GetDelta()
 	{
-		return GetEngine().screen().delta();
+		return GetEngine().screenManager().delta();
 	}
 }

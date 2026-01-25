@@ -6,12 +6,12 @@
 #include "../interface/color.h"
 #include "../interface/file_system.h"
 #include "../interface/font_manager.h"
-#include "../interface/graphics.h"
+#include "../interface/graphics_manager.h"
 #include "../interface/pixmap_manager.h"
 #include "../interface/texture_manager.h"
 
-#define _min(A,B) ((A<=B) ? A : B)
-#define _max(A,B) ((A>=B) ? A : B)
+#define _min(A, B) ((A <= B) ? A : B)
+#define _max(A, B) ((A >= B) ? A : B)
 
 struct Font
 {
@@ -30,8 +30,8 @@ struct Font
 
 struct FontManagerImpl : public FontManager
 {
-	FontManagerImpl(Graphics &graphics, PixmapManager &pixmap_mgr, TextureManager &texture_mgr, FileSystem &fs)
-			: m_graphics(&graphics),
+	FontManagerImpl(GraphicsManager &graphics, PixmapManager &pixmap_mgr, TextureManager &texture_mgr, FileSystem &fs)
+			: m_graphics_mgr(&graphics),
 				m_pixmap_mgr(&pixmap_mgr),
 				m_texture_mgr(&texture_mgr),
 				m_fs(&fs)
@@ -142,7 +142,7 @@ struct FontManagerImpl : public FontManager
 			const float src_width = (q.s1 - q.s0) * m_texture_mgr->textureWidth(font->tex);
 			const float src_height = (q.t1 - q.t0) * m_texture_mgr->textureHeight(font->tex);
 			if (src_width > 0 && src_height > 0)
-				m_graphics->texture(font->tex, src_x, src_y, src_width, src_height, q.x0, q.y0, q.x1 - q.x0, q.y1 - q.y0);
+				m_graphics_mgr->texture(font->tex, src_x, src_y, src_width, src_height, q.x0, q.y0, q.x1 - q.x0, q.y1 - q.y0);
 		}
 	}
 
@@ -191,7 +191,7 @@ struct FontManagerImpl : public FontManager
 	}
 
 private:
-	Graphics *m_graphics;
+	GraphicsManager *m_graphics_mgr;
 	PixmapManager *m_pixmap_mgr;
 	TextureManager *m_texture_mgr;
 	FileSystem *m_fs;

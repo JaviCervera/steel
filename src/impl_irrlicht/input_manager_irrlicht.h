@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../interface/input.h"
+#include "../interface/input_manager.h"
 #include "platform_irrlicht.h"
 
-struct InputIrrlicht : public Input
+struct InputManagerIrrlicht : public InputManager
 {
-	InputIrrlicht(PlatformIrrlicht &platform)
+	InputManagerIrrlicht(PlatformIrrlicht &platform)
 			: m_platform(&platform) {}
 
 	void setMouseVisible(bool visible)

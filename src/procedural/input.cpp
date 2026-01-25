@@ -1,4 +1,4 @@
-#include "../interface/input.h"
+#include "../interface/input_manager.h"
 #include "engine_internal.h"
 #include "input.h"
 
@@ -6,46 +6,46 @@ extern "C"
 {
 	EXPORT void CALL SetMouseVisible(bool_t visible)
 	{
-		GetEngine().input().setMouseVisible(visible);
+		GetEngine().inputManager().setMouseVisible(visible);
 	}
 
 	EXPORT void CALL SetMousePosition(int x, int y)
 	{
-		GetEngine().input().setMousePosition(x, y);
+		GetEngine().inputManager().setMousePosition(x, y);
 	}
 
 	EXPORT int CALL GetMouseX()
 	{
-		return GetEngine().input().getMouseX();
+		return GetEngine().inputManager().getMouseX();
 	}
 
 	EXPORT int CALL GetMouseY()
 	{
-		return GetEngine().input().getMouseY();
+		return GetEngine().inputManager().getMouseY();
 	}
 
 	EXPORT int CALL GetMouseZ()
 	{
-		return GetEngine().input().getMouseZ();
+		return GetEngine().inputManager().getMouseZ();
 	}
 
 	EXPORT bool_t CALL IsMouseButtonDown(int button)
 	{
-		return GetEngine().input().isMouseButtonDown(button);
+		return GetEngine().inputManager().isMouseButtonDown(button);
 	}
 
 	EXPORT bool_t CALL IsMouseButtonHit(int button)
 	{
-		return GetEngine().input().isMouseButtonHit(button);
+		return GetEngine().inputManager().isMouseButtonHit(button);
 	}
 
 	EXPORT bool_t CALL IsKeyDown(int key)
 	{
-		return GetEngine().input().isKeyDown(key);
+		return GetEngine().inputManager().isKeyDown(key);
 	}
 
 	EXPORT bool_t CALL IsKeyHit(int key)
 	{
-		return GetEngine().input().isKeyHit(key);
+		return GetEngine().inputManager().isKeyHit(key);
 	}
 }

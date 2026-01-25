@@ -4,9 +4,9 @@
 
 struct Texture;
 
-struct Graphics
+struct GraphicsManager
 {
-	virtual ~Graphics() {};
+	virtual ~GraphicsManager() {};
 	virtual void cls(int color = COLOR_BLACK) = 0;
 	virtual void color(int color) = 0;
 	virtual void plot(float x, float y) = 0;
