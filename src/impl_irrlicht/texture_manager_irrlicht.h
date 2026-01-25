@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "../interface/texture_manager.h"
 #include "platform_irrlicht.h"
 
@@ -12,22 +14,31 @@ struct TextureManagerIrrlicht : public TextureManager
 
 	Texture *createTexture(int width, int height)
 	{
+		char name[32];
+		sprintf(name, "%d", rand());
 		return reinterpret_cast<Texture *>(video().addTexture(
 				irr::core::dimension2di(width, height),
-				"",
+				name,
 				m_platform->colorFormat()));
 	}
 
 	Texture *createTexture(const Pixmap *pixmap)
 	{
+		char name[32];
+		sprintf(name, "%d", rand());
 		return reinterpret_cast<Texture *>(video().addTexture(
-				"",
+				name,
 				reinterpret_cast<irr::video::IImage *>(const_cast<Pixmap *>(pixmap))));
 	}
 
 	Texture *loadTexture(const char *filename)
 	{
 		return reinterpret_cast<Texture *>(video().getTexture(filename));
+	}
+
+	void freeTexture(Texture *texture)
+	{
+		video().removeTexture(reinterpret_cast<irr::video::ITexture *>(texture));
 	}
 
 	void clearTextureCache()

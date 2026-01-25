@@ -115,7 +115,7 @@ struct FontManagerImpl : public FontManager
 
 	void freeFont(Font *font)
 	{
-		// TODO: Free texture
+		m_texture_mgr->freeTexture(font->tex);
 		delete font;
 	}
 
