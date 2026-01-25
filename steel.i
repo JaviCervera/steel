@@ -1,5 +1,6 @@
 %module steel
 %{
+  #include "procedural/camera.h"
   #include "procedural/color.h"
   #include "procedural/drawing.h"
   #include "procedural/entity.h"
@@ -16,6 +17,7 @@ typedef bool bool_t;
 
 %include "src/interface/input_codes.h"
 %include "src/procedural/common.h"
+%include "src/procedural/camera.h"
 %include "src/procedural/color.h"
 %include "src/procedural/drawing.h"
 %include "src/procedural/entity.h"
