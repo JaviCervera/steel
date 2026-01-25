@@ -22,6 +22,11 @@ struct GraphicsManagerIrrlicht : public GraphicsManager
 		m_color = irr::video::SColor(color);
 	}
 
+	void viewport(int x, int y, int width, int height)
+	{
+		video().setViewPort(irr::core::rect<irr::s32>(x, y, x + width, y + height));
+	}
+
 	void plot(float x, float y)
 	{
 		line(x, y, x, y);

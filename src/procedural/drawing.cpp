@@ -15,6 +15,11 @@ extern "C"
 		GetEngine().graphicsManager().color(color);
 	}
 
+	EXPORT void CALL SetViewport(int x, int y, int width, int height)
+	{
+		GetEngine().graphicsManager().viewport(x, y, width, height);
+	}
+
 	EXPORT void CALL DrawPlot(float x, float y)
 	{
 		GetEngine().graphicsManager().plot(x, y);
