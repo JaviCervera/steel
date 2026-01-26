@@ -24,48 +24,64 @@ struct LightManagerIrrlicht : public LightManager
 
 	void lightDiffuse(Light *light, int color)
 	{
+		if (!light)
+			return;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(light);
 		irrlight->getLightData().DiffuseColor = irr::video::SColor(color);
 	}
 
 	int lightDiffuse(const Light *light) const
 	{
+		if (!light)
+			return 0;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(const_cast<Light *>(light));
 		return irrlight->getLightData().DiffuseColor.toSColor().color;
 	}
 
 	void lightAmbient(Light *light, int color)
 	{
+		if (!light)
+			return;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(light);
 		irrlight->getLightData().AmbientColor = irr::video::SColor(color);
 	}
 
 	int lightAmbient(const Light *light) const
 	{
+		if (!light)
+			return 0;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(const_cast<Light *>(light));
 		return irrlight->getLightData().AmbientColor.toSColor().color;
 	}
 
 	void lightSpecular(Light *light, int color)
 	{
+		if (!light)
+			return;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(light);
 		irrlight->getLightData().SpecularColor = irr::video::SColor(color);
 	}
 
 	int lightSpecular(const Light *light) const
 	{
+		if (!light)
+			return 0;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(const_cast<Light *>(light));
 		return irrlight->getLightData().SpecularColor.toSColor().color;
 	}
 
 	void lightRadius(Light *light, float radius)
 	{
+		if (!light)
+			return;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(light);
 		irrlight->getLightData().Radius = radius;
 	}
 
 	float lightRadius(const Light *light) const
 	{
+		if (!light)
+			return 0;
 		irr::scene::ILightSceneNode *irrlight = reinterpret_cast<irr::scene::ILightSceneNode *>(const_cast<Light *>(light));
 		return irrlight->getLightData().Radius;
 	}
