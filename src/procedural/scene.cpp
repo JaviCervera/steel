@@ -9,6 +9,11 @@ extern "C"
 		GetEngine().sceneManager().ambient(color);
 	}
 
+	EXPORT void CALL SetFog(int color, float start, float end)
+	{
+		GetEngine().sceneManager().fog(color, start, end);
+	}
+
 	EXPORT void CALL DrawScene(const Camera *camera)
 	{
 		GetEngine().sceneManager().drawScene(camera);

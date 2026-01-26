@@ -16,6 +16,11 @@ struct SceneManagerIrrlicht : public SceneManager
 		scene().setAmbientLight(irr::video::SColor(color));
 	}
 
+	void fog(int color, float start, float end)
+	{
+		video().setFog(irr::video::SColor(color), true, start, end);
+	}
+
 	void drawScene(const Camera *camera)
 	{
 		irr::scene::ICameraSceneNode *irrcam =
