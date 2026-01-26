@@ -1,5 +1,3 @@
-#pragma once
-
 #include "../interface/material_manager.h"
 #include "engine_internal.h"
 #include "material.h"

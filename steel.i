@@ -1,5 +1,6 @@
 %module steel
 %{
+  #include "procedural/anim_model.h"
   #include "procedural/camera.h"
   #include "procedural/color.h"
   #include "procedural/drawing.h"
@@ -19,12 +20,14 @@
 
 typedef bool bool_t;
 class Entity { protected: Entity(); ~Entity(); };
+class AnimModel : public Entity { protected: AnimModel(); ~AnimModel(); };
 class Camera : public Entity { protected: Camera(); ~Camera(); };
 class Light : public Entity { protected: Light(); ~Light(); };
 class Model : public Entity { protected: Model(); ~Model(); };
 
 %include "src/interface/input_codes.h"
 %include "src/procedural/common.h"
+%include "src/procedural/anim_model.h"
 %include "src/procedural/camera.h"
 %include "src/procedural/color.h"
 %include "src/procedural/drawing.h"

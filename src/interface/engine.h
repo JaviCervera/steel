@@ -1,5 +1,6 @@
 #pragma once
 
+struct AnimModelManager;
 struct CameraManager;
 struct EntityManager;
 struct FileSystem;
@@ -17,6 +18,7 @@ struct TextureManager;
 struct Engine
 {
 	virtual ~Engine() {};
+	virtual AnimModelManager &animModelManager() = 0;
 	virtual CameraManager &cameraManager() = 0;
 	virtual EntityManager &entityManager() = 0;
 	virtual FileSystem &fileSystem() = 0;

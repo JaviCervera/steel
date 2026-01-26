@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../interface/engine.h"
+#include "anim_model_manager_irrlicht.h"
 #include "camera_manager_irrlicht.h"
 #include "entity_manager_irrlicht.h"
 #include "file_system_irrlicht.h"
@@ -20,6 +21,7 @@ struct EngineIrrlicht : public Engine
 {
 	EngineIrrlicht()
 			: m_platform(),
+				m_anim_model_mgr(m_platform),
 				m_camera_mgr(m_platform),
 				m_entity_mgr(m_platform),
 				m_fs(m_platform),
@@ -34,6 +36,11 @@ struct EngineIrrlicht : public Engine
 				m_tex_mgr(m_platform),
 				m_font_mgr(m_graphics_mgr, m_pixmap_mgr, m_tex_mgr, m_fs)
 	{
+	}
+
+	AnimModelManager &animModelManager()
+	{
+		return m_anim_model_mgr;
 	}
 
 	CameraManager &cameraManager()
@@ -103,6 +110,7 @@ struct EngineIrrlicht : public Engine
 
 private:
 	PlatformIrrlicht m_platform;
+	AnimModelManagerIrrlicht m_anim_model_mgr;
 	CameraManagerIrrlicht m_camera_mgr;
 	EntityManagerIrrlicht m_entity_mgr;
 	FileSystemIrrlicht m_fs;
