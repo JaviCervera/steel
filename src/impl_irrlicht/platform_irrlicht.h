@@ -51,6 +51,12 @@ struct IrrlichtEventReceiver : public irr::IEventReceiver
 		return false;
 	}
 
+	void clearInputs()
+	{
+		memset(m_key_hit, false, irr::KEY_KEY_CODES_COUNT * sizeof(bool));
+		memset(m_mouse_button_hit, false, 3 * sizeof(bool));
+	}
+
 	bool m_key_down[irr::KEY_KEY_CODES_COUNT];
 	bool m_key_hit[irr::KEY_KEY_CODES_COUNT];
 	bool m_key_was_hit[irr::KEY_KEY_CODES_COUNT];
@@ -155,6 +161,7 @@ struct PlatformIrrlicht
 		if (m_device)
 		{
 			m_device->getVideoDriver()->endScene();
+			m_event_receiver.clearInputs();
 			m_running = m_device->run() && m_device->getVideoDriver() != NULL;
 			if (!m_running)
 				return;
