@@ -46,17 +46,17 @@ struct SceneManagerIrrlicht : public SceneManager
 				irr::core::lerp(line.start.Z, line.end.Z, depth));
 	}
 
-	float resultX()
+	float coordX()
 	{
 		return m_coords.X;
 	}
 
-	float resultY()
+	float coordY()
 	{
 		return m_coords.Y;
 	}
 
-	float resultZ()
+	float coordZ()
 	{
 		return m_coords.Z;
 	}

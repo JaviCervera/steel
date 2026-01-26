@@ -19,18 +19,18 @@ extern "C"
 		GetEngine().sceneManager().sceneCoords(camera, x, y, depth);
 	}
 
-	EXPORT float CALL GetResultX()
+	EXPORT float CALL GetCoordX()
 	{
-		return GetEngine().sceneManager().resultX();
+		return GetEngine().sceneManager().coordX();
 	}
 
-	EXPORT float CALL GetResultY()
+	EXPORT float CALL GetCoordY()
 	{
-		return GetEngine().sceneManager().resultY();
+		return GetEngine().sceneManager().coordY();
 	}
 
-	EXPORT float CALL GetResultZ()
+	EXPORT float CALL GetCoordZ()
 	{
-		return GetEngine().sceneManager().resultZ();
+		return GetEngine().sceneManager().coordZ();
 	}
 }

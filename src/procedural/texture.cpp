@@ -19,6 +19,11 @@ extern "C"
 		return GetEngine().textureManager().loadTexture(filename);
 	}
 
+	EXPORT void CALL FreeTexture(Texture *tex)
+	{
+		GetEngine().textureManager().freeTexture(tex);
+	}
+
 	EXPORT void CALL ClearTextureCache()
 	{
 		GetEngine().textureManager().clearTextureCache();
