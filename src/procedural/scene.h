@@ -6,6 +6,7 @@ struct Camera;
 
 extern "C"
 {
+	EXPORT void CALL SetAmbient(int color);
 	EXPORT void CALL DrawScene(const Camera *camera);
 	EXPORT void CALL GetScreenCoords(const Camera *camera, float x, float y, float z);
 	EXPORT void CALL GetSceneCoords(const Camera *camera, float x, float y, float depth);

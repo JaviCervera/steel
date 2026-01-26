@@ -4,6 +4,11 @@
 
 extern "C"
 {
+	EXPORT void CALL SetAmbient(int color)
+	{
+		GetEngine().sceneManager().ambient(color);
+	}
+
 	EXPORT void CALL DrawScene(const Camera *camera)
 	{
 		GetEngine().sceneManager().drawScene(camera);

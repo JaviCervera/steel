@@ -6,6 +6,7 @@
   #include "procedural/entity.h"
   #include "procedural/font.h"
   #include "procedural/input.h"
+  #include "procedural/light.h"
   #include "procedural/material.h"
   #include "procedural/math.h"
   #include "procedural/memblock.h"
@@ -19,6 +20,7 @@
 typedef bool bool_t;
 class Entity { protected: Entity(); ~Entity(); };
 class Camera : public Entity { protected: Camera(); ~Camera(); };
+class Light : public Entity { protected: Light(); ~Light(); };
 class Model : public Entity { protected: Model(); ~Model(); };
 
 %include "src/interface/input_codes.h"
@@ -29,6 +31,7 @@ class Model : public Entity { protected: Model(); ~Model(); };
 %include "src/procedural/entity.h"
 %include "src/procedural/font.h"
 %include "src/procedural/input.h"
+%include "src/procedural/light.h"
 %include "src/procedural/material.h"
 %include "src/procedural/math.h"
 %include "src/procedural/memblock.h"

@@ -150,7 +150,19 @@ struct EntityManagerIrrlicht : public EntityManager
 	void rotateEntity(Entity *entity, float pitch, float yaw, float roll)
 	{
 		if (entity)
-			reinterpret_cast<irr::scene::ISceneNode *>(entity)->setRotation(irr::core::vector3df(pitch, yaw, roll));
+		{
+			irr::scene::ISceneNode *irrent = reinterpret_cast<irr::scene::ISceneNode *>(entity);
+			irrent->setRotation(irr::core::vector3df(pitch, yaw, roll));
+			if (irrent->getType() == irr::scene::ESNT_LIGHT && static_cast<irr::scene::ILightSceneNode *>(irrent)->getLightData().Type == irr::video::ELT_DIRECTIONAL)
+			{
+				irr::core::matrix4 mat;
+				mat.setRotationDegrees(irr::core::vector3df(pitch, yaw, roll));
+				irr::core::vector3df dest(0, 0, -1);
+				mat.rotateVect(dest);
+				const irr::core::vector3df final = irrent->getPosition() + dest;
+				positionEntity(entity, final.X, final.Y, final.Z);
+			}
+		}
 	}
 
 	void turnEntity(Entity *entity, float pitch, float yaw, float roll)
@@ -158,7 +170,7 @@ struct EntityManagerIrrlicht : public EntityManager
 		if (entity)
 		{
 			irr::scene::ISceneNode *irrent = reinterpret_cast<irr::scene::ISceneNode *>(entity);
-			irrent->setRotation(irrent->getRotation() + irr::core::vector3df(pitch, yaw, roll));
+			rotateEntity(entity, irrent->getRotation().X + pitch, irrent->getRotation().Y + yaw, irrent->getRotation().Z + roll);
 		}
 	}
 
@@ -171,7 +183,7 @@ struct EntityManagerIrrlicht : public EntityManager
 			const float distance = sqrtf(diff.X * diff.X + diff.Y * diff.Y + diff.Z * diff.Z);
 			const float pitch = atan2(diff.Y, distance) * irr::core::RADTODEG;
 			const float yaw = atan2(diff.X, -diff.Z) * irr::core::RADTODEG;
-			irrent->setRotation(irr::core::vector3df(pitch, yaw, irrent->getRotation().Z));
+			rotateEntity(entity, pitch, yaw, irrent->getRotation().Z);
 		}
 	}
 
