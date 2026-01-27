@@ -11,3 +11,12 @@ rmdir doc_out
 doxygen
 python gen_doc.py
 ```
+
+## TODO
+
+* Fix collisions.
+* Sprites.
+* Shadows.
+* Terrain.
+* Water.
+* Procedural mesh generation.
