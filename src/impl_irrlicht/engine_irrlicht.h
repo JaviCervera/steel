@@ -3,6 +3,7 @@
 #include "../interface/engine.h"
 #include "anim_model_manager_irrlicht.h"
 #include "camera_manager_irrlicht.h"
+#include "collision_manager_irrlicht.h"
 #include "entity_manager_irrlicht.h"
 #include "file_system_irrlicht.h"
 #include "font_manager_impl.h"
@@ -23,7 +24,8 @@ struct EngineIrrlicht : public Engine
 			: m_platform(),
 				m_anim_model_mgr(m_platform),
 				m_camera_mgr(m_platform),
-				m_entity_mgr(m_platform),
+				m_collision_mgr(m_platform),
+				m_entity_mgr(m_platform, m_collision_mgr),
 				m_fs(m_platform),
 				m_graphics_mgr(m_platform),
 				m_input_mgr(m_platform),
@@ -36,6 +38,7 @@ struct EngineIrrlicht : public Engine
 				m_tex_mgr(m_platform),
 				m_font_mgr(m_graphics_mgr, m_pixmap_mgr, m_tex_mgr, m_fs)
 	{
+		m_collision_mgr.entityManager(m_entity_mgr);
 	}
 
 	AnimModelManager &animModelManager()
@@ -46,6 +49,11 @@ struct EngineIrrlicht : public Engine
 	CameraManager &cameraManager()
 	{
 		return m_camera_mgr;
+	}
+
+	CollisionManager &collisionManager()
+	{
+		return m_collision_mgr;
 	}
 
 	EntityManager &entityManager()
@@ -112,6 +120,7 @@ private:
 	PlatformIrrlicht m_platform;
 	AnimModelManagerIrrlicht m_anim_model_mgr;
 	CameraManagerIrrlicht m_camera_mgr;
+	CollisionManagerIrrlicht m_collision_mgr;
 	EntityManagerIrrlicht m_entity_mgr;
 	FileSystemIrrlicht m_fs;
 	GraphicsManagerIrrlicht m_graphics_mgr;

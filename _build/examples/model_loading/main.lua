@@ -2,9 +2,9 @@ MAX_PITCH = 80
 ROT_SPEED = 15
 MOVE_SPEED = 32
 GRAVITY = -9.81 * 4
-WORLD_GROUP = 1
+WORLD_MASK = 1
 
-OpenScreen(640, 480, true)
+--OpenScreen(640, 480, true)
 SetMouseVisible(false)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
@@ -27,7 +27,8 @@ SetEntityParent(cam, player)
 
 -- Load scene
 local scene = LoadAnimModel("parking_lot.b3d")
---SetEntityCollision(scene, COLLISION_MESH, WORLD_GROUP)
+SetAnimModelCollider(scene)
+SetEntityCollisionMask(scene, WORLD_MASK)
 
 local mx_speed = 0
 local my_speed = 0
@@ -49,8 +50,8 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
     if (IsKeyDown(KEY_S)) then movZ = -MOVE_SPEED * GetDelta() end
     if (IsKeyDown(KEY_A)) then movX = -MOVE_SPEED * GetDelta() end
     if (IsKeyDown(KEY_D)) then movX = MOVE_SPEED * GetDelta() end
-		MoveEntity(player, movX, 0, movZ)
-    --SlideEntity(player, movX, GRAVITY * GetDelta(), movZ, 2, 16, 2, WORLD_GROUP)
+		--SlideEntity(player, movX, GRAVITY * GetDelta(), movZ, 2, 16, 2, WORLD_MASK)
+    SlideEntity(player, movX, 0, movZ, 2, 16, 2, WORLD_MASK)
 
     Cls(RGB(0, 0, 0))
 		DrawScene(cam)

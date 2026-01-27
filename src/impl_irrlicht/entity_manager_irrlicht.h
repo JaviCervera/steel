@@ -1,13 +1,15 @@
 #pragma once
 
 #include <math.h>
+#include "../interface/collision_manager.h"
 #include "../interface/entity_manager.h"
 #include "platform_irrlicht.h"
 
 struct EntityManagerIrrlicht : public EntityManager
 {
-	EntityManagerIrrlicht(PlatformIrrlicht &platform)
-			: m_platform(&platform)
+	EntityManagerIrrlicht(PlatformIrrlicht &platform, CollisionManager &collision)
+			: m_platform(&platform),
+				m_collision(&collision)
 	{
 	}
 
@@ -19,7 +21,10 @@ struct EntityManagerIrrlicht : public EntityManager
 	void freeEntity(Entity *entity)
 	{
 		if (entity)
+		{
+			m_collision->removeCollider(entity);
 			reinterpret_cast<irr::scene::ISceneNode *>(entity)->remove();
+		}
 	}
 
 	const char *entityType(const Entity *entity)
@@ -262,6 +267,7 @@ struct EntityManagerIrrlicht : public EntityManager
 
 private:
 	PlatformIrrlicht *m_platform;
+	CollisionManager *m_collision;
 
 	irr::scene::ISceneManager &scene()
 	{

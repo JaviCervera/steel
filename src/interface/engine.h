@@ -2,6 +2,7 @@
 
 struct AnimModelManager;
 struct CameraManager;
+struct CollisionManager;
 struct EntityManager;
 struct FileSystem;
 struct FontManager;
@@ -20,6 +21,7 @@ struct Engine
 	virtual ~Engine() {};
 	virtual AnimModelManager &animModelManager() = 0;
 	virtual CameraManager &cameraManager() = 0;
+	virtual CollisionManager &collisionManager() = 0;
 	virtual EntityManager &entityManager() = 0;
 	virtual FileSystem &fileSystem() = 0;
 	virtual FontManager &fontManager() = 0;

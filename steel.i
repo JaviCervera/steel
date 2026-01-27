@@ -2,6 +2,7 @@
 %{
   #include "procedural/anim_model.h"
   #include "procedural/camera.h"
+  #include "procedural/collision.h"
   #include "procedural/color.h"
   #include "procedural/drawing.h"
   #include "procedural/entity.h"
@@ -29,6 +30,7 @@ class Model : public Entity { protected: Model(); ~Model(); };
 %include "src/procedural/common.h"
 %include "src/procedural/anim_model.h"
 %include "src/procedural/camera.h"
+%include "src/procedural/collision.h"
 %include "src/procedural/color.h"
 %include "src/procedural/drawing.h"
 %include "src/procedural/entity.h"
