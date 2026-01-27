@@ -1,3 +1,4 @@
+#include "../interface/audio_manager.h"
 #include "../interface/file_system.h"
 #include "../interface/screen_manager.h"
 #include "data_file.h"
@@ -34,6 +35,7 @@ extern "C"
 
 	EXPORT void CALL RefreshScreen()
 	{
+		GetEngine().audioManager().update();
 		GetEngine().screenManager().refresh();
 	}
 

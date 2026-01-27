@@ -2,6 +2,7 @@
 
 #include "../interface/engine.h"
 #include "anim_model_manager_irrlicht.h"
+#include "audio_manager_soloud.h"
 #include "camera_manager_irrlicht.h"
 #include "collision_manager_irrlicht.h"
 #include "entity_manager_irrlicht.h"
@@ -27,6 +28,7 @@ struct EngineIrrlicht : public Engine
 				m_collision_mgr(m_platform),
 				m_entity_mgr(m_platform, m_collision_mgr),
 				m_fs(m_platform),
+				m_audio_mgr(m_fs),
 				m_graphics_mgr(m_platform),
 				m_input_mgr(m_platform),
 				m_light_mgr(m_platform),
@@ -44,6 +46,11 @@ struct EngineIrrlicht : public Engine
 	AnimModelManager &animModelManager()
 	{
 		return m_anim_model_mgr;
+	}
+
+	AudioManager &audioManager()
+	{
+		return m_audio_mgr;
 	}
 
 	CameraManager &cameraManager()
@@ -123,6 +130,7 @@ private:
 	CollisionManagerIrrlicht m_collision_mgr;
 	EntityManagerIrrlicht m_entity_mgr;
 	FileSystemIrrlicht m_fs;
+	AudioManagerSoLoud m_audio_mgr;
 	GraphicsManagerIrrlicht m_graphics_mgr;
 	InputManagerIrrlicht m_input_mgr;
 	LightManagerIrrlicht m_light_mgr;

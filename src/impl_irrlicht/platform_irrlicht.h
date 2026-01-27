@@ -105,11 +105,11 @@ struct PlatformIrrlicht
 		closeScreen();
 
 		m_device = irr::createDevice(
-				// #ifdef _MSC_VER
-				//				irr::video::EDT_BURNINGSVIDEO,
-				// #else
+#ifdef _MSC_VER
+				irr::video::EDT_BURNINGSVIDEO,
+#else
 				irr::video::EDT_OPENGL,
-				// #endif
+#endif
 				irr::core::dimension2d<irr::s32>(width, height),
 				desktopDepth(),
 				fullscreen,

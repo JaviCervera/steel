@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O1 /I "../lib/irrlicht131/include" /I "../lib/lua" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /c
+# ADD CPP /nologo /W3 /GX /O1 /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/soloud/include" /D "NDEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0xc0a /d "NDEBUG"
 # ADD RSC /l 0xc0a /d "NDEBUG"
@@ -67,7 +67,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "../lib/irrlicht131/include" /I "../lib/lua" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/soloud/include" /D "_DEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0xc0a /d "_DEBUG"
 # ADD RSC /l 0xc0a /d "_DEBUG"
@@ -92,6 +92,18 @@ LINK32=link.exe
 # PROP Default_Filter ""
 # Begin Source File
 
+SOURCE=..\src\procedural\anim_model.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\camera.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\collision.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\color.cpp
 # End Source File
 # Begin Source File
@@ -104,11 +116,23 @@ SOURCE=..\src\procedural\engine.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\entity.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\font.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=..\src\procedural\input.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\light.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\material.cpp
 # End Source File
 # Begin Source File
 
@@ -120,7 +144,15 @@ SOURCE=..\src\procedural\memblock.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\model.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\pixmap.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\scene.cpp
 # End Source File
 # Begin Source File
 
@@ -249,6 +281,106 @@ SOURCE=..\lib\lua\lvm.c
 # Begin Source File
 
 SOURCE=..\lib\lua\lzio.c
+# End Source File
+# End Group
+# Begin Group "soloud"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\audiosource\wav\dr_impl.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_audiosource.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_bus.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_3d.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_basicops.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_faderops.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_filterops.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_getters.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_setters.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_voicegroup.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_core_voiceops.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_fader.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_fft.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_fft_lut.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_file.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_filter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_misc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_queue.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\core\soloud_thread.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\audiosource\wav\soloud_wav.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\audiosource\wav\soloud_wavstream.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\backend\winmm\soloud_winmm.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\lib\soloud\src\audiosource\wav\stb_vorbis.c
 # End Source File
 # End Group
 # Begin Source File
