@@ -15,7 +15,6 @@ python gen_doc.py
 ## TODO
 
 * Fix collisions.
-* Sprites.
 * Shadows.
 * Terrain.
 * Water.

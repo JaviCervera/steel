@@ -17,6 +17,7 @@
 #include "platform_irrlicht.h"
 #include "scene_manager_irrlicht.h"
 #include "screen_manager_irrlicht.h"
+#include "sprite_manager_irrlicht.h"
 #include "texture_manager_irrlicht.h"
 
 struct EngineIrrlicht : public Engine
@@ -37,6 +38,7 @@ struct EngineIrrlicht : public Engine
 				m_pixmap_mgr(m_platform),
 				m_scene_mgr(m_platform),
 				m_screen_mgr(m_platform),
+				m_sprite_mgr(m_platform),
 				m_tex_mgr(m_platform),
 				m_font_mgr(m_graphics_mgr, m_pixmap_mgr, m_tex_mgr, m_fs)
 	{
@@ -118,6 +120,11 @@ struct EngineIrrlicht : public Engine
 		return m_screen_mgr;
 	}
 
+	SpriteManager &spriteManager()
+	{
+		return m_sprite_mgr;
+	}
+
 	TextureManager &textureManager()
 	{
 		return m_tex_mgr;
@@ -139,6 +146,7 @@ private:
 	PixmapManagerIrrlicht m_pixmap_mgr;
 	SceneManagerIrrlicht m_scene_mgr;
 	ScreenManagerIrrlicht m_screen_mgr;
+	SpriteManagerIrrlicht m_sprite_mgr;
 	TextureManagerIrrlicht m_tex_mgr;
 	FontManagerImpl m_font_mgr;
 };

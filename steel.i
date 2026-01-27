@@ -20,6 +20,7 @@
   #include "procedural/scene.h"
   #include "procedural/screen.h"
   #include "procedural/sound.h"
+  #include "procedural/sprite.h"
   #include "procedural/texture.h"
 %}
 
@@ -29,6 +30,7 @@ class AnimModel : public Entity { protected: AnimModel(); ~AnimModel(); };
 class Camera : public Entity { protected: Camera(); ~Camera(); };
 class Light : public Entity { protected: Light(); ~Light(); };
 class Model : public Entity { protected: Model(); ~Model(); };
+class Sprite : public Entity { protected: Sprite(); ~Sprite(); };
 
 %include "src/interface/input_codes.h"
 %include "src/procedural/common.h"
@@ -52,4 +54,5 @@ class Model : public Entity { protected: Model(); ~Model(); };
 %include "src/procedural/scene.h"
 %include "src/procedural/screen.h"
 %include "src/procedural/sound.h"
+%include "src/procedural/sprite.h"
 %include "src/procedural/texture.h"

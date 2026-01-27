@@ -15,6 +15,7 @@ struct ModelManager;
 struct PixmapManager;
 struct SceneManager;
 struct ScreenManager;
+struct SpriteManager;
 struct TextureManager;
 
 struct Engine
@@ -35,5 +36,6 @@ struct Engine
 	virtual PixmapManager &pixmapManager() = 0;
 	virtual SceneManager &sceneManager() = 0;
 	virtual ScreenManager &screenManager() = 0;
+	virtual SpriteManager &spriteManager() = 0;
 	virtual TextureManager &textureManager() = 0;
 };
