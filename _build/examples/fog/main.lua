@@ -4,6 +4,7 @@ SetScreenTitle("STEEL Game Engine - Fog Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 local brown = RGB(139, 69, 19)
 
 SetFog(RGB(30, 30, 30), 0, 20)

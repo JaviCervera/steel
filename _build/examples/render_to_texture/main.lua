@@ -13,6 +13,7 @@ SetScreenTitle("STEEL Game Engine -  Render to Texture Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 --local tex = CreateRenderTexture(128, 128)
 

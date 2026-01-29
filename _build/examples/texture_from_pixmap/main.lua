@@ -2,6 +2,7 @@ SetScreenTitle("STEEL Game Engine - Texture From Pixmap Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 local pixmap = CreatePixmap(128, 128)
 for y = 0, GetPixmapHeight(pixmap) - 1 do

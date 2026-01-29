@@ -30,6 +30,7 @@ SetScreenResizable(true)
 
 local primitives = {}
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- If we are below the limit, add a new primitive with random values

@@ -30,6 +30,7 @@ SetScreenTitle("STEEL Game Engine - Triangle Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 local cam = CreateCamera()
 SetEntityPosition(cam, 0, 0, -2)

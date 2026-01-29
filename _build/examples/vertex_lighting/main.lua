@@ -8,6 +8,7 @@ OpenScreen(640, 480, true)
 SetMouseVisible(false)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 function DrawBanner()
 	local text = ":: Ruin gile[s] sample scene - by Mikkel Fredborg ::"

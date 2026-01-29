@@ -2,6 +2,7 @@ SetScreenTitle("STEEL Game Engine -  Split Screen Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
+if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
 -- Create first camera
 local cam = CreateCamera()

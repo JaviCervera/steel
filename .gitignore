@@ -34,6 +34,7 @@
 .vscode
 _CMAKE
 _build/help/index.html
+_build/steel
 !_build/Irrlicht.dll
 !lib/irrlicht131/lib/Irrlicht.lib
 build
