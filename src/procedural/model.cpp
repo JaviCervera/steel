@@ -4,6 +4,11 @@
 
 extern "C"
 {
+	EXPORT Model *CALL CreateModel(const Memblock *data)
+	{
+		return GetEngine().modelManager().createModel(data);
+	}
+
 	EXPORT Model *CALL CreateCubeModel()
 	{
 		return GetEngine().modelManager().createCubeModel();

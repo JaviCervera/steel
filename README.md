@@ -18,4 +18,3 @@ python gen_doc.py
 * Shadows.
 * Terrain.
 * Water.
-* Procedural mesh generation.
