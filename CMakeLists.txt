@@ -16,7 +16,7 @@ file(
 include_directories(
 	${INCLUDE_DIRECTORIES}
 	${CMAKE_CURRENT_SOURCE_DIR}/lib/lua
-	${CMAKE_CURRENT_SOURCE_DIR}/lib/irrlicht131/include
+	${CMAKE_CURRENT_SOURCE_DIR}/lib/irrlicht_svn/include
 	${CMAKE_CURRENT_SOURCE_DIR}/lib/soloud/include)
 link_directories(${LINK_DIRECTORIES} ${CMAKE_CURRENT_SOURCE_DIR}/_CMAKE/_IRRLICHT)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98 -fno-rtti")

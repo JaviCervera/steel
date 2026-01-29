@@ -1,4 +1,8 @@
+#ifdef _MSC_VER
 #include "../impl_irrlicht131/engine_irrlicht.h"
+#else
+#include "../impl_irrlicht_svn/engine_irrlicht.h"
+#endif
 #include "engine.h"
 
 static EngineIrrlicht *_engine = NULL;
