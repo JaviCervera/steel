@@ -15,6 +15,7 @@ python gen_doc.py
 ## TODO
 
 * Fix collisions.
+* Joystick support.
 * Shadows.
 * Terrain.
 * Water.
