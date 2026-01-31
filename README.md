@@ -14,7 +14,6 @@ python gen_doc.py
 
 ## TODO
 
-* Fix building on macOS.
 * OpenAL audio driver.
 * Emscripten build.
 * Documentation.

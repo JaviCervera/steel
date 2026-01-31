@@ -585,14 +585,16 @@ CIrrDeviceMacOSX::CIrrDeviceMacOSX(const SIrrlichtCreationParameters& param)
             
             NSString* bundleName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
             
-            NSMenu* mainMenu = [[[NSMenu alloc] initWithTitle:@"MainMenu"] autorelease];
-            NSMenu* menu = [[[NSMenu alloc] initWithTitle:bundleName] autorelease];
-            NSMenuItem* menuItem = [mainMenu addItemWithTitle:bundleName action:nil keyEquivalent:@""];
-            [mainMenu setSubmenu:menu forItem:menuItem];
-            menuItem = [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
-            [menuItem setKeyEquivalentModifierMask:NSCommandKeyMask];
-            
-            [NSApp setMainMenu:mainMenu];
+            if (bundleName) {
+				NSMenu* mainMenu = [[[NSMenu alloc] initWithTitle:@"MainMenu"] autorelease];
+				NSMenu* menu = [[[NSMenu alloc] initWithTitle:bundleName] autorelease];
+				NSMenuItem* menuItem = [mainMenu addItemWithTitle:bundleName action:nil keyEquivalent:@""];
+				[mainMenu setSubmenu:menu forItem:menuItem];
+				menuItem = [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
+				[menuItem setKeyEquivalentModifierMask:NSCommandKeyMask];
+				
+				[NSApp setMainMenu:mainMenu];
+			}
 
             [NSApp finishLaunching];
 		}
@@ -704,7 +706,7 @@ bool CIrrDeviceMacOSX::createWindow()
             }
             
             Window = [[NSWindow alloc] initWithContentRect:NSMakeRect(x, y, CreationParams.WindowSize.Width,CreationParams.WindowSize.Height)
-			styleMask:NSTitledWindowMask+NSClosableWindowMask+NSResizableWindowMask
+			styleMask:NSTitledWindowMask+NSClosableWindowMask+NSMiniaturizableWindowMask
 			backing:backing_type
 			defer:NO];
 
