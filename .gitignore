@@ -31,6 +31,7 @@
 *.out
 *.app
 
+.DS_Store
 .vscode
 _CMAKE
 _build/help/index.html

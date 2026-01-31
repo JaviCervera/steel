@@ -14,6 +14,8 @@ python gen_doc.py
 
 ## TODO
 
+* Fix building on macOS.
+* OpenAL audio driver.
 * Emscripten build.
 * Documentation.
 * Fix Irrlicht 1.3.1 collisions.
