@@ -14,7 +14,9 @@ python gen_doc.py
 
 ## TODO
 
-* Fix collisions.
+* Emscripten build.
+* Documentation.
+* Fix Irrlicht 1.3.1 collisions.
 * Joystick support.
 * Shadows.
 * Terrain.
