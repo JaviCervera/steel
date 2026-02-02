@@ -37,6 +37,7 @@ _CMAKE
 _build/help/index.html
 _build/steel
 !_build/Irrlicht.dll
+!_build/OpenAL32.dll
 !lib/irrlicht131/lib/Irrlicht.lib
 build
 doc_out

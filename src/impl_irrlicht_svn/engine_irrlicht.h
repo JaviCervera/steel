@@ -2,7 +2,7 @@
 
 #include "../interface/engine.h"
 #include "anim_model_manager_irrlicht.h"
-#include "audio_manager_soloud.h"
+#include "audio_manager_openal.h"
 #include "camera_manager_irrlicht.h"
 #include "collision_manager_irrlicht.h"
 #include "entity_manager_irrlicht.h"
@@ -137,7 +137,7 @@ private:
 	CollisionManagerIrrlicht m_collision_mgr;
 	EntityManagerIrrlicht m_entity_mgr;
 	FileSystemIrrlicht m_fs;
-	AudioManagerSoLoud m_audio_mgr;
+	AudioManagerOpenAL m_audio_mgr;
 	GraphicsManagerIrrlicht m_graphics_mgr;
 	InputManagerIrrlicht m_input_mgr;
 	LightManagerIrrlicht m_light_mgr;

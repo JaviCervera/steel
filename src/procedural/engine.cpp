@@ -4,6 +4,10 @@
 #include "../impl_irrlicht_svn/engine_irrlicht.h"
 #endif
 #include "engine.h"
+extern "C"
+{
+#include "../../lib/stb/stb_vorbis.c"
+}
 
 static EngineIrrlicht *_engine = NULL;
 

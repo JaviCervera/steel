@@ -2,7 +2,6 @@ MAX_PITCH = 80
 WORLD_MASK = 1
 ROT_SPEED = 15
 MOVE_SPEED = 16
-SOUND_RADIUS = 25
 
 OpenScreen(GetDesktopWidth(), GetDesktopHeight(), true)
 SetMouseVisible(false)
@@ -22,12 +21,15 @@ SetEntityParent(cam, player)
 SetAmbient(RGB(155, 155, 255))
 local light = CreatePointLight()
 SetEntityRotation(light, 45, 215, 0)
+SetLightRadius(light, 10)
 
 -- Create floor
 local floor = CreateCubeModel()
 local mat = GetEntityMaterial(floor, 0)
 SetMaterialDiffuse(mat, RGB(55, 55, 55))
 SetMaterialAmbient(mat, RGB(55, 55, 55))
+SetMaterialSpecular(mat, RGB(10, 10, 10))
+SetMaterialShininess(mat, 0.001)
 SetEntityScale(floor, 50, 1, 50)
 SetBoxCollider(floor)
 SetEntityCollisionMask(floor, WORLD_MASK)
@@ -41,6 +43,8 @@ for i = 1, #xpos do
 	local mat = GetEntityMaterial(pillar, 0)
 	SetMaterialDiffuse(mat, RGB(120, 0, 0))
 	SetMaterialAmbient(mat, RGB(120, 0, 0))
+	SetMaterialSpecular(mat, RGB(10, 10, 10))
+	SetMaterialShininess(mat, 0.001)
 	SetEntityScale(pillar, 4, 8, 4)
 	SetBoxCollider(pillar)
 	SetEntityCollisionMask(pillar, WORLD_MASK)
@@ -52,8 +56,9 @@ local sphere = CreateSphereModel()
 SetMaterialEmissive(GetEntityMaterial(sphere, 0), RGB(155, 155, 255))
 
 -- Play sound
-local sound = LoadSound("heli.ogg")
-local channel = PlaySound3D(sound, GetEntityX(sphere), GetEntityY(sphere), GetEntityZ(sphere), SOUND_RADIUS, true)
+local sound = LoadSound("heli_mono.ogg")
+local channel = PlaySound(sound, true)
+SetChannelAttenuation(channel, 1, 25, 1.5)
 
 local mx_speed = 0
 local my_speed = 0

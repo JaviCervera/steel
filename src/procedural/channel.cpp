@@ -24,9 +24,9 @@ extern "C"
 		GetEngine().audioManager().channel3DPosition(channel, x, y, z);
 	}
 
-	EXPORT void CALL SetChannelRadius(Channel channel, float radius)
+	EXPORT void CALL SetChannelAttenuation(Channel channel, float min_dist, float max_dist, float rolloff)
 	{
-		GetEngine().audioManager().channelRadius(channel, radius);
+		GetEngine().audioManager().channelAttenuation(channel, min_dist, max_dist, rolloff);
 	}
 
 	EXPORT void CALL SetChannelPitch(Channel channel, float pitch)

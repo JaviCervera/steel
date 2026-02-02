@@ -14,7 +14,6 @@ python gen_doc.py
 
 ## TODO
 
-* OpenAL audio driver.
 * Emscripten build.
 * Documentation.
 * Fix Irrlicht 1.3.1 collisions.
