@@ -17,8 +17,6 @@ python gen_doc.py
 
 ## TODO
 
-* Fix CreatePixmapFromScreen.
-* Better render to texture.
 * Emscripten build.
 * Documentation.
 * Fix Irrlicht 1.3.1 collisions.

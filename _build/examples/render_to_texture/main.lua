@@ -1,21 +1,12 @@
-function GetPixmapRect(pixmap, x, y, w, h)
-	local result = CreatePixmap(w, h)
-	for py = 0, h - 1 do
-		for px = 0, w - 1 do
-			local color = ReadPixel(pixmap, x + px, y + py)
-			WritePixel(result, px, py, color)
-		end
-	end
-	return result
-end
-
 SetScreenTitle("STEEL Game Engine -  Render to Texture Example")
 SetScreenResizable(true)
 
 local font = LoadFont("C:\\Windows\\Fonts\\courbd.ttf", 20)
 if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 20) end
 
---local tex = CreateRenderTexture(128, 128)
+local light = CreateDirectionalLight()
+SetEntityRotation(light, 45, 45, 0)
+SetAmbient(RGB(64, 64, 64))
 
 local cam = CreateCamera()
 SetEntityPosition(cam, 0, 0, -2)
@@ -43,16 +34,14 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	DrawLine(x_pos, y_pos, x_pos + 32, y_pos + 32)
 	DrawLine(x_pos + 32, y_pos, x_pos, y_pos + 32)
 	local screen = CreatePixmapFromScreen()
-	local pixmap = GetPixmapRect(screen, 0, 0, 64, 64)
+	local tex = CreateTextureFromPixmap(screen)
 	FreePixmap(screen)
-	local tex = CreateTextureFromPixmap(pixmap)
-	FreePixmap(pixmap)
 	FreeTexture(GetMaterialTexture(GetEntityMaterial(cube, 0)))
 	SetMaterialTexture(GetEntityMaterial(cube, 0), tex)
 
-	Cls(RGB(0, 0, 64))
+	Cls(RGB(255, 255, 255))
 	DrawScene(cam)
-	SetColor(RGB(255, 255, 255))
+	SetColor(RGB(0, 0, 0))
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 	RefreshScreen()
 end

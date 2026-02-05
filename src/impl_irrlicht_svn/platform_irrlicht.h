@@ -171,7 +171,7 @@ struct PlatformIrrlicht
 			const int msecs = m_device->getTimer()->getRealTime();
 			m_delta = (msecs - m_last_msecs) / 1000.0f;
 			m_last_msecs = msecs;
-			m_device->getVideoDriver()->beginScene(false, true, irr::video::SColor());
+			m_device->getVideoDriver()->beginScene(false, true);
 		}
 	}
 
