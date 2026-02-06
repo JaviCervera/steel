@@ -2,6 +2,8 @@
  * @file
  * Lighting for 3D scenes with support for directional and point lights.
  * Lights can be configured with diffuse, ambient, and specular colors.
+ * Lights are entities, so any entity function can be used on them, such as
+ * setting their position, rotation, scale, etc.
  */
 #pragma once
 

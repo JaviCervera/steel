@@ -48,7 +48,7 @@ extern "C"
 	 * Sets whether a material uses transparency (with optional vertex alpha blending).
 	 *
 	 * @param mat The material.
-	 * @param vertex_alpha True to use vertex alpha, false for texture alpha only.
+	 * @param vertex_alpha True to use vertex alpha, false for texture alpha.
 	 */
 	EXPORT void CALL SetMaterialTransparent(Material *mat, bool_t vertex_alpha);
 
@@ -203,7 +203,9 @@ extern "C"
 	EXPORT bool_t CALL IsMaterialBackfaceCullingEnabled(const Material *mat);
 
 	/**
-	 * Enables or disables normal normalization for a material.
+	 * Enables or disables normalization for a material.
+	 * When enabled, normal vectors will be normalized after transformations,
+	 * which is important for correct lighting when scaling is applied.
 	 *
 	 * @param mat The material.
 	 * @param enable True to enable normalization, false to disable.
@@ -211,7 +213,9 @@ extern "C"
 	EXPORT void CALL SetMaterialNormalizeEnabled(Material *mat, bool_t enable);
 
 	/**
-	 * Checks if normal normalization is enabled on a material.
+	 * Checks if normalization is enabled on a material.
+	 * When enabled, normal vectors will be normalized after transformations,
+	 * which is important for correct lighting when scaling is applied.
 	 *
 	 * @param mat The material.
 	 * @return True if normalization enabled, false otherwise.

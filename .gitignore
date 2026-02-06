@@ -32,6 +32,7 @@
 *.app
 
 .DS_Store
+.venv
 .vscode
 _CMAKE
 _build/help/index.html

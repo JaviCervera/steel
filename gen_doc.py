@@ -4,6 +4,7 @@ import re
 from typing import List
 import xml.etree.ElementTree as ET
 
+import inflection
 import markdown
 from markdown.extensions import Extension
 
@@ -192,8 +193,8 @@ def parse_type(type):
         return "bool"
     if type == "char *":
         return "string"
-    if type == "Memblock *":
-        return "Memblock"
+    if type.endswith("*"):
+        return type[:-1].strip()
     return type
 
 
@@ -203,9 +204,11 @@ def parse_type(type):
 
 
 def md_file(module, file):
+    module = inflection.camelize(module.replace("__", "_"))
+    print(f"Parsing {module}...")
     if not file:
         return ""
-    str = f"## {module.capitalize()}\n\n"
+    str = f"## {module}\n\n"
     if file.description:
         str += file.description + "\n\n"
     if file.definitions:

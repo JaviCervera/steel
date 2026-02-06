@@ -1,8 +1,8 @@
 /**
  * @file
  * Entities are the fundamental objects in the 3D world. They can be positioned, rotated, scaled,
- * and parented to form hierarchies. Entities serve as containers for various components like models
- * and materials.
+ * and parented to form hierarchies. Entities can be of various types, such as models, cameras,
+ * lights, etc., and can have materials assigned to them.
  */
 #pragma once
 

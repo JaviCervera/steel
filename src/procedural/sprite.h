@@ -2,6 +2,8 @@
  * @file
  * Sprites for 2D graphics rendering within the 3D world.
  * Sprites are texture-based 2D objects that can be positioned, scaled, and rotated in 3D space.
+ * Sprites are entities, so any entity function can be used on them, such as setting their
+ * position, rotation, scale, etc.
  */
 #pragma once
 

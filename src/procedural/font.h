@@ -1,6 +1,6 @@
 /**
  * @file
- * Font loading and text metrics for 2D text rendering.
+ * Font loading and text metrics for 2D text rendering. TrueType fonts (.ttf) are supported.
  */
 #pragma once
 
@@ -11,7 +11,8 @@ struct Font;
 extern "C"
 {
 	/**
-	 * Loads a font from a file.
+	 * Loads a font from a file. TrueType fonts (.ttf) are supported.
+	 * The font will be rasterized at the specified height in pixels.
 	 *
 	 * @param filename The path to the font file.
 	 * @param height The desired font height in pixels.

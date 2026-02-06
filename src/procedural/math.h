@@ -41,25 +41,25 @@ extern "C"
 	EXPORT float CALL Sqr(float val);
 
 	/**
-	 * Calculates the sine of an angle in radians.
+	 * Calculates the sine of an angle in degrees.
 	 *
-	 * @param val The angle in radians.
+	 * @param val The angle in degrees.
 	 * @return The sine value.
 	 */
 	EXPORT float CALL Sin(float val);
 
 	/**
-	 * Calculates the cosine of an angle in radians.
+	 * Calculates the cosine of an angle in degrees.
 	 *
-	 * @param val The angle in radians.
+	 * @param val The angle in degrees.
 	 * @return The cosine value.
 	 */
 	EXPORT float CALL Cos(float val);
 
 	/**
-	 * Calculates the tangent of an angle in radians.
+	 * Calculates the tangent of an angle in degrees.
 	 *
-	 * @param val The angle in radians.
+	 * @param val The angle in degrees.
 	 * @return The tangent value.
 	 */
 	EXPORT float CALL Tan(float val);
@@ -68,7 +68,7 @@ extern "C"
 	 * Calculates the arc sine (inverse sine) of a value.
 	 *
 	 * @param val The value (-1 to 1).
-	 * @return The angle in radians.
+	 * @return The angle in degrees.
 	 */
 	EXPORT float CALL ASin(float val);
 
@@ -76,7 +76,7 @@ extern "C"
 	 * Calculates the arc cosine (inverse cosine) of a value.
 	 *
 	 * @param val The value (-1 to 1).
-	 * @return The angle in radians.
+	 * @return The angle in degrees.
 	 */
 	EXPORT float CALL ACos(float val);
 
@@ -84,7 +84,7 @@ extern "C"
 	 * Calculates the arc tangent (inverse tangent) of a value.
 	 *
 	 * @param val The value.
-	 * @return The angle in radians.
+	 * @return The angle in degrees.
 	 */
 	EXPORT float CALL ATan(float val);
 
@@ -93,7 +93,7 @@ extern "C"
 	 *
 	 * @param x The x value.
 	 * @param y The y value.
-	 * @return The angle in radians.
+	 * @return The angle in degrees.
 	 */
 	EXPORT float CALL ATan2(float x, float y);
 

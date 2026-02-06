@@ -17,6 +17,8 @@ python gen_doc.py
 
 ## TODO
 
+* Split documentation in multiple files.
+* Generate macOS bundle.
 * Emscripten build.
 * Fix Irrlicht 1.3.1 collisions.
 * Joystick support.

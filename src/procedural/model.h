@@ -2,6 +2,8 @@
  * @file
  * 3D models for use in the 3D world.
  * Models can be loaded from files or programmatically created (cube, sphere).
+ * Models are entities, so any entity function can be used on them, such as
+ * setting their position, rotation, scale, etc.
  */
 #pragma once
 

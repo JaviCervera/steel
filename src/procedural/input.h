@@ -1,7 +1,6 @@
 /**
  * @file
  * Mouse and keyboard input detection for player interaction.
- * Supports both continuous state checking and event-based input detection.
  */
 #pragma once
 

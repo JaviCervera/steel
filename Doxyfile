@@ -996,6 +996,7 @@ RECURSIVE              = NO
 # run.
 
 EXCLUDE                = src/procedural/common.h \
+                         src/procedural/data_file.h \
                          src/procedural/engine_internal.h \
                          src/procedural/engine.h
 

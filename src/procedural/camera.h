@@ -2,7 +2,9 @@
  * @file
  * A camera is a special type of Entity which is not visible in the world, but defines how the world
  * will be rendered. It can be positioned and rotated in the world using the Entity functions.
- * */
+ * Cameras are entities, so any entity function can be used on them, such as
+ * setting their position, rotation, scale, etc.
+ */
 #pragma once
 
 #include "common.h"

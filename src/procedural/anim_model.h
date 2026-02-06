@@ -1,7 +1,10 @@
 /**
  * @file
- * Animated models are skeletal animations that can be attached to entities.
- * They provide frame-based animation control with support for looping and custom frame ranges.
+ * Animated models are a likoe normal models, but can support skeletal animations.
+ * They are loaded from files and provide frame-based animation control with support
+ * for looping and custom frame ranges.
+ * Animated models are entities, so any entity function can be used on them, such as
+ * setting their position, rotation, scale, etc.
  */
 #pragma once
 
@@ -12,7 +15,8 @@ struct AnimModel;
 extern "C"
 {
 	/**
-	 * Loads an animated model from a file.
+	 * Loads an animated model from a file. Both models will share the same
+	 * underlying data to save memory, but will have independent animation states.
 	 *
 	 * @param path The file path to the animated model.
 	 * @return A new animated model, or NULL if loading fails.
