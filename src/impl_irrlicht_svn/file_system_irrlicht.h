@@ -17,6 +17,24 @@ struct FileSystemIrrlicht : public FileSystem
 		return false;
 	}
 
+	const char *dirContents(const char *dir) const
+	{
+		static irr::core::stringc contents;
+		contents = "";
+		const irr::io::path current_dir = fs().getWorkingDirectory();
+		fs().changeWorkingDirectoryTo(dir);
+		irr::io::IFileList *list = fs().createFileList();
+		for (irr::u32 i = 0; i < list->getFileCount(); ++i)
+		{
+			if (contents.size() > 0)
+				contents += "\n";
+			contents += list->getFileName(i);
+		}
+		list->drop();
+		fs().changeWorkingDirectoryTo(current_dir.c_str());
+		return contents.c_str();
+	}
+
 	void changeDir(const char *dir)
 	{
 		fs().changeWorkingDirectoryTo(dir);
