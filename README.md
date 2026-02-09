@@ -18,6 +18,7 @@ python gen_doc.py
 ## TODO
 
 * Split documentation in multiple files.
+* Manually generate Lua wrapper based on Swig's XML export.
 * Generate macOS bundle.
 * Emscripten build.
 * Fix Irrlicht 1.3.1 collisions.

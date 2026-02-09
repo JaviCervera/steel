@@ -35,6 +35,7 @@
 .venv
 .vscode
 _CMAKE
+_build/haxe
 _build/help/index.html
 _build/steel
 !_build/Irrlicht.dll
