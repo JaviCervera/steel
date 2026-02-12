@@ -47,6 +47,7 @@ lib/irrlicht131/doc/irrlicht.chw
 src/lua_wrapper.cpp
 vc6/Debug
 vc6/Release
+vc6/steel.aps
 vc6/steel.ncb
 vc6/steel.opt
 vc6/steel.plg

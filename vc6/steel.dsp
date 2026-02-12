@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O1 /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/soloud/include" /D "NDEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /c
+# ADD CPP /nologo /W3 /GX /O1 /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/openal/include" /D "NDEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0xc0a /d "NDEBUG"
 # ADD RSC /l 0xc0a /d "NDEBUG"
@@ -51,7 +51,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
-# ADD LINK32 Irrlicht.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /libpath:"../lib/irrlicht131/lib"
+# ADD LINK32 Irrlicht.lib OpenAL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /libpath:"../lib/irrlicht131/lib" /libpath:"../lib/openal/lib"
 
 !ELSEIF  "$(CFG)" == "steel - Win32 Debug"
 
@@ -67,7 +67,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/soloud/include" /D "_DEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "../lib/irrlicht131/include" /I "../lib/lua" /I "../lib/openal/include" /D "_DEBUG" /D "WIN32" /D "_CONSOLE" /D "_MBCS" /D "WITH_WINMM" /D "DISABLE_SIMD" /FD /GZ /c
 # SUBTRACT CPP /YX
 # ADD BASE RSC /l 0xc0a /d "_DEBUG"
 # ADD RSC /l 0xc0a /d "_DEBUG"
@@ -76,7 +76,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 Irrlicht.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept /libpath:"../lib/irrlicht131/lib"
+# ADD LINK32 Irrlicht.lib OpenAL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept /libpath:"../lib/irrlicht131/lib" /libpath:"../lib/openal/lib"
 
 !ENDIF 
 
@@ -100,11 +100,19 @@ SOURCE=..\src\procedural\camera.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\channel.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\collision.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=..\src\procedural\color.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\dir.cpp
 # End Source File
 # Begin Source File
 
@@ -132,6 +140,10 @@ SOURCE=..\src\procedural\light.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\listener.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\material.cpp
 # End Source File
 # Begin Source File
@@ -148,6 +160,10 @@ SOURCE=..\src\procedural\model.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\src\procedural\music.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\src\procedural\pixmap.cpp
 # End Source File
 # Begin Source File
@@ -157,6 +173,14 @@ SOURCE=..\src\procedural\scene.cpp
 # Begin Source File
 
 SOURCE=..\src\procedural\screen.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\sound.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=..\src\procedural\sprite.cpp
 # End Source File
 # Begin Source File
 
@@ -283,106 +307,6 @@ SOURCE=..\lib\lua\lvm.c
 SOURCE=..\lib\lua\lzio.c
 # End Source File
 # End Group
-# Begin Group "soloud"
-
-# PROP Default_Filter ""
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\audiosource\wav\dr_impl.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_audiosource.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_bus.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_3d.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_basicops.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_faderops.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_filterops.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_getters.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_setters.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_voicegroup.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_core_voiceops.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_fader.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_fft.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_fft_lut.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_file.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_filter.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_misc.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_queue.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\core\soloud_thread.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\audiosource\wav\soloud_wav.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\audiosource\wav\soloud_wavstream.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\backend\winmm\soloud_winmm.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\lib\soloud\src\audiosource\wav\stb_vorbis.c
-# End Source File
-# End Group
 # Begin Source File
 
 SOURCE=..\src\error.cpp
@@ -403,6 +327,14 @@ SOURCE=..\src\main.cpp
 # Begin Group "Resource Files"
 
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
+# Begin Source File
+
+SOURCE=..\logo\icon.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\steel.rc
+# End Source File
 # End Group
 # End Target
 # End Project

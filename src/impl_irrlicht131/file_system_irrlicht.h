@@ -21,7 +21,7 @@ struct FileSystemIrrlicht : public FileSystem
 	{
 		static irr::core::stringc contents;
 		contents = "";
-		const irr::io::path current_dir = fs().getWorkingDirectory();
+		const irr::core::stringc current_dir = fs().getWorkingDirectory();
 		fs().changeWorkingDirectoryTo(dir);
 		irr::io::IFileList *list = fs().createFileList();
 		for (irr::u32 i = 0; i < list->getFileCount(); ++i)
