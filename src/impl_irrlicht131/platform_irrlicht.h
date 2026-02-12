@@ -6,6 +6,19 @@
 
 struct IrrlichtEventReceiver : public irr::IEventReceiver
 {
+	IrrlichtEventReceiver()
+			: m_key_down(),
+				m_key_hit(),
+				m_key_was_hit(),
+				m_mouse_button_down(),
+				m_mouse_button_hit(),
+				m_mouse_button_was_hit(),
+				m_mouse_wheel(),
+				m_mouse_speed(),
+				m_mouse_last_pos()
+	{
+	}
+
 	bool OnEvent(irr::SEvent event)
 	{
 		switch (event.EventType)
