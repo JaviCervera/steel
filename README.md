@@ -17,6 +17,8 @@ python gen_doc.py
 
 ## TODO
 
+* Add SetModelColor, GetModelColor. Remove SetMaterialDiffuse, SetMaterialAmbient, GetMaterialDiffuse, GetMaterialAmbient.
+* Make Irrlicht SVN diffuse and ambient behave the same as VC6 version.
 * Split documentation in multiple files.
 * Manually generate Lua wrapper based on Swig's XML export.
 * Generate macOS bundle.
