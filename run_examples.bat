@@ -1,61 +1,61 @@
 @echo off
 
 echo Running anim_model example...
-steel _build\examples\anim_model
+_build\steel _build\examples\anim_model
 
 echo Running box example...
-steel _build\examples\box
+_build\steel _build\examples\box
 
 echo Running fog example...
-steel _build\examples\fog
+_build\steel _build\examples\fog
 
 echo Running lighting example...
-steel _build\examples\lighting
+_build\steel _build\examples\lighting
 
 echo Running listener example...
-steel _build\examples\listener
+_build\steel _build\examples\listener
 
 echo Running model_loading example...
-steel _build\examples\model_loading
+_build\steel _build\examples\model_loading
 
 echo Running pixmap example...
-steel _build\examples\pixmap
+_build\steel _build\examples\pixmap
 
 echo Running primitives example...
-steel _build\examples\primitives
+_build\steel _build\examples\primitives
 
 echo Running render_to_texture example...
-steel _build\examples\render_to_texture
+_build\steel _build\examples\render_to_texture
 
 echo Running scene_coords example...
-steel _build\examples\scene_coords
+_build\steel _build\examples\scene_coords
 
 echo Running screen_coords example...
-steel _build\examples\screen_coords
+_build\steel _build\examples\screen_coords
 
 echo Running specular example...
-steel _build\examples\specular
+_build\steel _build\examples\specular
 
 echo Running split_screen example...
-steel _build\examples\split_screen
+_build\steel _build\examples\split_screen
 
 echo Running sprites example...
-steel _build\examples\sprites
+_build\steel _build\examples\sprites
 
 echo Running texture example...
-steel _build\examples\texture
+_build\steel _build\examples\texture
 
 echo Running texture_from_pixmap example...
-steel _build\examples\texture_from_pixmap
+_build\steel _build\examples\texture_from_pixmap
 
 echo Running triangle example...
-steel _build\examples\triangle
+_build\steel _build\examples\triangle
 
 echo Running vertex_lighting example...
-steel _build\examples\vertex_lighting
+_build\steel _build\examples\vertex_lighting
 
 echo Running viewport example...
-steel _build\examples\viewport
+_build\steel _build\examples\viewport
 
 echo All examples completed!
 pause
