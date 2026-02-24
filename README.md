@@ -2,8 +2,7 @@
 
 A retro 3D game engine using C++, Lua, Irrlicht and OpenAL.
 
-A Windows 95 version is available using an old version of Irrlicht
-(and with some extra bugs).
+The engine runs on Windows (any version from 98 up), Linux and macOS.
 
 ![steel](logo/logo_small.png)
 
@@ -17,13 +16,13 @@ python gen_doc.py
 
 ## TODO
 
-* Add SetModelColor, GetModelColor. Remove SetMaterialDiffuse, SetMaterialAmbient, GetMaterialDiffuse, GetMaterialAmbient.
-* Make Irrlicht SVN diffuse and ambient behave the same as VC6 version.
+* Use SoLoud instead of OpenAL.
+* Add SetMaterialTrackVertexColorsEnabled and IsMaterialTrackVertexColorsEnabled.
+* Add GUI functions.
 * Split documentation in multiple files.
 * Manually generate Lua wrapper based on Swig's XML export.
 * Generate macOS bundle.
 * Emscripten build.
-* Fix Irrlicht 1.3.1 collisions.
 * Joystick support.
 * Shadows.
 * Terrain.
