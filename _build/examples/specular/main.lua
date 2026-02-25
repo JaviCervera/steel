@@ -27,9 +27,10 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 
 	SetCameraAspectRatio(cam, GetScreenWidth() / GetScreenHeight())
 
-	Cls(RGB(0, 0, 0))
+	BeginDrawing(true, true, RGB(0, 0, 0))
 	DrawScene(cam)
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 	DrawText(font, "Shininess: " .. tostring(GetMaterialShininess(mat)), 2, 24)
+	EndDrawing()
 	RefreshScreen()
 end

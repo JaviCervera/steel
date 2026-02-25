@@ -92,9 +92,10 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetChannel3DPosition(channel, GetEntityX(sphere), GetEntityY(sphere), GetEntityZ(sphere))
 	SetListener(GetEntityX(cam), GetEntityY(cam), GetEntityZ(cam), GetEntityYaw(player))
 
-	Cls(RGB(0, 0, 64))
+	BeginDrawing(true, true, RGB(0, 0, 64))
 	DrawScene(cam)
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	EndDrawing()
 	RefreshScreen()
 
 	-- Update mouse speed

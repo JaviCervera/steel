@@ -53,11 +53,12 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	if (IsKeyDown(KEY_D)) then movX = MOVE_SPEED * GetDelta() end
 	SlideEntity(player, movX, GRAVITY * GetDelta(), movZ, 2, 16, 2, WORLD_MASK)
 
-	Cls(RGB(55, 155, 255))
+	BeginDrawing(true, true, RGB(55, 155, 255))
 	DrawScene(cam)
 	SetColor(RGB(255, 255, 255))
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 	DrawBanner()
+	EndDrawing()
 	RefreshScreen()
 
 	-- Update mouse speed

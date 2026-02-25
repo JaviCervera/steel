@@ -12,6 +12,16 @@ struct GraphicsManagerIrrlicht : public GraphicsManager
 	{
 	}
 
+	void beginDrawing(bool clear_back, bool clear_depth, int clear_color)
+	{
+		video().beginScene(clear_back, clear_depth, irr::video::SColor(clear_color));
+	}
+
+	void endDrawing()
+	{
+		video().endScene();
+	}
+
 	void cls(int color)
 	{
 		video().setRenderTarget(NULL, true, false, irr::video::SColor(color));

@@ -7,7 +7,7 @@ local tex = LoadTexture("logo_small.png")
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- Clear the screen to black
-	Cls(RGB(0, 0, 0))
+	BeginDrawing(true, false, RGB(0, 0, 0))
 
 	-- Draw background
 	SetColor(RGB(32, 32, 32))
@@ -24,5 +24,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 
 	-- Present changes on screen
+	EndDrawing()
 	RefreshScreen()
 end

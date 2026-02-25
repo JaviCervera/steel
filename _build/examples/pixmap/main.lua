@@ -25,13 +25,16 @@ FreePixmap(pixmap)
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- Clear the screen to black
-	Cls(RGB(0, 0, 0))
+	BeginDrawing(true, false, RGB(0, 0, 0))
 
 	-- Draw texture covering full screen
 	DrawTextureEx(tex, 0, 0, GetScreenWidth(), GetScreenHeight())
 
 	-- Draw fps
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+
+	-- Finish drawing
+	EndDrawing()
 
 	-- Present changes on screen
 	RefreshScreen()

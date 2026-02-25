@@ -7,6 +7,8 @@ struct Texture;
 struct GraphicsManager
 {
 	virtual ~GraphicsManager() {};
+	virtual void beginDrawing(bool clear_back, bool clear_depth, int clear_color = COLOR_BLACK) = 0;
+	virtual void endDrawing() = 0;
 	virtual void cls(int color = COLOR_BLACK) = 0;
 	virtual void color(int color) = 0;
 	virtual void viewport(int x, int y, int width, int height) = 0;

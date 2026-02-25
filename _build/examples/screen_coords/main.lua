@@ -28,7 +28,7 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- to make sure we get screen coordinates
 	GetScreenCoords(cam, GetEntityX(cube), GetEntityY(cube), GetEntityZ(cube))
 
-	Cls(RGB(32, 32, 32))
+	BeginDrawing(true, true, RGB(32, 32, 32))
 	SetViewport(32, 128, GetScreenWidth() - 64, GetScreenHeight() - 256)
 	SetColor(RGB(55, 155, 255))
 	DrawRect(0, 0, GetScreenWidth(), GetScreenHeight())
@@ -41,5 +41,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetColor(RGB(64, 64, 64))
 	local text = "This is a cube"
 	DrawText(font, text, GetCoordX() - GetTextWidth(font, text) / 2, GetCoordY() - GetTextHeight(font, text) / 2)
+	EndDrawing()
 	RefreshScreen()
 end

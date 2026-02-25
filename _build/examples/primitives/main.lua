@@ -46,7 +46,7 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	end
 
 	-- Clear the screen to black
-	Cls(RGB(0, 0, 0))
+	BeginDrawing(true, false, RGB(0, 0, 0))
 
 	-- Draw all primitives
 	for _, primitive in ipairs(primitives) do
@@ -59,5 +59,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	DrawText(font, tostring(#primitives) .. " primitives", 2, 22)
 
 	-- Present changes on screen
+	EndDrawing()
 	RefreshScreen()
 end

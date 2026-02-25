@@ -5,6 +5,16 @@
 
 extern "C"
 {
+	EXPORT void CALL BeginDrawing(bool_t clear_back, bool_t clear_depth, int clear_color)
+	{
+		GetEngine().graphicsManager().beginDrawing(clear_back, clear_depth, clear_color);
+	}
+
+	EXPORT void CALL EndDrawing()
+	{
+		GetEngine().graphicsManager().endDrawing();
+	}
+
 	EXPORT void CALL Cls(int color)
 	{
 		GetEngine().graphicsManager().cls(color);

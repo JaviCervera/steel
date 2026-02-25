@@ -6,7 +6,7 @@ if not font then font = LoadFont("/usr/share/fonts/truetype/dejavu/DejaVuSans.tt
 
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	-- Clear the screen to blue
-	Cls(RGB(0, 0, 255))
+	BeginDrawing(true, false, RGB(0, 0, 255))
 
 	-- Set viewport to a square in the center of the screen
 	-- Must be done after Cls, as it resets the viewport
@@ -27,5 +27,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 
 	-- Present changes on screen
+	EndDrawing()
 	RefreshScreen()
 end

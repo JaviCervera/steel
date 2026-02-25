@@ -57,8 +57,9 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 		MoveEntity(light, 0, 0, -48)
 	end
 
-	Cls(RGB(0, 0, 0))
+	BeginDrawing(true, true, RGB(0, 0, 0))
 	DrawScene(cam)
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	EndDrawing()
 	RefreshScreen()
 end

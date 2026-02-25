@@ -28,7 +28,7 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 
 	TurnEntity(cube, 0, 64 * GetDelta(), 0)
 
-	Cls(RGB(32, 32, 32))
+	BeginDrawing(true, true, RGB(32, 32, 32))
 	SetViewport(32, 128, GetScreenWidth() - 64, GetScreenHeight() - 256)
 	SetColor(RGB(55, 155, 255))
 	DrawRect(0, 0, GetScreenWidth(), GetScreenHeight())
@@ -39,5 +39,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 	DrawText(font, "Mouse coords: " .. tostring(GetMouseX()) .. ", " .. tostring(GetMouseY()), 2, 24)
 	DrawText(font, "Scene coords: " .. tostring(Int(GetCoordX())) .. ", " .. tostring(Int(GetCoordY())) .. ", " .. tostring(Int(GetCoordZ())), 2, 46)
+	EndDrawing()
 	RefreshScreen()
 end

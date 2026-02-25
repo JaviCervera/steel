@@ -49,9 +49,10 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	for _, cube in ipairs(cubes) do
 			TurnEntity(cube, 0, 32 * GetDelta(), 0)
 	end
-	Cls(RGB(30, 30, 30))
+	BeginDrawing(true, true, RGB(30, 30, 30))
 	DrawScene(cam)
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
 	DrawText(font, "Press SPACE to toggle fog", 2, 24)
+	EndDrawing()
 	RefreshScreen()
 end

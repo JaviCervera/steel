@@ -14,8 +14,9 @@ local dwarf = LoadAnimModel("dwarf.x")
 while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetCameraAspectRatio(cam, GetScreenWidth() / GetScreenHeight())
 
-	Cls(RGB(0, 0, 64))
+	BeginDrawing(true, true, RGB(0, 0, 64))
 	DrawScene(cam)
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	EndDrawing()
 	RefreshScreen()
 end

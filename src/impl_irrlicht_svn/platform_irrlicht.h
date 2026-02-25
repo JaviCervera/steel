@@ -127,7 +127,6 @@ struct PlatformIrrlicht
 				&m_event_receiver);
 		if (m_device)
 		{
-			m_device->getVideoDriver()->beginScene(false, true, irr::video::SColor());
 			m_running = true;
 			m_last_msecs = m_device->getTimer()->getRealTime();
 			m_delta = 0;
@@ -138,7 +137,6 @@ struct PlatformIrrlicht
 	{
 		if (m_device)
 		{
-			m_device->getVideoDriver()->endScene();
 			m_device->closeDevice();
 			m_device->run();
 			m_device->drop();
@@ -169,7 +167,6 @@ struct PlatformIrrlicht
 	{
 		if (m_device)
 		{
-			m_device->getVideoDriver()->endScene();
 			m_event_receiver.clearInputs();
 			m_running = m_device->run() && m_device->getVideoDriver() != NULL;
 			if (!m_running)
@@ -180,7 +177,6 @@ struct PlatformIrrlicht
 			const int msecs = m_device->getTimer()->getRealTime();
 			m_delta = (msecs - m_last_msecs) / 1000.0f;
 			m_last_msecs = msecs;
-			m_device->getVideoDriver()->beginScene(false, true);
 		}
 	}
 

@@ -13,6 +13,20 @@ struct Texture;
 extern "C"
 {
 	/**
+	 * Begins a drawing session. Must be paired with EndDrawing(), and all drawing calls should be made between these two functions.
+	 *
+	 * @param clear_back Whether to clear the back buffer.
+	 * @param clear_depth Whether to clear the depth buffer.
+	 * @param clear_color The color to clear the back buffer with. Only used if clear_back is true.
+	 */
+	EXPORT void CALL BeginDrawing(bool_t clear_back, bool_t clear_depth, int clear_color);
+
+	/**
+	 * Ends a drawing session. Must be paired with BeginDrawing().
+	 */
+	EXPORT void CALL EndDrawing();
+
+	/**
 	 * Clears the screen with a solid color.
 	 *
 	 * @param color The color to fill the screen with.

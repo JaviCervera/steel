@@ -17,10 +17,11 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetCameraAspectRatio(cam, GetScreenWidth() / GetScreenHeight())
 	TurnEntity(cube, 0, 64 * GetDelta(), 0)
 
-	Cls(RGB(255, 255, 255))
+	BeginDrawing(true, true, RGB(255, 255, 255))
 	DrawScene(cam)
 	SetColor(RGB(0, 0, 0))
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	EndDrawing()
 	RefreshScreen()
 
 	-- Capture screen pixmap and apply to texture

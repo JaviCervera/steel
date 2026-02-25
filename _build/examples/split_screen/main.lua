@@ -22,7 +22,7 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetCameraAspectRatio(cam2, GetScreenWidth() / GetScreenHeight())
 	TurnEntity(cube, 32 * GetDelta(), 64 * GetDelta(), 0)
 
-	Cls(RGB(0, 0, 128))
+	BeginDrawing(true, true, RGB(0, 0, 128))
 
 	SetViewport(GetScreenWidth() / 2, 0, GetScreenWidth() / 2, GetScreenHeight() / 2)
 	SetColor(RGB(128, 0, 0))
@@ -37,5 +37,6 @@ while IsScreenOpened() and not IsKeyHit(KEY_ESC) do
 	SetViewport(0, 0, GetScreenWidth(), GetScreenHeight())
 	SetColor(RGB(255, 255, 255))
 	DrawText(font, tostring(GetScreenFPS()) .. " FPS", 2, 2)
+	EndDrawing()
 	RefreshScreen()
 end
